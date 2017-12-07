@@ -1,15 +1,15 @@
 //
-//  WhirlyDirlyBirdsTests.swift
-//  WhirlyDirlyBirdsTests
+//  WhirlyDirlyWordsTests.swift
+//  WhirlyDirlyWordsTests
 //
-//  Created by Justin Veach on 11/28/17.
+//  Created by Justin Veach on 12/6/17.
 //  Copyright © 2017 justinveach. All rights reserved.
 //
 
 import XCTest
-@testable import WhirlyDirlyBirds
+@testable import WhirlyDirlyWords
 
-class WhirlyDirlyBirdsTests: XCTestCase {
+class WhirlyDirlyWordsTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

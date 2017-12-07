@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  WhirlyDirlyBirds
+//  WhirlyDirlyWords
 //
-//  Created by Justin Veach on 11/28/17.
+//  Created by Justin Veach on 12/6/17.
 //  Copyright © 2017 justinveach. All rights reserved.
 //
 
