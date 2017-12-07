@@ -17,6 +17,16 @@
 		E9DF83F11FD8D83700C64AFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DF83EF1FD8D83700C64AFB /* LaunchScreen.storyboard */; };
 		E9DF83FC1FD8D83700C64AFB /* WhirlyDirlyWordsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF83FB1FD8D83700C64AFB /* WhirlyDirlyWordsTests.swift */; };
 		E9DF84071FD8D83700C64AFB /* WhirlyDirlyWordsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF84061FD8D83700C64AFB /* WhirlyDirlyWordsUITests.swift */; };
+		E9DF84161FD8DA2A00C64AFB /* words-long.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9DF84151FD8DA2A00C64AFB /* words-long.txt */; };
+		E9DF84181FD8DA4500C64AFB /* word-medium.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9DF84171FD8DA4500C64AFB /* word-medium.txt */; };
+		E9DF841A1FD8DA5000C64AFB /* words-short.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9DF84191FD8DA5000C64AFB /* words-short.txt */; };
+		E9DF841C1FD8DAB300C64AFB /* words-all.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9DF841B1FD8DAB300C64AFB /* words-all.txt */; };
+		E9DF841F1FD8DAD800C64AFB /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF841E1FD8DAD800C64AFB /* Parser.swift */; };
+		E9DF84211FD8DC8F00C64AFB /* ParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF84201FD8DC8F00C64AFB /* ParserTest.swift */; };
+		E9DF84231FD8DE6500C64AFB /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF84221FD8DE6500C64AFB /* Words.swift */; };
+		E9DF84261FD8DEDB00C64AFB /* Length.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF84251FD8DEDB00C64AFB /* Length.swift */; };
+		E9DF84291FD8E1BE00C64AFB /* String+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF84281FD8E1BE00C64AFB /* String+Extras.swift */; };
+		E9DF842B1FD8E89800C64AFB /* words-extended.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9DF842A1FD8E89800C64AFB /* words-extended.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +69,16 @@
 		E9DF84021FD8D83700C64AFB /* WhirlyDirlyWordsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhirlyDirlyWordsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DF84061FD8D83700C64AFB /* WhirlyDirlyWordsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhirlyDirlyWordsUITests.swift; sourceTree = "<group>"; };
 		E9DF84081FD8D83700C64AFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9DF84151FD8DA2A00C64AFB /* words-long.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "words-long.txt"; sourceTree = "<group>"; };
+		E9DF84171FD8DA4500C64AFB /* word-medium.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "word-medium.txt"; sourceTree = "<group>"; };
+		E9DF84191FD8DA5000C64AFB /* words-short.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "words-short.txt"; sourceTree = "<group>"; };
+		E9DF841B1FD8DAB300C64AFB /* words-all.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "words-all.txt"; sourceTree = "<group>"; };
+		E9DF841E1FD8DAD800C64AFB /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		E9DF84201FD8DC8F00C64AFB /* ParserTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserTest.swift; sourceTree = "<group>"; };
+		E9DF84221FD8DE6500C64AFB /* Words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
+		E9DF84251FD8DEDB00C64AFB /* Length.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Length.swift; sourceTree = "<group>"; };
+		E9DF84281FD8E1BE00C64AFB /* String+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extras.swift"; sourceTree = "<group>"; };
+		E9DF842A1FD8E89800C64AFB /* words-extended.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "words-extended.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,8 +157,13 @@
 		E9DF83E51FD8D83700C64AFB /* WhirlyDirlyWords */ = {
 			isa = PBXGroup;
 			children = (
+				E9DF842D1FD8F34B00C64AFB /* Model */,
+				E9DF842C1FD8F34200C64AFB /* Controller */,
+				E9DF84271FD8E1AD00C64AFB /* Extension */,
+				E9DF84241FD8DEC800C64AFB /* Enum */,
+				E9DF841D1FD8DACF00C64AFB /* Util */,
+				E9DF84141FD8D9DC00C64AFB /* WordAssets */,
 				E9DF83E61FD8D83700C64AFB /* AppDelegate.swift */,
-				E9DF83E81FD8D83700C64AFB /* ViewController.swift */,
 				E9DF83EA1FD8D83700C64AFB /* Main.storyboard */,
 				E9DF83ED1FD8D83700C64AFB /* Assets.xcassets */,
 				E9DF83EF1FD8D83700C64AFB /* LaunchScreen.storyboard */,
@@ -152,6 +177,7 @@
 			children = (
 				E9DF83FB1FD8D83700C64AFB /* WhirlyDirlyWordsTests.swift */,
 				E9DF83FD1FD8D83700C64AFB /* Info.plist */,
+				E9DF84201FD8DC8F00C64AFB /* ParserTest.swift */,
 			);
 			path = WhirlyDirlyWordsTests;
 			sourceTree = "<group>";
@@ -163,6 +189,58 @@
 				E9DF84081FD8D83700C64AFB /* Info.plist */,
 			);
 			path = WhirlyDirlyWordsUITests;
+			sourceTree = "<group>";
+		};
+		E9DF84141FD8D9DC00C64AFB /* WordAssets */ = {
+			isa = PBXGroup;
+			children = (
+				E9DF84151FD8DA2A00C64AFB /* words-long.txt */,
+				E9DF84171FD8DA4500C64AFB /* word-medium.txt */,
+				E9DF84191FD8DA5000C64AFB /* words-short.txt */,
+				E9DF841B1FD8DAB300C64AFB /* words-all.txt */,
+				E9DF842A1FD8E89800C64AFB /* words-extended.txt */,
+			);
+			path = WordAssets;
+			sourceTree = "<group>";
+		};
+		E9DF841D1FD8DACF00C64AFB /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				E9DF841E1FD8DAD800C64AFB /* Parser.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		E9DF84241FD8DEC800C64AFB /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				E9DF84251FD8DEDB00C64AFB /* Length.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		E9DF84271FD8E1AD00C64AFB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E9DF84281FD8E1BE00C64AFB /* String+Extras.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		E9DF842C1FD8F34200C64AFB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E9DF83E81FD8D83700C64AFB /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E9DF842D1FD8F34B00C64AFB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E9DF84221FD8DE6500C64AFB /* Words.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +359,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9DF84181FD8DA4500C64AFB /* word-medium.txt in Resources */,
+				E9DF841C1FD8DAB300C64AFB /* words-all.txt in Resources */,
+				E9DF841A1FD8DA5000C64AFB /* words-short.txt in Resources */,
+				E9DF842B1FD8E89800C64AFB /* words-extended.txt in Resources */,
+				E9DF84161FD8DA2A00C64AFB /* words-long.txt in Resources */,
 				E9DF83F11FD8D83700C64AFB /* LaunchScreen.storyboard in Resources */,
 				E9DF83EE1FD8D83700C64AFB /* Assets.xcassets in Resources */,
 				E9DF83EC1FD8D83700C64AFB /* Main.storyboard in Resources */,
@@ -459,7 +542,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9DF83E91FD8D83700C64AFB /* ViewController.swift in Sources */,
+				E9DF84291FD8E1BE00C64AFB /* String+Extras.swift in Sources */,
+				E9DF84231FD8DE6500C64AFB /* Words.swift in Sources */,
+				E9DF84261FD8DEDB00C64AFB /* Length.swift in Sources */,
 				E9DF83E71FD8D83700C64AFB /* AppDelegate.swift in Sources */,
+				E9DF841F1FD8DAD800C64AFB /* Parser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +554,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9DF84211FD8DC8F00C64AFB /* ParserTest.swift in Sources */,
 				E9DF83FC1FD8D83700C64AFB /* WhirlyDirlyWordsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
