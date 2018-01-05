@@ -16,6 +16,8 @@ class Words {
     
     init(allWords: Array<String>) {
         self.allWords = allWords
+        self.allWords.sort(by: { (value1: String, value2: String) -> Bool in
+            return value1 < value2 })
         sortWords()
     }
     
@@ -25,6 +27,11 @@ class Words {
         }
         
         return Array()
+    }
+    
+    public func validate(word: Word) -> Bool {
+        let index = binarySearch(allWords, key: word.value)
+        return index == nil ? false : true
     }
     
     fileprivate func sortWords() {

@@ -10,6 +10,17 @@
 		452908D2339F7BBF09C9A4DD /* Pods_WhirlyDirlyWords.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCAD6F89C9120547654C79D /* Pods_WhirlyDirlyWords.framework */; };
 		6E9C8C6EBC24B28CF0CA4519 /* Pods_WhirlyDirlyWordsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B51D2384B8BE754F4E501A93 /* Pods_WhirlyDirlyWordsUITests.framework */; };
 		B294B2096F0BD0A495158BEB /* Pods_WhirlyDirlyWordsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C4EFCB616D8E7245524656 /* Pods_WhirlyDirlyWordsTests.framework */; };
+		E94A084E1FED78C300AD3C4A /* words-extended.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94A084D1FED78C300AD3C4A /* words-extended.txt */; };
+		E94A08501FED79A900AD3C4A /* WordFileGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A084F1FED79A900AD3C4A /* WordFileGenerator.swift */; };
+		E94A08531FED80A800AD3C4A /* WordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E94A08521FED80A800AD3C4A /* WordView.xib */; };
+		E94A08551FED80B500AD3C4A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A08541FED80B500AD3C4A /* GameViewController.swift */; };
+		E94A08571FED811400AD3C4A /* LetterLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A08561FED811400AD3C4A /* LetterLabel.swift */; };
+		E94A08591FED818400AD3C4A /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A08581FED818400AD3C4A /* Word.swift */; };
+		E94A085B1FED81B900AD3C4A /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A085A1FED81B900AD3C4A /* Stack.swift */; };
+		E94A085D1FED849900AD3C4A /* BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A085C1FED849900AD3C4A /* BinarySearch.swift */; };
+		E94A085F1FED868C00AD3C4A /* SearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A085E1FED868C00AD3C4A /* SearchTest.swift */; };
+		E94A08621FED9A8E00AD3C4A /* WordDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A08611FED9A8E00AD3C4A /* WordDelegate.swift */; };
+		E94A08651FED9AD500AD3C4A /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A08641FED9AD500AD3C4A /* WordView.swift */; };
 		E9DF83E71FD8D83700C64AFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF83E61FD8D83700C64AFB /* AppDelegate.swift */; };
 		E9DF83E91FD8D83700C64AFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF83E81FD8D83700C64AFB /* ViewController.swift */; };
 		E9DF83EC1FD8D83700C64AFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DF83EA1FD8D83700C64AFB /* Main.storyboard */; };
@@ -26,7 +37,7 @@
 		E9DF84231FD8DE6500C64AFB /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF84221FD8DE6500C64AFB /* Words.swift */; };
 		E9DF84261FD8DEDB00C64AFB /* Length.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF84251FD8DEDB00C64AFB /* Length.swift */; };
 		E9DF84291FD8E1BE00C64AFB /* String+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF84281FD8E1BE00C64AFB /* String+Extras.swift */; };
-		E9DF842B1FD8E89800C64AFB /* words-extended.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9DF842A1FD8E89800C64AFB /* words-extended.txt */; };
+		E9DF842B1FD8E89800C64AFB /* words-extended-raw.txt in Resources */ = {isa = PBXBuildFile; fileRef = E9DF842A1FD8E89800C64AFB /* words-extended-raw.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +67,17 @@
 		6D946113E26916996D935A97 /* Pods-WhirlyDirlyWords.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhirlyDirlyWords.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhirlyDirlyWords/Pods-WhirlyDirlyWords.debug.xcconfig"; sourceTree = "<group>"; };
 		B51D2384B8BE754F4E501A93 /* Pods_WhirlyDirlyWordsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhirlyDirlyWordsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB3A7A126549389058186FC3 /* Pods-WhirlyDirlyWordsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhirlyDirlyWordsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhirlyDirlyWordsUITests/Pods-WhirlyDirlyWordsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E94A084D1FED78C300AD3C4A /* words-extended.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "words-extended.txt"; sourceTree = "<group>"; };
+		E94A084F1FED79A900AD3C4A /* WordFileGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordFileGenerator.swift; sourceTree = "<group>"; };
+		E94A08521FED80A800AD3C4A /* WordView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordView.xib; sourceTree = "<group>"; };
+		E94A08541FED80B500AD3C4A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		E94A08561FED811400AD3C4A /* LetterLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterLabel.swift; sourceTree = "<group>"; };
+		E94A08581FED818400AD3C4A /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		E94A085A1FED81B900AD3C4A /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		E94A085C1FED849900AD3C4A /* BinarySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearch.swift; sourceTree = "<group>"; };
+		E94A085E1FED868C00AD3C4A /* SearchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTest.swift; sourceTree = "<group>"; };
+		E94A08611FED9A8E00AD3C4A /* WordDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDelegate.swift; sourceTree = "<group>"; };
+		E94A08641FED9AD500AD3C4A /* WordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
 		E9DF83E31FD8D83700C64AFB /* WhirlyDirlyWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhirlyDirlyWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DF83E61FD8D83700C64AFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9DF83E81FD8D83700C64AFB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,7 +100,7 @@
 		E9DF84221FD8DE6500C64AFB /* Words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
 		E9DF84251FD8DEDB00C64AFB /* Length.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Length.swift; sourceTree = "<group>"; };
 		E9DF84281FD8E1BE00C64AFB /* String+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extras.swift"; sourceTree = "<group>"; };
-		E9DF842A1FD8E89800C64AFB /* words-extended.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "words-extended.txt"; sourceTree = "<group>"; };
+		E9DF842A1FD8E89800C64AFB /* words-extended-raw.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "words-extended-raw.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +154,32 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E94A08511FED809900AD3C4A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E94A08631FED9ACB00AD3C4A /* WordView */,
+				E94A08561FED811400AD3C4A /* LetterLabel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E94A08601FED9A8000AD3C4A /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				E94A08611FED9A8E00AD3C4A /* WordDelegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		E94A08631FED9ACB00AD3C4A /* WordView */ = {
+			isa = PBXGroup;
+			children = (
+				E94A08641FED9AD500AD3C4A /* WordView.swift */,
+				E94A08521FED80A800AD3C4A /* WordView.xib */,
+			);
+			path = WordView;
+			sourceTree = "<group>";
+		};
 		E9DF83DA1FD8D83600C64AFB = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +205,8 @@
 		E9DF83E51FD8D83700C64AFB /* WhirlyDirlyWords */ = {
 			isa = PBXGroup;
 			children = (
+				E94A08601FED9A8000AD3C4A /* Protocol */,
+				E94A08511FED809900AD3C4A /* View */,
 				E9DF842D1FD8F34B00C64AFB /* Model */,
 				E9DF842C1FD8F34200C64AFB /* Controller */,
 				E9DF84271FD8E1AD00C64AFB /* Extension */,
@@ -178,6 +228,7 @@
 				E9DF83FB1FD8D83700C64AFB /* WhirlyDirlyWordsTests.swift */,
 				E9DF83FD1FD8D83700C64AFB /* Info.plist */,
 				E9DF84201FD8DC8F00C64AFB /* ParserTest.swift */,
+				E94A085E1FED868C00AD3C4A /* SearchTest.swift */,
 			);
 			path = WhirlyDirlyWordsTests;
 			sourceTree = "<group>";
@@ -194,11 +245,12 @@
 		E9DF84141FD8D9DC00C64AFB /* WordAssets */ = {
 			isa = PBXGroup;
 			children = (
+				E94A084D1FED78C300AD3C4A /* words-extended.txt */,
 				E9DF84151FD8DA2A00C64AFB /* words-long.txt */,
 				E9DF84171FD8DA4500C64AFB /* word-medium.txt */,
 				E9DF84191FD8DA5000C64AFB /* words-short.txt */,
 				E9DF841B1FD8DAB300C64AFB /* words-all.txt */,
-				E9DF842A1FD8E89800C64AFB /* words-extended.txt */,
+				E9DF842A1FD8E89800C64AFB /* words-extended-raw.txt */,
 			);
 			path = WordAssets;
 			sourceTree = "<group>";
@@ -207,6 +259,8 @@
 			isa = PBXGroup;
 			children = (
 				E9DF841E1FD8DAD800C64AFB /* Parser.swift */,
+				E94A084F1FED79A900AD3C4A /* WordFileGenerator.swift */,
+				E94A085C1FED849900AD3C4A /* BinarySearch.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -231,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				E9DF83E81FD8D83700C64AFB /* ViewController.swift */,
+				E94A08541FED80B500AD3C4A /* GameViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -239,6 +294,8 @@
 			isa = PBXGroup;
 			children = (
 				E9DF84221FD8DE6500C64AFB /* Words.swift */,
+				E94A08581FED818400AD3C4A /* Word.swift */,
+				E94A085A1FED81B900AD3C4A /* Stack.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -362,10 +419,12 @@
 				E9DF84181FD8DA4500C64AFB /* word-medium.txt in Resources */,
 				E9DF841C1FD8DAB300C64AFB /* words-all.txt in Resources */,
 				E9DF841A1FD8DA5000C64AFB /* words-short.txt in Resources */,
-				E9DF842B1FD8E89800C64AFB /* words-extended.txt in Resources */,
+				E9DF842B1FD8E89800C64AFB /* words-extended-raw.txt in Resources */,
+				E94A08531FED80A800AD3C4A /* WordView.xib in Resources */,
 				E9DF84161FD8DA2A00C64AFB /* words-long.txt in Resources */,
 				E9DF83F11FD8D83700C64AFB /* LaunchScreen.storyboard in Resources */,
 				E9DF83EE1FD8D83700C64AFB /* Assets.xcassets in Resources */,
+				E94A084E1FED78C300AD3C4A /* words-extended.txt in Resources */,
 				E9DF83EC1FD8D83700C64AFB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -543,9 +602,17 @@
 			files = (
 				E9DF83E91FD8D83700C64AFB /* ViewController.swift in Sources */,
 				E9DF84291FD8E1BE00C64AFB /* String+Extras.swift in Sources */,
+				E94A08651FED9AD500AD3C4A /* WordView.swift in Sources */,
 				E9DF84231FD8DE6500C64AFB /* Words.swift in Sources */,
+				E94A08501FED79A900AD3C4A /* WordFileGenerator.swift in Sources */,
+				E94A08551FED80B500AD3C4A /* GameViewController.swift in Sources */,
+				E94A085B1FED81B900AD3C4A /* Stack.swift in Sources */,
 				E9DF84261FD8DEDB00C64AFB /* Length.swift in Sources */,
 				E9DF83E71FD8D83700C64AFB /* AppDelegate.swift in Sources */,
+				E94A085D1FED849900AD3C4A /* BinarySearch.swift in Sources */,
+				E94A08591FED818400AD3C4A /* Word.swift in Sources */,
+				E94A08621FED9A8E00AD3C4A /* WordDelegate.swift in Sources */,
+				E94A08571FED811400AD3C4A /* LetterLabel.swift in Sources */,
 				E9DF841F1FD8DAD800C64AFB /* Parser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -556,6 +623,7 @@
 			files = (
 				E9DF84211FD8DC8F00C64AFB /* ParserTest.swift in Sources */,
 				E9DF83FC1FD8D83700C64AFB /* WhirlyDirlyWordsTests.swift in Sources */,
+				E94A085F1FED868C00AD3C4A /* SearchTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
