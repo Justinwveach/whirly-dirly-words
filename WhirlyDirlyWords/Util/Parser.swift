@@ -12,7 +12,7 @@ import CocoaLumberjack
 class Parser {
     
     fileprivate static let charSet = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyz")
-
+    
     static func parseWords(file: String, type: String) -> Array<String> {
         let pathToFile = Bundle.main.path(forResource: file, ofType: type)
     
@@ -28,7 +28,7 @@ class Parser {
                 }
                 
             }
-        
+            
             return words
         }
     

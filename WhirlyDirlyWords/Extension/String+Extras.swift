@@ -16,8 +16,10 @@ extension String {
             return .short
         } else if self.count >= 5 && self.count <= 7 {
             return .medium
-        } else {
+        } else if self.count >= 7 && self.count <= 10 {
             return .long
+        } else {
+            return .extraLong
         }
     }
     

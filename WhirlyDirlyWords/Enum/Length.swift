@@ -12,4 +12,5 @@ enum Length: String {
     case short = "short"
     case medium = "medium"
     case long = "long"
+    case extraLong = "extraLong"
 }

@@ -11,6 +11,7 @@
 		6E9C8C6EBC24B28CF0CA4519 /* Pods_WhirlyDirlyWordsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B51D2384B8BE754F4E501A93 /* Pods_WhirlyDirlyWordsUITests.framework */; };
 		B294B2096F0BD0A495158BEB /* Pods_WhirlyDirlyWordsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C4EFCB616D8E7245524656 /* Pods_WhirlyDirlyWordsTests.framework */; };
 		E91EAB6F1FFF03AD002B8E87 /* WordValidationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EAB6E1FFF03AD002B8E87 /* WordValidationTest.swift */; };
+		E91EAB711FFF253D002B8E87 /* LetterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EAB701FFF253D002B8E87 /* LetterCollectionViewCell.swift */; };
 		E94A084E1FED78C300AD3C4A /* words-extended.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94A084D1FED78C300AD3C4A /* words-extended.txt */; };
 		E94A08501FED79A900AD3C4A /* WordFileGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A084F1FED79A900AD3C4A /* WordFileGenerator.swift */; };
 		E94A08531FED80A800AD3C4A /* WordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E94A08521FED80A800AD3C4A /* WordView.xib */; };
@@ -22,6 +23,7 @@
 		E94A085F1FED868C00AD3C4A /* SearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A085E1FED868C00AD3C4A /* SearchTest.swift */; };
 		E94A08621FED9A8E00AD3C4A /* WordDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A08611FED9A8E00AD3C4A /* WordDelegate.swift */; };
 		E94A08651FED9AD500AD3C4A /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A08641FED9AD500AD3C4A /* WordView.swift */; };
+		E9589B101FFF32A100E3CA26 /* GameOverZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9589B0F1FFF32A100E3CA26 /* GameOverZoneView.swift */; };
 		E9DF83E71FD8D83700C64AFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF83E61FD8D83700C64AFB /* AppDelegate.swift */; };
 		E9DF83E91FD8D83700C64AFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF83E81FD8D83700C64AFB /* ViewController.swift */; };
 		E9DF83EC1FD8D83700C64AFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DF83EA1FD8D83700C64AFB /* Main.storyboard */; };
@@ -69,6 +71,7 @@
 		B51D2384B8BE754F4E501A93 /* Pods_WhirlyDirlyWordsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhirlyDirlyWordsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB3A7A126549389058186FC3 /* Pods-WhirlyDirlyWordsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhirlyDirlyWordsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhirlyDirlyWordsUITests/Pods-WhirlyDirlyWordsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E91EAB6E1FFF03AD002B8E87 /* WordValidationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordValidationTest.swift; sourceTree = "<group>"; };
+		E91EAB701FFF253D002B8E87 /* LetterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterCollectionViewCell.swift; sourceTree = "<group>"; };
 		E94A084D1FED78C300AD3C4A /* words-extended.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "words-extended.txt"; sourceTree = "<group>"; };
 		E94A084F1FED79A900AD3C4A /* WordFileGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordFileGenerator.swift; sourceTree = "<group>"; };
 		E94A08521FED80A800AD3C4A /* WordView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordView.xib; sourceTree = "<group>"; };
@@ -80,6 +83,7 @@
 		E94A085E1FED868C00AD3C4A /* SearchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTest.swift; sourceTree = "<group>"; };
 		E94A08611FED9A8E00AD3C4A /* WordDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDelegate.swift; sourceTree = "<group>"; };
 		E94A08641FED9AD500AD3C4A /* WordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
+		E9589B0F1FFF32A100E3CA26 /* GameOverZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverZoneView.swift; sourceTree = "<group>"; };
 		E9DF83E31FD8D83700C64AFB /* WhirlyDirlyWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhirlyDirlyWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DF83E61FD8D83700C64AFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9DF83E81FD8D83700C64AFB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 			children = (
 				E94A08631FED9ACB00AD3C4A /* WordView */,
 				E94A08561FED811400AD3C4A /* LetterLabel.swift */,
+				E91EAB701FFF253D002B8E87 /* LetterCollectionViewCell.swift */,
+				E9589B0F1FFF32A100E3CA26 /* GameOverZoneView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -608,6 +614,7 @@
 				E94A08651FED9AD500AD3C4A /* WordView.swift in Sources */,
 				E9DF84231FD8DE6500C64AFB /* Words.swift in Sources */,
 				E94A08501FED79A900AD3C4A /* WordFileGenerator.swift in Sources */,
+				E91EAB711FFF253D002B8E87 /* LetterCollectionViewCell.swift in Sources */,
 				E94A08551FED80B500AD3C4A /* GameViewController.swift in Sources */,
 				E94A085B1FED81B900AD3C4A /* Stack.swift in Sources */,
 				E9DF84261FD8DEDB00C64AFB /* Length.swift in Sources */,
@@ -616,6 +623,7 @@
 				E94A08591FED818400AD3C4A /* Word.swift in Sources */,
 				E94A08621FED9A8E00AD3C4A /* WordDelegate.swift in Sources */,
 				E94A08571FED811400AD3C4A /* LetterLabel.swift in Sources */,
+				E9589B101FFF32A100E3CA26 /* GameOverZoneView.swift in Sources */,
 				E9DF841F1FD8DAD800C64AFB /* Parser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

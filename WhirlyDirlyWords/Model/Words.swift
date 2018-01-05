@@ -13,6 +13,7 @@ class Words {
     fileprivate var allWords: Array<String>! = Array()
     // Example: Length.medium -> "c" -> ["catch", "carry", ..]
     fileprivate var allWordsDictionary = Dictionary<Length, Dictionary<Character, Array<String>>>()
+    fileprivate var allWordsbyLength = Dictionary<Length, Array<String>>()
     
     init(allWords: Array<String>) {
         self.allWords = allWords
@@ -27,6 +28,17 @@ class Words {
         }
         
         return Array()
+    }
+    
+    public func getWord(length: Length) -> String {
+        let words = allWordsbyLength[length] ?? []
+        
+        if words.count > 0 {
+            let random: Int = Int(arc4random() % UInt32(words.count))
+            return words[random]
+        }
+        
+        return "freebie"
     }
     
     public func validate(word: Word) -> Bool {
@@ -53,6 +65,12 @@ class Words {
             }
             
             allWordsDictionary[word.length()]![word.first!]?.append(word)
+            
+            if allWordsbyLength[word.length()] == nil {
+                allWordsbyLength[word.length()] = []
+            }
+            
+            allWordsbyLength[word.length()]?.append(word)
         }
     }
     
