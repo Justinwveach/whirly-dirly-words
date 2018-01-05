@@ -30,7 +30,11 @@ class Words {
     }
     
     public func validate(word: Word) -> Bool {
-        let index = binarySearch(allWords, key: word.value)
+        return validate(word: word.value)
+    }
+    
+    public func validate(word: String) -> Bool {
+        let index = binarySearch(allWords, key: word)
         return index == nil ? false : true
     }
     

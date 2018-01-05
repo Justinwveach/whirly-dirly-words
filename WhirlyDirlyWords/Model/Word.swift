@@ -13,8 +13,12 @@ class Word: Stack<Character> {
     public var value = ""
     fileprivate var delegate: WordDelegate?
     
-    init(delegate: WordDelegate) {
+    override init() {
         super.init()
+    }
+    
+    convenience init(delegate: WordDelegate) {
+        self.init()
         self.delegate = delegate
     }
     

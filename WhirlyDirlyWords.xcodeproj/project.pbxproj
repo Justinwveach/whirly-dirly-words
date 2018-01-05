@@ -10,6 +10,7 @@
 		452908D2339F7BBF09C9A4DD /* Pods_WhirlyDirlyWords.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCAD6F89C9120547654C79D /* Pods_WhirlyDirlyWords.framework */; };
 		6E9C8C6EBC24B28CF0CA4519 /* Pods_WhirlyDirlyWordsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B51D2384B8BE754F4E501A93 /* Pods_WhirlyDirlyWordsUITests.framework */; };
 		B294B2096F0BD0A495158BEB /* Pods_WhirlyDirlyWordsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C4EFCB616D8E7245524656 /* Pods_WhirlyDirlyWordsTests.framework */; };
+		E91EAB6F1FFF03AD002B8E87 /* WordValidationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EAB6E1FFF03AD002B8E87 /* WordValidationTest.swift */; };
 		E94A084E1FED78C300AD3C4A /* words-extended.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94A084D1FED78C300AD3C4A /* words-extended.txt */; };
 		E94A08501FED79A900AD3C4A /* WordFileGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A084F1FED79A900AD3C4A /* WordFileGenerator.swift */; };
 		E94A08531FED80A800AD3C4A /* WordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E94A08521FED80A800AD3C4A /* WordView.xib */; };
@@ -67,6 +68,7 @@
 		6D946113E26916996D935A97 /* Pods-WhirlyDirlyWords.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhirlyDirlyWords.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhirlyDirlyWords/Pods-WhirlyDirlyWords.debug.xcconfig"; sourceTree = "<group>"; };
 		B51D2384B8BE754F4E501A93 /* Pods_WhirlyDirlyWordsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhirlyDirlyWordsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB3A7A126549389058186FC3 /* Pods-WhirlyDirlyWordsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhirlyDirlyWordsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhirlyDirlyWordsUITests/Pods-WhirlyDirlyWordsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E91EAB6E1FFF03AD002B8E87 /* WordValidationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordValidationTest.swift; sourceTree = "<group>"; };
 		E94A084D1FED78C300AD3C4A /* words-extended.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "words-extended.txt"; sourceTree = "<group>"; };
 		E94A084F1FED79A900AD3C4A /* WordFileGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordFileGenerator.swift; sourceTree = "<group>"; };
 		E94A08521FED80A800AD3C4A /* WordView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordView.xib; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				E9DF83FD1FD8D83700C64AFB /* Info.plist */,
 				E9DF84201FD8DC8F00C64AFB /* ParserTest.swift */,
 				E94A085E1FED868C00AD3C4A /* SearchTest.swift */,
+				E91EAB6E1FFF03AD002B8E87 /* WordValidationTest.swift */,
 			);
 			path = WhirlyDirlyWordsTests;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 			files = (
 				E9DF84211FD8DC8F00C64AFB /* ParserTest.swift in Sources */,
 				E9DF83FC1FD8D83700C64AFB /* WhirlyDirlyWordsTests.swift in Sources */,
+				E91EAB6F1FFF03AD002B8E87 /* WordValidationTest.swift in Sources */,
 				E94A085F1FED868C00AD3C4A /* SearchTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
