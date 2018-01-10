@@ -16,6 +16,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     var letters: [String] = []
     var round: Int = 1
+    var currentWord: Word?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +29,35 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         words = Words(allWords: wordValues)
         
         startNewWord()
+        addWordView()
+        currentWord?.push("w")
+        currentWord?.push("o")
+        currentWord?.push("r")
+        currentWord?.push("d")
     }
     
     fileprivate func startNewWord() {
         letters.append("A")
         letters.append("Z")
         letters.append("E")
+        letters.append("A")
+        letters.append("Z")
+        letters.append("E")
+        letters.append("A")
+        letters.append("Z")
+        letters.append("E")
         
         letterCollectionView.reloadData()
+    }
+    
+    fileprivate func addWordView() {
+        let wordView = WordView.instanceFromNib()
+        wordView.frame = CGRect(x: 0, y: 300, width: 350, height: 80)
+        let word = Word(delegate: wordView)
+        currentWord = word
+        wordView.setup(word: word, actualWord: "word")
+        
+        view.addSubview(wordView)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

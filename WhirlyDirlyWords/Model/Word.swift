@@ -29,6 +29,13 @@ class Word: Stack<Character> {
         delegate?.pushed(letter: element)
     }
     
+    public func get(_ position: Int) -> Character {
+        //precondition(position >= self.count, "out of bounds")
+        let index = value.index(value.startIndex, offsetBy: position)
+        let char = value[index]
+        return char
+    }
+    
     override func pop() -> Character? {
         let removedCharacter = super.pop()
         value.removeLast()
@@ -40,4 +47,12 @@ class Word: Stack<Character> {
         return removedCharacter
     }
     
+    /*
+    subscript (position: Index) -> Character {
+        precondition(position >= self.count, "out of bounds")
+        // 3
+        let char = value[position]
+        return
+    }
+    */
 }
