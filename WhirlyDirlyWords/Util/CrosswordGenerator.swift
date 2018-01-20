@@ -26,7 +26,7 @@ public class CrosswordGenerator {
         //wordStructure = wordStructure.sorted()
         let firstWord = words.getWord(length: puzzleStructure[0])
         
-        let initialPlace = Int(arc4random() % UInt32(size - firstWord.count))
+        let initialPlace = firstWord.count == size ? 0 : Int(arc4random() % UInt32(size - firstWord.count))
         
         var column = 0
         var row = 0

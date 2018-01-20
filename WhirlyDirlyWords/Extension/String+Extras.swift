@@ -14,9 +14,9 @@ extension String {
     func length() -> Length {
         if self.count < 5 {
             return .short
-        } else if self.count >= 5 && self.count <= 7 {
+        } else if self.count >= 5 && self.count < 7 {
             return .medium
-        } else if self.count >= 7 && self.count <= 10 {
+        } else if self.count >= 7 && self.count <= 8 {
             return .long
         } else {
             return .extraLong
