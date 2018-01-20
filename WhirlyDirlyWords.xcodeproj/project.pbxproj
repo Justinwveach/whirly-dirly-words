@@ -26,6 +26,10 @@
 		E9589B101FFF32A100E3CA26 /* GameOverZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9589B0F1FFF32A100E3CA26 /* GameOverZoneView.swift */; };
 		E9589B12200478DF00E3CA26 /* LetterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9589B11200478DF00E3CA26 /* LetterCell.xib */; };
 		E9589B14200478E700E3CA26 /* LetterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9589B13200478E700E3CA26 /* LetterCell.swift */; };
+		E9589B162012C78A00E3CA26 /* CrosswordGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9589B152012C78A00E3CA26 /* CrosswordGenerator.swift */; };
+		E9589B182012E65A00E3CA26 /* CrosswordGeneratorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9589B172012E65A00E3CA26 /* CrosswordGeneratorTest.swift */; };
+		E9589B1A2012F1EA00E3CA26 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9589B192012F1EA00E3CA26 /* Tile.swift */; };
+		E9589B1C201304DF00E3CA26 /* Collection+Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9589B1B201304DF00E3CA26 /* Collection+Shuffle.swift */; };
 		E9DF83E71FD8D83700C64AFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF83E61FD8D83700C64AFB /* AppDelegate.swift */; };
 		E9DF83E91FD8D83700C64AFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF83E81FD8D83700C64AFB /* ViewController.swift */; };
 		E9DF83EC1FD8D83700C64AFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DF83EA1FD8D83700C64AFB /* Main.storyboard */; };
@@ -88,6 +92,10 @@
 		E9589B0F1FFF32A100E3CA26 /* GameOverZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverZoneView.swift; sourceTree = "<group>"; };
 		E9589B11200478DF00E3CA26 /* LetterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LetterCell.xib; sourceTree = "<group>"; };
 		E9589B13200478E700E3CA26 /* LetterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterCell.swift; sourceTree = "<group>"; };
+		E9589B152012C78A00E3CA26 /* CrosswordGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrosswordGenerator.swift; sourceTree = "<group>"; };
+		E9589B172012E65A00E3CA26 /* CrosswordGeneratorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrosswordGeneratorTest.swift; sourceTree = "<group>"; };
+		E9589B192012F1EA00E3CA26 /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		E9589B1B201304DF00E3CA26 /* Collection+Shuffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Shuffle.swift"; sourceTree = "<group>"; };
 		E9DF83E31FD8D83700C64AFB /* WhirlyDirlyWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhirlyDirlyWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DF83E61FD8D83700C64AFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9DF83E81FD8D83700C64AFB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +252,7 @@
 				E9DF84201FD8DC8F00C64AFB /* ParserTest.swift */,
 				E94A085E1FED868C00AD3C4A /* SearchTest.swift */,
 				E91EAB6E1FFF03AD002B8E87 /* WordValidationTest.swift */,
+				E9589B172012E65A00E3CA26 /* CrosswordGeneratorTest.swift */,
 			);
 			path = WhirlyDirlyWordsTests;
 			sourceTree = "<group>";
@@ -276,6 +285,7 @@
 				E9DF841E1FD8DAD800C64AFB /* Parser.swift */,
 				E94A084F1FED79A900AD3C4A /* WordFileGenerator.swift */,
 				E94A085C1FED849900AD3C4A /* BinarySearch.swift */,
+				E9589B152012C78A00E3CA26 /* CrosswordGenerator.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -292,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				E9DF84281FD8E1BE00C64AFB /* String+Extras.swift */,
+				E9589B1B201304DF00E3CA26 /* Collection+Shuffle.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -311,6 +322,7 @@
 				E9DF84221FD8DE6500C64AFB /* Words.swift */,
 				E94A08581FED818400AD3C4A /* Word.swift */,
 				E94A085A1FED81B900AD3C4A /* Stack.swift */,
+				E9589B192012F1EA00E3CA26 /* Tile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -617,11 +629,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9DF83E91FD8D83700C64AFB /* ViewController.swift in Sources */,
+				E9589B1A2012F1EA00E3CA26 /* Tile.swift in Sources */,
 				E9DF84291FD8E1BE00C64AFB /* String+Extras.swift in Sources */,
 				E94A08651FED9AD500AD3C4A /* WordView.swift in Sources */,
 				E9DF84231FD8DE6500C64AFB /* Words.swift in Sources */,
 				E94A08501FED79A900AD3C4A /* WordFileGenerator.swift in Sources */,
 				E91EAB711FFF253D002B8E87 /* LetterCollectionViewCell.swift in Sources */,
+				E9589B1C201304DF00E3CA26 /* Collection+Shuffle.swift in Sources */,
 				E94A08551FED80B500AD3C4A /* GameViewController.swift in Sources */,
 				E94A085B1FED81B900AD3C4A /* Stack.swift in Sources */,
 				E9DF84261FD8DEDB00C64AFB /* Length.swift in Sources */,
@@ -630,6 +644,7 @@
 				E94A085D1FED849900AD3C4A /* BinarySearch.swift in Sources */,
 				E94A08591FED818400AD3C4A /* Word.swift in Sources */,
 				E94A08621FED9A8E00AD3C4A /* WordDelegate.swift in Sources */,
+				E9589B162012C78A00E3CA26 /* CrosswordGenerator.swift in Sources */,
 				E94A08571FED811400AD3C4A /* LetterLabel.swift in Sources */,
 				E9589B101FFF32A100E3CA26 /* GameOverZoneView.swift in Sources */,
 				E9DF841F1FD8DAD800C64AFB /* Parser.swift in Sources */,
@@ -644,6 +659,7 @@
 				E9DF83FC1FD8D83700C64AFB /* WhirlyDirlyWordsTests.swift in Sources */,
 				E91EAB6F1FFF03AD002B8E87 /* WordValidationTest.swift in Sources */,
 				E94A085F1FED868C00AD3C4A /* SearchTest.swift in Sources */,
+				E9589B182012E65A00E3CA26 /* CrosswordGeneratorTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

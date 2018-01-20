@@ -41,6 +41,22 @@ class Words {
         return "freebie"
     }
     
+    public func getWord(length: Length, contains letter: Character) -> String {
+        let words = allWordsbyLength[length] ?? []
+        
+        if words.count > 0 {
+            var word = ""
+            while !word.contains(letter) {
+                let random: Int = Int(arc4random() % UInt32(words.count))
+                word = words[random]
+            }
+            
+            return word
+        }
+        
+        return "bug"
+    }
+    
     public func validate(word: Word) -> Bool {
         return validate(word: word.value)
     }

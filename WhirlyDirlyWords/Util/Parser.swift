@@ -26,7 +26,6 @@ class Parser {
                     //print("Removing \(thisWord) from array")
                     words.remove(at: i)
                 }
-                
             }
             
             return words
