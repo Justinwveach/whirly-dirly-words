@@ -29,9 +29,9 @@ class WordValidationTest: XCTestCase {
         word.push("t")
         
         let wordValues = Parser.parseWords(file: "words-extended", type: "txt")
-        let words = Words(allWords: wordValues)
+        Words.sharedInstance.populate(allWords: wordValues)
         
-        let result = words.validate(word: word)
+        let result = Words.sharedInstance.validate(word: word)
         assert(result == true)
     }
     
@@ -47,9 +47,9 @@ class WordValidationTest: XCTestCase {
         word.push("z")
         
         let wordValues = Parser.parseWords(file: "words-extended", type: "txt")
-        let words = Words(allWords: wordValues)
-        
-        let result = words.validate(word: word)
+        Words.sharedInstance.populate(allWords: wordValues)
+
+        let result = Words.sharedInstance.validate(word: word)
         assert(result == false)
     }
     

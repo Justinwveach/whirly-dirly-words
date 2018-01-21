@@ -26,7 +26,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         round = 1
         
         let wordValues = Parser.parseWords(file: "words-extended", type: "txt")
-        words = Words(allWords: wordValues)
+        Words.sharedInstance.populate(allWords: wordValues)
         
         startNewWord()
         addWordView()

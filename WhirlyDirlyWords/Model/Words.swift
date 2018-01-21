@@ -8,14 +8,16 @@
 
 import Foundation
 
-class Words {
+final class Words {
+    
+    static let sharedInstance = Words()
     
     fileprivate var allWords: Array<String>! = Array()
     // Example: Length.medium -> "c" -> ["catch", "carry", ..]
     fileprivate var allWordsDictionary = Dictionary<Length, Dictionary<Character, Array<String>>>()
     fileprivate var allWordsbyLength = Dictionary<Length, Array<String>>()
     
-    init(allWords: Array<String>) {
+    func populate(allWords: Array<String>) {
         self.allWords = allWords
         self.allWords.sort(by: { (value1: String, value2: String) -> Bool in
             return value1 < value2 })

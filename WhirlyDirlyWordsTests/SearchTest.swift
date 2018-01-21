@@ -19,7 +19,7 @@ class SearchTest: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         allWords = Parser.parseWords(file: "words-extended", type: "txt")
-        words = Words(allWords: allWords)
+        Words.sharedInstance.populate(allWords: allWords)
     }
     
     override func tearDown() {
@@ -31,7 +31,7 @@ class SearchTest: XCTestCase {
         // This is an example of a performance test case.
         let start = Date()
         self.measure {
-            let found = words.validate(word: searchWord)
+            let found = Words.sharedInstance.validate(word: searchWord)
             assert(found == true)
         }
         let end = Date()

@@ -32,12 +32,9 @@ class ParserTest: XCTestCase {
     
     func testWordSorter() {
         let wordsArray = Parser.parseWords(file: "words-extended", type: "txt")
-        var words: Words!
-        self.measure {
-            words = Words(allWords: wordsArray)
-        }
-        
-        let wordsStartingWithT = words.getWords(length: .medium, firstLetter: "t")
+        Words.sharedInstance.populate(allWords: wordsArray)
+
+        let wordsStartingWithT = Words.sharedInstance.getWords(length: .medium, firstLetter: "t")
         assert(wordsStartingWithT.contains("there"))
     }
     

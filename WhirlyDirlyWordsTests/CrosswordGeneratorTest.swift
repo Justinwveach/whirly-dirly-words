@@ -28,10 +28,10 @@ class CrosswordGeneratorTest: XCTestCase {
     
     func testPerformanceExample() {
         let wordsArray = Parser.parseWords(file: "words-all", type: "txt")
-        let words = Words(allWords: wordsArray)
-        
+        Words.sharedInstance.populate(allWords: wordsArray)
+
         for i in 0..<10 {
-            let crosswordGenerator = CrosswordGenerator(words: words, size: 8)
+            let crosswordGenerator = CrosswordGenerator(words: Words.sharedInstance, size: 8)
             
             crosswordGenerator.createPuzzle(wordStructure: [.medium, .short, .short, .medium])
 
