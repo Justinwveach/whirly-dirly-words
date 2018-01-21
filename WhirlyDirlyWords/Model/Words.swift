@@ -17,6 +17,16 @@ final class Words {
     fileprivate var allWordsDictionary = Dictionary<Length, Dictionary<Character, Array<String>>>()
     fileprivate var allWordsbyLength = Dictionary<Length, Array<String>>()
     
+    func populate(allWords: Array<String>, delegate: WordsDelegate) {
+        DispatchQueue.global(qos: .background).async {
+            Words.sharedInstance.populate(allWords: allWords)
+            
+            DispatchQueue.main.async {
+                delegate.finishedPopulating()
+            }
+        }
+    }
+    
     func populate(allWords: Array<String>) {
         self.allWords = allWords
         self.allWords.sort(by: { (value1: String, value2: String) -> Bool in

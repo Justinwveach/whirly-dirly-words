@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // Only want to parse words once and then access a static variable
-        _ = Parser.parseWords(file: "words-extended", type: "txt")
+        let words = Parser.parseWords(file: "words-all", type: "txt")
+        Words.sharedInstance.populate(allWords: words)
         
         return true
     }

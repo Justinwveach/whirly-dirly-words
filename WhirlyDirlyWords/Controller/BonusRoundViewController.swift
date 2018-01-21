@@ -1,14 +1,14 @@
 //
-//  GameViewController.swift
+//  BonusRoundViewController.swift
 //  WhirlyDirlyWords
 //
-//  Created by Justin Veach on 12/22/17.
-//  Copyright © 2017 justinveach. All rights reserved.
+//  Created by Justin Veach on 1/21/18.
+//  Copyright © 2018 justinveach. All rights reserved.
 //
 
 import UIKit
 
-class GameViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var letterCollectionView: UICollectionView!
     
@@ -17,9 +17,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var letters: [String] = []
     var round: Int = 1
     var currentWord: Word?
-    
-    var isResuming = false
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         letterCollectionView.delegate = self
