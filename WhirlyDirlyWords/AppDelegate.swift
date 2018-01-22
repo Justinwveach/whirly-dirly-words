@@ -17,6 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        DDLog.add(DDTTYLogger.sharedInstance, with: .debug) // TTY = Xcode console
+        DDLog.add(DDASLLogger.sharedInstance, with: .debug) // ASL = Apple System Logs
+        
+        let fileLogger: DDFileLogger = DDFileLogger() // File Logger
+        fileLogger.rollingFrequency = TimeInterval(60*60*24)  // 24 hours
+        fileLogger.logFileManager.maximumNumberOfLogFiles = 7
+        DDLog.add(fileLogger)
+        
         // Only want to parse words once and then access a static variable
         let words = Parser.parseWords(file: "words-all", type: "txt")
         Words.sharedInstance.populate(allWords: words)

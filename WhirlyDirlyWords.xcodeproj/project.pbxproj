@@ -24,6 +24,7 @@
 		E94A08621FED9A8E00AD3C4A /* WordDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A08611FED9A8E00AD3C4A /* WordDelegate.swift */; };
 		E94A08651FED9AD500AD3C4A /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A08641FED9AD500AD3C4A /* WordView.swift */; };
 		E9562DA320153ECB000B3305 /* BonusRoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9562DA220153ECB000B3305 /* BonusRoundViewController.swift */; };
+		E9562DA52015435A000B3305 /* PuzzleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9562DA42015435A000B3305 /* PuzzleCollectionViewCell.swift */; };
 		E9589B101FFF32A100E3CA26 /* GameOverZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9589B0F1FFF32A100E3CA26 /* GameOverZoneView.swift */; };
 		E9589B12200478DF00E3CA26 /* LetterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9589B11200478DF00E3CA26 /* LetterCell.xib */; };
 		E9589B14200478E700E3CA26 /* LetterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9589B13200478E700E3CA26 /* LetterCell.swift */; };
@@ -95,6 +96,7 @@
 		E94A08611FED9A8E00AD3C4A /* WordDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDelegate.swift; sourceTree = "<group>"; };
 		E94A08641FED9AD500AD3C4A /* WordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
 		E9562DA220153ECB000B3305 /* BonusRoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusRoundViewController.swift; sourceTree = "<group>"; };
+		E9562DA42015435A000B3305 /* PuzzleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleCollectionViewCell.swift; sourceTree = "<group>"; };
 		E9589B0F1FFF32A100E3CA26 /* GameOverZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverZoneView.swift; sourceTree = "<group>"; };
 		E9589B11200478DF00E3CA26 /* LetterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LetterCell.xib; sourceTree = "<group>"; };
 		E9589B13200478E700E3CA26 /* LetterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterCell.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				E94A08561FED811400AD3C4A /* LetterLabel.swift */,
 				E91EAB701FFF253D002B8E87 /* LetterCollectionViewCell.swift */,
 				E9589B0F1FFF32A100E3CA26 /* GameOverZoneView.swift */,
+				E9562DA42015435A000B3305 /* PuzzleCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 				E9DF84261FD8DEDB00C64AFB /* Length.swift in Sources */,
 				E9589B2420152E5A00E3CA26 /* CrosswordPuzzle.swift in Sources */,
 				E9589B14200478E700E3CA26 /* LetterCell.swift in Sources */,
+				E9562DA52015435A000B3305 /* PuzzleCollectionViewCell.swift in Sources */,
 				E9DF83E71FD8D83700C64AFB /* AppDelegate.swift in Sources */,
 				E94A085D1FED849900AD3C4A /* BinarySearch.swift in Sources */,
 				E94A08591FED818400AD3C4A /* Word.swift in Sources */,

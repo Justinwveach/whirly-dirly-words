@@ -7,15 +7,16 @@
 //
 
 import Foundation
+import CocoaLumberjack
 
 struct Tile {
-    var letter: Character = Character("-")
+    var character: Character = Character("-")
     var column: Int = -1
     var row: Int = -1
     var invalid = false
     
     init(letter: Character, column: Int, row: Int) {
-        self.letter = letter
+        self.character = letter
         self.column = column
         self.row = row
     }
@@ -30,7 +31,17 @@ struct Tile {
     
     var isEmpty: Bool {
         get {
-            return letter == Character("-") && column == -1 && row == -1
+            return character == Character("-") && column == -1 && row == -1
+        }
+    }
+    
+    var letter: String {
+        get {
+            if character != "-" {
+                return String(character)
+            } else {
+                return ""
+            }
         }
     }
 }

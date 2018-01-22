@@ -65,7 +65,7 @@ class CrosswordGeneratorTest: XCTestCase {
                 var rowString = ""
                 for column in 0..<8 {
                     let tile = puzzle.getTile(column: column, row: row)
-                    rowString.append(tile.isEmpty ? "-" : tile.letter)
+                    rowString.append(tile.isEmpty ? "-" : tile.character)
                 }
             print("\(rowString) \n")
         }

@@ -21,9 +21,26 @@ class WhirlyDirlyWordsTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testColumnRowCalculation() {
+        let size = 8
+        let index = 11
+
+        let column = index < size ? index : index % size
+        let row = index / size
+
+        assert(column == 3)
+        assert(row == 1)
+    }
+    
+    func testColumnRowCalculationTwo() {
+        let size = 8
+        let index = 3
+        
+        let column = index < size ? index : index % size
+        let row = index / size
+        
+        assert(column == 3)
+        assert(row == 0)
     }
     
     func testPerformanceExample() {

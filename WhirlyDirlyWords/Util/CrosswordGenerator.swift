@@ -81,7 +81,7 @@ public class CrosswordGenerator {
                 continue
             }
             
-            if word.contains(tile.letter) {
+            if word.contains(tile.character) {
                 let direction = upDown
                 var successful = addToBoard(word, tile, direction)
                 if !successful {
@@ -101,7 +101,7 @@ public class CrosswordGenerator {
     
     fileprivate func addToBoard(_ word: String, _ tile: Tile, _ isUpDown: Bool) -> Bool {
         var pendingTiles: [Tile] = []
-        let letterIndex = word.index(of: tile.letter) ?? -1
+        let letterIndex = word.index(of: tile.character) ?? -1
         
         if letterIndex == -1 {
             return false

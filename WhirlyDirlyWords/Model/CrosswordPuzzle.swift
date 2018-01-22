@@ -60,7 +60,7 @@ class CrosswordPuzzle {
                         }
                         continue
                     } else {
-                        currentWord.append(tile.letter)
+                        currentWord.append(tile.character)
                     }
                 }
             }
@@ -98,7 +98,7 @@ class CrosswordPuzzle {
             var allLetters = [Character]()
             for tile in tiles {
                 if !tile.isEmpty && !tile.invalid {
-                    allLetters.append(tile.letter)
+                    allLetters.append(tile.character)
                 }
             }
             
@@ -111,9 +111,9 @@ class CrosswordPuzzle {
             var rowString = ""
             for row in 0..<size {
                 let tile = getTile(column: column, row: row)
-                rowString.append(tile.isEmpty ? "-" : tile.letter)
+                rowString.append(tile.isEmpty ? "-" : tile.character)
             }
-            DDLogDebug("\(rowString) \n")
+            print("\(rowString) \n")
         }
     }
     
