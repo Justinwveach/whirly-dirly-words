@@ -8,8 +8,9 @@
 
 import UIKit
 
-class LetterCollectionViewCell: UICollectionViewCell {
+class LetterCollectionViewCell: TileCollectionViewCell {
     
     @IBOutlet weak var letterLabel: UILabel!
-    
+    @IBOutlet var tileView: TileView!
+
 }

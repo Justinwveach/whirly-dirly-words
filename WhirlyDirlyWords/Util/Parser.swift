@@ -39,7 +39,7 @@ class Parser {
                 }
                 // Alot of 2 letters are uncommon and rarely used, so let's only use normal ones
                 else if thisWord.count == 2 && !commonTwoLetterWords.contains(thisWord) {
-                    DDLogDebug("Removed 2 letter word: \(thisWord)")
+                    //DDLogDebug("Removed 2 letter word: \(thisWord)")
                     words.remove(at: i)
                 }
                 

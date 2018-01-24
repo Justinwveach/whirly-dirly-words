@@ -30,7 +30,7 @@ struct Game {
     
     func completedRound(numberOfLetters: Int, numberOfWords: Int) {
         // caculate score
-        delegate.updated(score: score)
+        //delegate.updated(score: score)
     }
     
 }

@@ -25,6 +25,12 @@
 		E94A08651FED9AD500AD3C4A /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94A08641FED9AD500AD3C4A /* WordView.swift */; };
 		E9562DA320153ECB000B3305 /* BonusRoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9562DA220153ECB000B3305 /* BonusRoundViewController.swift */; };
 		E9562DA52015435A000B3305 /* PuzzleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9562DA42015435A000B3305 /* PuzzleCollectionViewCell.swift */; };
+		E9562DA7201586B4000B3305 /* TileDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9562DA6201586B4000B3305 /* TileDelegate.swift */; };
+		E9562DA920158838000B3305 /* TileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9562DA820158838000B3305 /* TileCollectionViewCell.swift */; };
+		E9562DAB201590C7000B3305 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9562DAA201590C7000B3305 /* TileView.swift */; };
+		E9562DAD201590FE000B3305 /* TileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9562DAC201590FE000B3305 /* TileView.xib */; };
+		E9562DAF20181871000B3305 /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9562DAE20181871000B3305 /* DraggableView.swift */; };
+		E9562DB120181BFB000B3305 /* DraggableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9562DB020181BFB000B3305 /* DraggableDelegate.swift */; };
 		E9589B101FFF32A100E3CA26 /* GameOverZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9589B0F1FFF32A100E3CA26 /* GameOverZoneView.swift */; };
 		E9589B12200478DF00E3CA26 /* LetterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9589B11200478DF00E3CA26 /* LetterCell.xib */; };
 		E9589B14200478E700E3CA26 /* LetterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9589B13200478E700E3CA26 /* LetterCell.swift */; };
@@ -97,6 +103,12 @@
 		E94A08641FED9AD500AD3C4A /* WordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
 		E9562DA220153ECB000B3305 /* BonusRoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusRoundViewController.swift; sourceTree = "<group>"; };
 		E9562DA42015435A000B3305 /* PuzzleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleCollectionViewCell.swift; sourceTree = "<group>"; };
+		E9562DA6201586B4000B3305 /* TileDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileDelegate.swift; sourceTree = "<group>"; };
+		E9562DA820158838000B3305 /* TileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCollectionViewCell.swift; sourceTree = "<group>"; };
+		E9562DAA201590C7000B3305 /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
+		E9562DAC201590FE000B3305 /* TileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TileView.xib; sourceTree = "<group>"; };
+		E9562DAE20181871000B3305 /* DraggableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
+		E9562DB020181BFB000B3305 /* DraggableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableDelegate.swift; sourceTree = "<group>"; };
 		E9589B0F1FFF32A100E3CA26 /* GameOverZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverZoneView.swift; sourceTree = "<group>"; };
 		E9589B11200478DF00E3CA26 /* LetterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LetterCell.xib; sourceTree = "<group>"; };
 		E9589B13200478E700E3CA26 /* LetterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterCell.swift; sourceTree = "<group>"; };
@@ -192,6 +204,10 @@
 				E91EAB701FFF253D002B8E87 /* LetterCollectionViewCell.swift */,
 				E9589B0F1FFF32A100E3CA26 /* GameOverZoneView.swift */,
 				E9562DA42015435A000B3305 /* PuzzleCollectionViewCell.swift */,
+				E9562DA820158838000B3305 /* TileCollectionViewCell.swift */,
+				E9562DAA201590C7000B3305 /* TileView.swift */,
+				E9562DAC201590FE000B3305 /* TileView.xib */,
+				E9562DAE20181871000B3305 /* DraggableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,6 +218,8 @@
 				E94A08611FED9A8E00AD3C4A /* WordDelegate.swift */,
 				E9589B1F2015290D00E3CA26 /* GameDelegate.swift */,
 				E9589B2120152A6900E3CA26 /* WordsDelegate.swift */,
+				E9562DA6201586B4000B3305 /* TileDelegate.swift */,
+				E9562DB020181BFB000B3305 /* DraggableDelegate.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -467,6 +485,7 @@
 				E9DF841A1FD8DA5000C64AFB /* words-short.txt in Resources */,
 				E9DF842B1FD8E89800C64AFB /* words-extended-raw.txt in Resources */,
 				E94A08531FED80A800AD3C4A /* WordView.xib in Resources */,
+				E9562DAD201590FE000B3305 /* TileView.xib in Resources */,
 				E9DF84161FD8DA2A00C64AFB /* words-long.txt in Resources */,
 				E9DF83F11FD8D83700C64AFB /* LaunchScreen.storyboard in Resources */,
 				E9DF83EE1FD8D83700C64AFB /* Assets.xcassets in Resources */,
@@ -584,10 +603,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WhirlyDirlyWords/Pods-WhirlyDirlyWords-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/DragDropUI/DragDropUI.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DragDropUI.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -649,18 +670,23 @@
 				E9DF83E91FD8D83700C64AFB /* ViewController.swift in Sources */,
 				E9562DA320153ECB000B3305 /* BonusRoundViewController.swift in Sources */,
 				E9589B2220152A6900E3CA26 /* WordsDelegate.swift in Sources */,
+				E9562DA920158838000B3305 /* TileCollectionViewCell.swift in Sources */,
 				E9589B1A2012F1EA00E3CA26 /* Tile.swift in Sources */,
 				E9DF84291FD8E1BE00C64AFB /* String+Extras.swift in Sources */,
 				E94A08651FED9AD500AD3C4A /* WordView.swift in Sources */,
 				E9DF84231FD8DE6500C64AFB /* Words.swift in Sources */,
+				E9562DB120181BFB000B3305 /* DraggableDelegate.swift in Sources */,
 				E94A08501FED79A900AD3C4A /* WordFileGenerator.swift in Sources */,
 				E91EAB711FFF253D002B8E87 /* LetterCollectionViewCell.swift in Sources */,
 				E9589B1C201304DF00E3CA26 /* Collection+Shuffle.swift in Sources */,
 				E94A08551FED80B500AD3C4A /* GameViewController.swift in Sources */,
+				E9562DA7201586B4000B3305 /* TileDelegate.swift in Sources */,
+				E9562DAB201590C7000B3305 /* TileView.swift in Sources */,
 				E94A085B1FED81B900AD3C4A /* Stack.swift in Sources */,
 				E9589B202015290D00E3CA26 /* GameDelegate.swift in Sources */,
 				E9DF84261FD8DEDB00C64AFB /* Length.swift in Sources */,
 				E9589B2420152E5A00E3CA26 /* CrosswordPuzzle.swift in Sources */,
+				E9562DAF20181871000B3305 /* DraggableView.swift in Sources */,
 				E9589B14200478E700E3CA26 /* LetterCell.swift in Sources */,
 				E9562DA52015435A000B3305 /* PuzzleCollectionViewCell.swift in Sources */,
 				E9DF83E71FD8D83700C64AFB /* AppDelegate.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  GameDelegate.swift
+//  TileDelegate.swift
 //  WhirlyDirlyWords
 //
 //  Created by Justin Veach on 1/21/18.
@@ -8,10 +8,8 @@
 
 import Foundation
 
-protocol GameDelegate {
+protocol TileDelegate {
     
-    func updated(totalScore: Int)
-    func updated(roundScore: Int)
-    func updated(round: Int)
-    
+    func longPressed(cell: TileCollectionViewCell)
+
 }

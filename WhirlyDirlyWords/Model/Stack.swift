@@ -32,4 +32,8 @@ class Stack<Element> {
         return array.count
     }
     
+    func get(index: Int) -> Element {
+        return array[index]
+    }
+    
 }

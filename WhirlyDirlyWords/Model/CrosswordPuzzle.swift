@@ -15,6 +15,17 @@ class CrosswordPuzzle {
     var tiles: [Tile]!
     var size: Int = 4
     
+    var allWords: [String] {
+        get {
+            var wordsList = [String]()
+            for i in 0..<words.count {
+                wordsList.append(words.get(index: i))
+            }
+            
+            return wordsList.shuffled()
+        }
+    }
+    
     init(size: Int) {
         words = Stack<String>()
         self.tiles = [Tile]()
@@ -107,9 +118,9 @@ class CrosswordPuzzle {
     }
     
     func printResult() {
-        for column in 0..<size {
+        for row in 0..<size {
             var rowString = ""
-            for row in 0..<size {
+            for column in 0..<size {
                 let tile = getTile(column: column, row: row)
                 rowString.append(tile.isEmpty ? "-" : tile.character)
             }
