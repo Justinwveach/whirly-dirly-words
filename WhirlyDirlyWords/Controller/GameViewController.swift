@@ -133,6 +133,18 @@ class GameViewController: UIViewController, GameDelegate, TileDelegate, UICollec
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == puzzleCollectionView {
+            let cell = puzzleCollectionView.cellForItem(at: indexPath) as! PuzzleCollectionViewCell
+            if !cell.tile.isPlaceholder && !cell.tile.isEmpty {
+                letters.append(cell.tile.character)
+                cell.tile.character = Character(" ")
+                puzzleCollectionView.reloadData()
+                letterCollectionView.reloadData()
+            }
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView == puzzleCollectionView {
