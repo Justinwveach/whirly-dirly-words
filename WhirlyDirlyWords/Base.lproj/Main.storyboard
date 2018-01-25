@@ -210,7 +210,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DI1-BV-iuZ" customClass="TileView" customModule="WhirlyDirlyWords" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="9" width="35" height="34"/>
+                                                    <rect key="frame" x="8" y="8" width="35" height="34"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cb3-zv-b9X">
                                                             <rect key="frame" x="0.0" y="0.0" width="35" height="34"/>

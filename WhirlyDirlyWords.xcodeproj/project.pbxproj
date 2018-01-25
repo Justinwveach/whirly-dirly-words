@@ -10,6 +10,8 @@
 		452908D2339F7BBF09C9A4DD /* Pods_WhirlyDirlyWords.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCAD6F89C9120547654C79D /* Pods_WhirlyDirlyWords.framework */; };
 		6E9C8C6EBC24B28CF0CA4519 /* Pods_WhirlyDirlyWordsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B51D2384B8BE754F4E501A93 /* Pods_WhirlyDirlyWordsUITests.framework */; };
 		B294B2096F0BD0A495158BEB /* Pods_WhirlyDirlyWordsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C4EFCB616D8E7245524656 /* Pods_WhirlyDirlyWordsTests.framework */; };
+		E911B7B720194F3F00B0C74C /* PuzzleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E911B7B620194F3F00B0C74C /* PuzzleDataSource.swift */; };
+		E911B7B9201950AF00B0C74C /* LetterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E911B7B8201950AF00B0C74C /* LetterDataSource.swift */; };
 		E91EAB6F1FFF03AD002B8E87 /* WordValidationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EAB6E1FFF03AD002B8E87 /* WordValidationTest.swift */; };
 		E91EAB711FFF253D002B8E87 /* LetterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91EAB701FFF253D002B8E87 /* LetterCollectionViewCell.swift */; };
 		E94A084E1FED78C300AD3C4A /* words-extended.txt in Resources */ = {isa = PBXBuildFile; fileRef = E94A084D1FED78C300AD3C4A /* words-extended.txt */; };
@@ -88,6 +90,8 @@
 		6D946113E26916996D935A97 /* Pods-WhirlyDirlyWords.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhirlyDirlyWords.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhirlyDirlyWords/Pods-WhirlyDirlyWords.debug.xcconfig"; sourceTree = "<group>"; };
 		B51D2384B8BE754F4E501A93 /* Pods_WhirlyDirlyWordsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhirlyDirlyWordsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB3A7A126549389058186FC3 /* Pods-WhirlyDirlyWordsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhirlyDirlyWordsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhirlyDirlyWordsUITests/Pods-WhirlyDirlyWordsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E911B7B620194F3F00B0C74C /* PuzzleDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleDataSource.swift; sourceTree = "<group>"; };
+		E911B7B8201950AF00B0C74C /* LetterDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterDataSource.swift; sourceTree = "<group>"; };
 		E91EAB6E1FFF03AD002B8E87 /* WordValidationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordValidationTest.swift; sourceTree = "<group>"; };
 		E91EAB701FFF253D002B8E87 /* LetterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterCollectionViewCell.swift; sourceTree = "<group>"; };
 		E94A084D1FED78C300AD3C4A /* words-extended.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "words-extended.txt"; sourceTree = "<group>"; };
@@ -196,6 +200,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E911B7B520194F2B00B0C74C /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				E911B7B620194F3F00B0C74C /* PuzzleDataSource.swift */,
+				E911B7B8201950AF00B0C74C /* LetterDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 		E94A08511FED809900AD3C4A /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +273,7 @@
 		E9DF83E51FD8D83700C64AFB /* WhirlyDirlyWords */ = {
 			isa = PBXGroup;
 			children = (
+				E911B7B520194F2B00B0C74C /* DataSource */,
 				E94A08601FED9A8000AD3C4A /* Protocol */,
 				E94A08511FED809900AD3C4A /* View */,
 				E9DF842D1FD8F34B00C64AFB /* Model */,
@@ -673,6 +687,7 @@
 				E9562DA920158838000B3305 /* TileCollectionViewCell.swift in Sources */,
 				E9589B1A2012F1EA00E3CA26 /* Tile.swift in Sources */,
 				E9DF84291FD8E1BE00C64AFB /* String+Extras.swift in Sources */,
+				E911B7B720194F3F00B0C74C /* PuzzleDataSource.swift in Sources */,
 				E94A08651FED9AD500AD3C4A /* WordView.swift in Sources */,
 				E9DF84231FD8DE6500C64AFB /* Words.swift in Sources */,
 				E9562DB120181BFB000B3305 /* DraggableDelegate.swift in Sources */,
@@ -696,6 +711,7 @@
 				E9589B1E201527E700E3CA26 /* Game.swift in Sources */,
 				E9589B162012C78A00E3CA26 /* CrosswordGenerator.swift in Sources */,
 				E94A08571FED811400AD3C4A /* LetterLabel.swift in Sources */,
+				E911B7B9201950AF00B0C74C /* LetterDataSource.swift in Sources */,
 				E9589B101FFF32A100E3CA26 /* GameOverZoneView.swift in Sources */,
 				E9DF841F1FD8DAD800C64AFB /* Parser.swift in Sources */,
 			);

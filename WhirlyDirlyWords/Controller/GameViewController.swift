@@ -9,7 +9,7 @@
 import UIKit
 import CocoaLumberjack
 
-class GameViewController: UIViewController, GameDelegate, TileDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, DraggableDelegate {
+class GameViewController: UIViewController, GameDelegate, TileDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, DraggableDelegate {
     
     @IBOutlet weak var letterCollectionView: UICollectionView!
     @IBOutlet weak var puzzleCollectionView: UICollectionView!
@@ -28,9 +28,10 @@ class GameViewController: UIViewController, GameDelegate, TileDelegate, UICollec
     var puzzle: CrosswordPuzzle!
     var userPuzzle: CrosswordPuzzle!
     
-    var letters: [Character] = []
-    
     var isResuming = false
+    
+    var puzzleDataSource: PuzzleDataSource!
+    var letterDataSource: LetterDataSource!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,10 +48,7 @@ class GameViewController: UIViewController, GameDelegate, TileDelegate, UICollec
         }
         
         letterCollectionView.delegate = self
-        letterCollectionView.dataSource = self
-        
         puzzleCollectionView.delegate = self
-        puzzleCollectionView.dataSource = self
         
         round = 1
         
@@ -62,7 +60,7 @@ class GameViewController: UIViewController, GameDelegate, TileDelegate, UICollec
     }
     
     fileprivate func startNewPuzzle() {
-        puzzle = generator.createPuzzle(wordStructure: [.short, .medium, .long, .medium], size: puzzleSize)
+        puzzle = generator.createPuzzle(wordStructure: [.short, .medium, .short, .short], size: puzzleSize)
         puzzle?.printResult()
         
         userPuzzle = CrosswordPuzzle(size: puzzleSize)
@@ -72,7 +70,7 @@ class GameViewController: UIViewController, GameDelegate, TileDelegate, UICollec
         }
         
         //puzzle.letters shuffles the letters for us, so let's keep that order once we shuffle
-        letters = puzzle?.letters ?? []
+        let letters = puzzle?.letters ?? []
         populateCompleteView(letters: letters)
         
         /*
@@ -85,59 +83,21 @@ class GameViewController: UIViewController, GameDelegate, TileDelegate, UICollec
         }
         */
         
+        letterDataSource = LetterDataSource(letters: letters, parent: self)
+        puzzleDataSource = PuzzleDataSource(size: puzzleSize, puzzle: userPuzzle, parent: self)
+        
+        letterCollectionView.dataSource = letterDataSource
+        puzzleCollectionView.dataSource = puzzleDataSource
+        
         letterCollectionView.reloadData()
         puzzleCollectionView.reloadData()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == letterCollectionView {
-            return letters.count
-        } else {
-            return puzzleSize * puzzleSize
-        }
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == letterCollectionView {
-            
-            let cell: LetterCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "LetterCollectionViewCell", for: indexPath) as! LetterCollectionViewCell
-            cell.tileView.letterLabel.text = String(letters[indexPath.row])
-            cell.tileView.delegate = self
-            cell.tileView.cell = cell
-            cell.delegate = self
-            return cell
-        } else {
-            let cell: PuzzleCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PuzzleCollectionViewCell", for: indexPath) as! PuzzleCollectionViewCell
-           
-            let size = puzzleSize
-            let column = indexPath.row < size ? indexPath.row : indexPath.row % size
-            let row = indexPath.row / size
-            
-            let tile = userPuzzle.getTile(column: column, row: row)
-            cell.letterLabel.text = tile.letter
-            cell.tile = tile
-            
-            cell.delegate = self
-
-            if tile.isEmpty {
-                cell.isHidden = true
-            } else {
-                cell.isHidden = false
-            }
-            
-            return cell
-        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == puzzleCollectionView {
             let cell = puzzleCollectionView.cellForItem(at: indexPath) as! PuzzleCollectionViewCell
             if !cell.tile.isPlaceholder && !cell.tile.isEmpty {
-                letters.append(cell.tile.character)
+                letterDataSource.letters.append(cell.tile.character)
                 cell.tile.character = Character(" ")
                 puzzleCollectionView.reloadData()
                 letterCollectionView.reloadData()
@@ -267,7 +227,7 @@ class GameViewController: UIViewController, GameDelegate, TileDelegate, UICollec
                 self.moveTileBack(tileView, animated: false)
                 if let cell = tileView.cell {
                     if let indexPath = self.letterCollectionView.indexPath(for: cell) {
-                        self.letters.remove(at: indexPath.row)
+                        self.letterDataSource.removeLetter(index: indexPath.row)
                         self.letterCollectionView.reloadData()
                     }
                 }
