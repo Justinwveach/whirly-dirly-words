@@ -24,12 +24,12 @@ class DraggableView: UIView, UIGestureRecognizerDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        offset = self.frame.size.height + 10
+        offset = self.frame.size.height + 20
     }
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        offset = self.frame.size.height + 10
+        offset = self.frame.size.height + 20
     }
 
     override func didMoveToSuperview() {

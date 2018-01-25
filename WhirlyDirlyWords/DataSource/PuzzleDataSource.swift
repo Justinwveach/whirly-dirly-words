@@ -15,7 +15,7 @@ class PuzzleDataSource: NSObject, UICollectionViewDataSource {
     var puzzle: CrosswordPuzzle!
     weak var parent: UIViewController?
     
-    init<T: UIViewController & TileDelegate>(size: Int, puzzle: CrosswordPuzzle, parent: T) {
+    init<T: UIViewController>(size: Int, puzzle: CrosswordPuzzle, parent: T) {
         super.init()
         self.size = size
         self.tiles = puzzle.tiles

@@ -9,11 +9,10 @@
 import UIKit
 import CocoaLumberjack
 
-class GameViewController: UIViewController, GameDelegate, TileDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, DraggableDelegate {
+class GameViewController: UIViewController, GameDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, DraggableDelegate {
     
     @IBOutlet weak var letterCollectionView: UICollectionView!
     @IBOutlet weak var puzzleCollectionView: UICollectionView!
-    @IBOutlet weak var allLettersStackView: UIStackView!
     @IBOutlet weak var roundLabel: UILabel!
     @IBOutlet weak var roundScoreLabel: UILabel!
     @IBOutlet weak var totalScoreLabel: UILabel!
@@ -71,18 +70,6 @@ class GameViewController: UIViewController, GameDelegate, TileDelegate, UICollec
         
         //puzzle.letters shuffles the letters for us, so let's keep that order once we shuffle
         let letters = puzzle?.letters ?? []
-        populateCompleteView(letters: letters)
-        
-        /*
-        for word in puzzle.allWords {
-            var chars = [Character]()
-            for char in word {
-                chars.append(char)
-            }
-            letters.append(chars)
-        }
-        */
-        
         letterDataSource = LetterDataSource(letters: letters, parent: self)
         puzzleDataSource = PuzzleDataSource(size: puzzleSize, puzzle: userPuzzle, parent: self)
         
@@ -117,26 +104,6 @@ class GameViewController: UIViewController, GameDelegate, TileDelegate, UICollec
         }
     }
     
-    fileprivate func populateCompleteView(letters: [Character]) {
-        //let width = allLettersStackView.frame.size.width / CGFloat(letters.count)
-        //let height = allLettersStackView.frame.size.height
-        
-        for label in allLettersStackView.subviews {
-            label.removeFromSuperview()
-        }
-        
-        for letter in letters {
-           // let label = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: width, height: height))
-            let label = UILabel()
-            label.text = String(letter)
-            label.font = UIFont(name: "Futura Bold", size: 10.0)
-            label.textColor = UIColor.darkGray
-            label.adjustsFontSizeToFitWidth = false
-            label.textAlignment = .center
-            allLettersStackView.addArrangedSubview(label)
-        }
-    }
-    
     // MARK: Game Delegate
     
     func updated(totalScore: Int) {
@@ -151,31 +118,14 @@ class GameViewController: UIViewController, GameDelegate, TileDelegate, UICollec
         roundLabel.text = "\(round)"
     }
     
-    // MARK: Tile Delegate
-    
-    func longPressed(cell: TileCollectionViewCell) {
-        if let point = cell.superview?.convert(cell.center, to: view) {
-            
-        }
-        /*
-        if selectedTile == nil {
-            let tileView = TileView.instanceFromNib()
-            if let point = cell.superview?.convert(cell.center, to: view) {
-                tileView.frame = CGRect(x: point.x, y: point.y, width: 40, height: 50)
-                tileView.delegate = self
-                self.view.addSubview(tileView)
-            }
-            selectedTile = tileView
-        }
-         */
-    }
-    
     // MARK: Draggable Delegate
 
     func didStartDragging(view: UIView, point: CGPoint) {
+        letterCollectionView.bringSubview(toFront: view)
         UIView.animate(withDuration: 0.2) {
-            view.backgroundColor = .white
-            view.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
+            //view.backgroundColor = UIColor(red: (63.0/255.0), green: (153.0/255.0), blue: (112.0/255.0), alpha: 0.9)
+            //tileView.letterLabel.textColor = .white
+            view.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         }
     }
     
@@ -214,6 +164,7 @@ class GameViewController: UIViewController, GameDelegate, TileDelegate, UICollec
         UIView.animate(withDuration: animated ? 0.2 : 0.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
             tile.center = tile.originalPoint!
             tile.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            //tile.backgroundColor = .clear
         }, completion: nil)
     }
     

@@ -13,7 +13,7 @@ class LetterDataSource: NSObject, UICollectionViewDataSource {
     var letters: [Character] = []
     weak var parent: UIViewController?
     
-    init<T: UIViewController & DraggableDelegate & TileDelegate>(letters: [Character], parent: T) {
+    init<T: UIViewController & DraggableDelegate>(letters: [Character], parent: T) {
         super.init()
         self.letters = letters
         self.parent = parent

@@ -15,7 +15,6 @@ class TileView: DraggableView {
     
     class func instanceFromNib() -> TileView {
         let tileView: TileView = UINib(nibName: "TileView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! TileView
-        tileView.backgroundColor = .yellow
         return tileView
     }
     
