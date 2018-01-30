@@ -32,7 +32,11 @@ class LetterDataSource: NSObject, UICollectionViewDataSource {
         cell.tileView.letterLabel.text = String(letters[indexPath.row])
         cell.tileView.delegate = parent as? DraggableDelegate
         cell.tileView.cell = cell
+        cell.tileView.originalBackgroundColor = Constants.primaryColor
+        cell.tileView.originalTextColor = .white   
+        
         cell.delegate = parent as? TileDelegate
+        cell.tileView.tag = 1
         return cell
     }
     

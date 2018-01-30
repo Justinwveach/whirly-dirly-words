@@ -121,11 +121,23 @@ class GameViewController: UIViewController, GameDelegate, UICollectionViewDelega
     // MARK: Draggable Delegate
 
     func didStartDragging(view: UIView, point: CGPoint) {
-        letterCollectionView.bringSubview(toFront: view)
+        if let superParentView = view.superview?.superview {
+            if view.tag == 1 {
+                letterCollectionView.bringSubview(toFront: superParentView)
+            } else {
+                puzzleCollectionView.bringSubview(toFront: superParentView)
+            }
+        }
+        
         UIView.animate(withDuration: 0.2) {
             //view.backgroundColor = UIColor(red: (63.0/255.0), green: (153.0/255.0), blue: (112.0/255.0), alpha: 0.9)
             //tileView.letterLabel.textColor = .white
-            view.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            if let tileView = view as? TileView {
+                tileView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+                tileView.backgroundColor = Constants.primaryColor
+                tileView.letterLabel.textColor = .white
+            }
+            
         }
     }
     
@@ -143,7 +155,7 @@ class GameViewController: UIViewController, GameDelegate, UICollectionViewDelega
                 if tileCell.frame.contains(point) {
                     if let cellTile = tileCell.tile {
                         if cellTile.isPlaceholder && tile.letterLabel != nil && !tile.letterLabel.text!.isEmpty {
-                            remove(tileView: tile, target: tileCell.superview?.convert(tileCell.center, to: view.superview)) {
+                            remove(tileView: tile, target: tileCell.superview?.convert(tileCell.center, to: view.superview), destination: tileCell) {
                                 tileCell.tile.character = Character(tile.letterLabel.text ?? " ")
                                 self.puzzleCollectionView.reloadData()
                             }
@@ -164,11 +176,14 @@ class GameViewController: UIViewController, GameDelegate, UICollectionViewDelega
         UIView.animate(withDuration: animated ? 0.2 : 0.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
             tile.center = tile.originalPoint!
             tile.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            //tile.backgroundColor = .clear
+            
+            if let tileView = tile as? TileView {
+                tileView.resetUI()
+            }
         }, completion: nil)
     }
     
-    fileprivate func remove(tileView: TileView, target: CGPoint?, finished: @escaping () -> Void) {
+    fileprivate func remove(tileView: TileView, target: CGPoint?, destination: TileCollectionViewCell, finished: @escaping () -> Void) {
         UIView.animate(withDuration: 0.1, animations: {
                 tileView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
                 if target != nil {
@@ -177,9 +192,14 @@ class GameViewController: UIViewController, GameDelegate, UICollectionViewDelega
             }, completion: { _ in
                 self.moveTileBack(tileView, animated: false)
                 if let cell = tileView.cell {
-                    if let indexPath = self.letterCollectionView.indexPath(for: cell) {
-                        self.letterDataSource.removeLetter(index: indexPath.row)
-                        self.letterCollectionView.reloadData()
+                    if tileView.tag == 1 {
+                        if let indexPath = self.letterCollectionView.indexPath(for: cell) {
+                            self.letterDataSource.removeLetter(index: indexPath.row)
+                            self.letterCollectionView.reloadData()
+                        }
+                    } else {
+                        self.puzzleDataSource.move(tile: cell.tile, to: destination)
+                        self.puzzleCollectionView.reloadData()
                     }
                 }
                 finished()

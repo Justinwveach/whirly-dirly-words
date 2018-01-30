@@ -10,11 +10,11 @@ import UIKit
 
 class PuzzleCollectionViewCell: TileCollectionViewCell {
     
-    @IBOutlet weak var letterLabel: UILabel!
+    @IBOutlet weak var tileView: TileView!
     @IBOutlet weak var background: UIView!
     
     func set(letter: String) {
-        letterLabel.text = letter
+        tileView.letterLabel.text = letter
         /*
         UIView.animate(withDuration: 0.1, delay: 0.1, options: [], animations: {
                 self.letterLabel.text = letter

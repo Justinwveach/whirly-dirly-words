@@ -9,7 +9,8 @@
 import Foundation
 import CocoaLumberjack
 
-class Tile {
+class Tile: Equatable {
+    
     var character: Character = Character(" ")
     var column: Int = -1
     var row: Int = -1
@@ -58,4 +59,11 @@ class Tile {
         set {
         }
     }
+    
+    static func ==(lhs: Tile, rhs: Tile) -> Bool {
+        return lhs.character == rhs.character &&
+                lhs.column == rhs.column &&
+                lhs.row == rhs.row
+    }
+    
 }

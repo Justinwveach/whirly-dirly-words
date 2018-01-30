@@ -20,7 +20,6 @@ class DraggableView: UIView, UIGestureRecognizerDelegate {
     
     // todo: provide way to set offset
     var offset: CGFloat = 50.0
-    var isDraggable = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,6 +56,11 @@ class DraggableView: UIView, UIGestureRecognizerDelegate {
     }
     
     @objc fileprivate func handlePanGesture(_ panGesture: UIPanGestureRecognizer) {
+        
+        if !isDraggable() {
+            return
+        }
+        
         let translation = panGesture.translation(in: parentView)
         
         if panGesture.state == UIGestureRecognizerState.began {
@@ -67,7 +71,6 @@ class DraggableView: UIView, UIGestureRecognizerDelegate {
             delegate?.didStartDragging(view: self, point: center)
         }
         else if panGesture.state == UIGestureRecognizerState.ended {
-            isDraggable = false
             delegate?.didStopMoving(view: self, point: center)
         }
         else if panGesture.state == UIGestureRecognizerState.changed {
@@ -77,6 +80,10 @@ class DraggableView: UIView, UIGestureRecognizerDelegate {
         else {
             // or something when its not moving
         }
+    }
+    
+    func isDraggable() -> Bool {
+        return true
     }
     
     /*

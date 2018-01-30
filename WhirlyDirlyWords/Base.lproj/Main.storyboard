@@ -125,7 +125,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gtq-U4-Gip">
                                 <rect key="frame" x="0.0" y="120" width="375" height="387"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xIV-rs-uts">
+                                    <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xIV-rs-uts">
                                         <rect key="frame" x="0.0" y="6" width="375" height="375"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -139,27 +139,57 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PuzzleCollectionViewCell" id="VAt-2A-fRX" customClass="PuzzleCollectionViewCell" customModule="WhirlyDirlyWords" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PuzzleCollectionViewCell" id="VAt-2A-fRX" customClass="PuzzleCollectionViewCell" customModule="WhirlyDirlyWords" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdL-bQ-sRj">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f6L-Wv-dap" customClass="TileView" customModule="WhirlyDirlyWords" customModuleProvider="target">
                                                             <rect key="frame" x="2" y="2" width="46" height="46"/>
-                                                            <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="22"/>
-                                                            <color key="textColor" red="0.039215686274509803" green="0.3529411764705882" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyf-Gt-dLM">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="46" height="46"/>
+                                                                    <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="26"/>
+                                                                    <color key="textColor" red="0.039215686270000001" green="0.35294117650000001" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="yyf-Gt-dLM" secondAttribute="bottom" id="1Wq-zR-AHF"/>
+                                                                <constraint firstItem="yyf-Gt-dLM" firstAttribute="leading" secondItem="f6L-Wv-dap" secondAttribute="leading" id="2xX-rl-8jA"/>
+                                                                <constraint firstAttribute="trailing" secondItem="yyf-Gt-dLM" secondAttribute="trailing" id="5RS-cc-m6x"/>
+                                                                <constraint firstAttribute="width" secondItem="f6L-Wv-dap" secondAttribute="height" multiplier="1:1" constant="1" id="5wk-Jn-pVY"/>
+                                                                <constraint firstAttribute="width" secondItem="f6L-Wv-dap" secondAttribute="height" multiplier="35:34" id="8BU-py-ePX"/>
+                                                                <constraint firstItem="yyf-Gt-dLM" firstAttribute="top" secondItem="f6L-Wv-dap" secondAttribute="top" id="rE8-KO-MAU"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="4"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="5wk-Jn-pVY"/>
+                                                                    <exclude reference="8BU-py-ePX"/>
+                                                                </mask>
+                                                            </variation>
+                                                            <connections>
+                                                                <outlet property="letterLabel" destination="yyf-Gt-dLM" id="vg9-vL-Je3"/>
+                                                            </connections>
+                                                        </view>
                                                     </subviews>
                                                 </view>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="EdL-bQ-sRj" firstAttribute="top" secondItem="VAt-2A-fRX" secondAttribute="top" constant="2" id="B40-6H-sl3"/>
-                                                    <constraint firstItem="EdL-bQ-sRj" firstAttribute="leading" secondItem="VAt-2A-fRX" secondAttribute="leading" constant="2" id="Jhb-ZD-hqn"/>
-                                                    <constraint firstAttribute="trailing" secondItem="EdL-bQ-sRj" secondAttribute="trailing" constant="2" id="St6-MK-gpb"/>
-                                                    <constraint firstAttribute="bottom" secondItem="EdL-bQ-sRj" secondAttribute="bottom" constant="2" id="XZZ-a2-bYI"/>
+                                                    <constraint firstItem="f6L-Wv-dap" firstAttribute="centerX" secondItem="VAt-2A-fRX" secondAttribute="centerX" id="S3f-cx-65U"/>
+                                                    <constraint firstItem="f6L-Wv-dap" firstAttribute="centerY" secondItem="VAt-2A-fRX" secondAttribute="centerY" id="SPO-Rc-RVf"/>
+                                                    <constraint firstItem="f6L-Wv-dap" firstAttribute="leading" secondItem="VAt-2A-fRX" secondAttribute="leading" constant="2" id="TNO-Jy-Pdw"/>
+                                                    <constraint firstAttribute="bottom" secondItem="f6L-Wv-dap" secondAttribute="bottom" constant="2" id="U11-ha-LQy"/>
+                                                    <constraint firstAttribute="trailing" secondItem="f6L-Wv-dap" secondAttribute="trailing" constant="2" id="Yvo-iz-hrE"/>
+                                                    <constraint firstItem="f6L-Wv-dap" firstAttribute="top" secondItem="VAt-2A-fRX" secondAttribute="top" constant="2" id="eDY-2g-1UJ"/>
                                                 </constraints>
                                                 <size key="customSize" width="50" height="50"/>
                                                 <userDefinedRuntimeAttributes>
@@ -167,8 +197,14 @@
                                                         <integer key="value" value="2"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="S3f-cx-65U"/>
+                                                        <exclude reference="SPO-Rc-RVf"/>
+                                                    </mask>
+                                                </variation>
                                                 <connections>
-                                                    <outlet property="letterLabel" destination="EdL-bQ-sRj" id="cYR-8t-xcY"/>
+                                                    <outlet property="tileView" destination="f6L-Wv-dap" id="REb-gD-Jhc"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -207,10 +243,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DI1-BV-iuZ" customClass="TileView" customModule="WhirlyDirlyWords" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="8" width="35" height="34"/>
+                                                    <rect key="frame" x="2" y="2" width="46" height="46"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cb3-zv-b9X">
-                                                            <rect key="frame" x="0.0" y="0.0" width="35" height="34"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cb3-zv-b9X">
+                                                            <rect key="frame" x="0.0" y="0.0" width="46" height="46"/>
                                                             <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="26"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -229,6 +265,11 @@
                                                             <integer key="value" value="4"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="Cy1-kf-I0D"/>
+                                                        </mask>
+                                                    </variation>
                                                     <connections>
                                                         <outlet property="letterLabel" destination="cb3-zv-b9X" id="NiW-Tt-8EE"/>
                                                     </connections>
@@ -238,16 +279,22 @@
                                         <constraints>
                                             <constraint firstItem="DI1-BV-iuZ" firstAttribute="centerY" secondItem="2Ov-aB-EMK" secondAttribute="centerY" id="Gs6-8m-DHb"/>
                                             <constraint firstItem="DI1-BV-iuZ" firstAttribute="leading" secondItem="2Ov-aB-EMK" secondAttribute="leading" id="Nah-Cw-jWl"/>
+                                            <constraint firstAttribute="trailing" secondItem="DI1-BV-iuZ" secondAttribute="trailing" constant="2" id="Vra-D3-Kth"/>
+                                            <constraint firstAttribute="bottom" secondItem="DI1-BV-iuZ" secondAttribute="bottom" constant="2" id="Xgf-kM-lXC"/>
                                             <constraint firstItem="DI1-BV-iuZ" firstAttribute="top" secondItem="2Ov-aB-EMK" secondAttribute="top" id="amM-Ez-IPo"/>
+                                            <constraint firstItem="DI1-BV-iuZ" firstAttribute="leading" secondItem="2Ov-aB-EMK" secondAttribute="leading" constant="2" id="dCX-RQ-oqO"/>
                                             <constraint firstItem="DI1-BV-iuZ" firstAttribute="centerX" secondItem="2Ov-aB-EMK" secondAttribute="centerX" id="fLy-96-MCO"/>
                                             <constraint firstAttribute="trailing" secondItem="DI1-BV-iuZ" secondAttribute="trailing" id="jsa-NS-3kH"/>
                                             <constraint firstAttribute="bottom" secondItem="DI1-BV-iuZ" secondAttribute="bottom" id="moE-96-4z7"/>
+                                            <constraint firstItem="DI1-BV-iuZ" firstAttribute="top" secondItem="2Ov-aB-EMK" secondAttribute="top" constant="2" id="qF0-cu-TSq"/>
                                         </constraints>
                                         <size key="customSize" width="50" height="50"/>
                                         <variation key="default">
                                             <mask key="constraints">
+                                                <exclude reference="Gs6-8m-DHb"/>
                                                 <exclude reference="Nah-Cw-jWl"/>
                                                 <exclude reference="amM-Ez-IPo"/>
+                                                <exclude reference="fLy-96-MCO"/>
                                                 <exclude reference="jsa-NS-3kH"/>
                                                 <exclude reference="moE-96-4z7"/>
                                             </mask>

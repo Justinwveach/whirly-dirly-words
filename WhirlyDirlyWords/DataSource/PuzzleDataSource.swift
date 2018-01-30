@@ -15,7 +15,7 @@ class PuzzleDataSource: NSObject, UICollectionViewDataSource {
     var puzzle: CrosswordPuzzle!
     weak var parent: UIViewController?
     
-    init<T: UIViewController>(size: Int, puzzle: CrosswordPuzzle, parent: T) {
+    init<T: UIViewController & DraggableDelegate>(size: Int, puzzle: CrosswordPuzzle, parent: T) {
         super.init()
         self.size = size
         self.tiles = puzzle.tiles
@@ -38,11 +38,16 @@ class PuzzleDataSource: NSObject, UICollectionViewDataSource {
         let row = indexPath.row / size
         
         let tile = puzzle.getTile(column: column, row: row)
-        cell.letterLabel.text = tile.letter
+        cell.tileView.letterLabel.text = tile.letter
+        cell.tileView.delegate = parent as? DraggableDelegate
+        cell.tileView.cell = cell
+        cell.tileView.tag = 0
+        cell.tileView.originalBackgroundColor = .white
+        cell.tileView.originalTextColor = Constants.secondaryColor
+        
         cell.tile = tile
-        
         cell.delegate = parent as? TileDelegate
-        
+    
         if tile.isEmpty {
             cell.isHidden = true
         } else {
@@ -50,6 +55,21 @@ class PuzzleDataSource: NSObject, UICollectionViewDataSource {
         }
         
         return cell
+    }
+    
+    func move(tile: Tile, to: TileCollectionViewCell) {
+        if let destinationTile = to.tile {
+            if let _ = tiles.index(of: tile) {
+                destinationTile.character = tile.character
+                tile.character = Character(" ")
+            }
+        }
+    }
+    
+    func remove(tile: Tile) {
+        if let index = tiles.index(of: tile) {
+            tiles.remove(at: index)
+        }
     }
     
 }
