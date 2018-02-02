@@ -24,9 +24,15 @@ extension String {
     }
     
     public func index(of char: Character) -> Int? {
-        if let idx = characters.index(of: char) {
-            return characters.distance(from: startIndex, to: idx)
+        for i in 0..<self.count {
+            let charAtIndex = self[index(startIndex, offsetBy: i)]
+            if charAtIndex == char {
+                return i
+            }
         }
+        //if let idx = characters.index(of: char) {
+        //    return characters.distance(from: startIndex, to: idx)
+        //}
         return nil
     }
     

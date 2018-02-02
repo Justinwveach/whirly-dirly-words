@@ -43,11 +43,13 @@ class WhirlyDirlyWordsTests: XCTestCase {
         assert(row == 0)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testCharAtIndex() {
+        let string = "Hello"
+        let index = string.index(of: "e")
+        assert(index == 1)
+        
+        let lIndex = string.index(of: "l")
+        assert(lIndex == 2)
     }
     
 }
