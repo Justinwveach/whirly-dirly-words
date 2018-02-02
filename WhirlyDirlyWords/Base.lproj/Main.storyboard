@@ -31,9 +31,8 @@
                                     <segue destination="vA2-p8-XK7" kind="show" identifier="ResumeGameSegue" id="HuA-p9-BHw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZM-tf-Q2S">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZM-tf-Q2S">
                                 <rect key="frame" x="166" y="268" width="43" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Bonus"/>
                                 <connections>
                                     <segue destination="XZU-zc-qo0" kind="show" id="hcx-Zu-CkM"/>
@@ -49,10 +48,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ImX-f8-bmm" firstAttribute="top" secondItem="EZM-tf-Q2S" secondAttribute="bottom" constant="20.5" id="30i-hK-VeO"/>
                             <constraint firstItem="dkY-6M-por" firstAttribute="top" secondItem="ImX-f8-bmm" secondAttribute="bottom" constant="24.5" id="IMe-Qm-Fyk"/>
                             <constraint firstItem="ImX-f8-bmm" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="OCG-9z-a0G"/>
                             <constraint firstItem="dkY-6M-por" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YGE-ZA-tUk"/>
                             <constraint firstItem="ImX-f8-bmm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fnZ-cp-gPV"/>
+                            <constraint firstItem="EZM-tf-Q2S" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iqd-IG-hh3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -123,10 +124,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gtq-U4-Gip">
-                                <rect key="frame" x="0.0" y="120" width="375" height="387"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="379"/>
                                 <subviews>
                                     <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xIV-rs-uts">
-                                        <rect key="frame" x="0.0" y="6" width="375" height="375"/>
+                                        <rect key="frame" x="0.0" y="2" width="375" height="375"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="xIV-rs-uts" secondAttribute="height" multiplier="1:1" id="H2B-Rv-80c"/>
@@ -314,7 +315,7 @@
                             <constraint firstItem="gtq-U4-Gip" firstAttribute="top" secondItem="uvb-lh-knY" secondAttribute="bottom" id="Xsb-R8-bAD"/>
                             <constraint firstItem="uvb-lh-knY" firstAttribute="top" secondItem="Hfk-iY-56b" secondAttribute="top" id="iyP-X9-pXp"/>
                             <constraint firstItem="uvb-lh-knY" firstAttribute="leading" secondItem="Hfk-iY-56b" secondAttribute="leading" id="kFc-4B-Lxs"/>
-                            <constraint firstItem="lh7-cu-uhc" firstAttribute="top" secondItem="gtq-U4-Gip" secondAttribute="bottom" id="lRk-Nt-rSl"/>
+                            <constraint firstItem="lh7-cu-uhc" firstAttribute="top" secondItem="gtq-U4-Gip" secondAttribute="bottom" constant="8" id="lRk-Nt-rSl"/>
                             <constraint firstItem="lh7-cu-uhc" firstAttribute="trailing" secondItem="Hfk-iY-56b" secondAttribute="trailing" id="mzS-EE-gvd"/>
                             <constraint firstItem="Hfk-iY-56b" firstAttribute="trailing" secondItem="uvb-lh-knY" secondAttribute="trailing" id="rXJ-VF-5Ee"/>
                             <constraint firstItem="gtq-U4-Gip" firstAttribute="top" secondItem="Hfk-iY-56b" secondAttribute="top" id="uKR-OM-ik0"/>
