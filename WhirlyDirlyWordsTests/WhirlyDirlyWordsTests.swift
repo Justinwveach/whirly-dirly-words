@@ -52,4 +52,15 @@ class WhirlyDirlyWordsTests: XCTestCase {
         assert(lIndex == 2)
     }
     
+    func testTileValue() {
+        let tileOne = Tile(letter: "z", column: 0, row: 0)
+        assert(tileOne.pointValue == 10)
+        
+        let tileTwo = Tile(letter: "w", column: 0, row: 0)
+        assert(tileTwo.pointValue == 4)
+        
+        let tileThree = Tile(invalid: true)
+        assert(tileThree.pointValue == 0)
+    }
+    
 }

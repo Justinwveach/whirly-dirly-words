@@ -9,7 +9,7 @@
 import XCTest
 @testable import WhirlyDirlyWords
 
-class WordValidationTest: XCTestCase {
+class WordValidationTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

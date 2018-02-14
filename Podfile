@@ -7,7 +7,7 @@ target 'WhirlyDirlyWords' do
 
   # Pods for WhirlyDirlyWords
   pod ‘CocoaLumberjack/Swift’
-  pod 'DragDropUI', '~> 1.0.3'
+  pod 'RealmSwift'
 
   target 'WhirlyDirlyWordsTests' do
     inherit! :search_paths

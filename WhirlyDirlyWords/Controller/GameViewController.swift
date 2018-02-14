@@ -19,7 +19,7 @@ class GameViewController: UIViewController, GameDelegate, UICollectionViewDelega
     
     var round: Int = 1
     let generator = CrosswordGenerator(words: Words.sharedInstance)
-    let puzzleSize = 8
+    let puzzleSize = 12
     let margin: CGFloat = 2.0
     var game: Game!
     var selectedTile: TileView?
@@ -59,7 +59,7 @@ class GameViewController: UIViewController, GameDelegate, UICollectionViewDelega
     }
     
     fileprivate func startNewPuzzle() {
-        puzzle = generator.createPuzzle(wordStructure: [.short, .medium, .short, .short], size: puzzleSize)
+        puzzle = generator.createPuzzle(wordStructure: [.short, .medium, .short, .short, .extraLong, .long, .medium], size: puzzleSize)
         puzzle?.printResult()
         
         userPuzzle = CrosswordPuzzle(size: puzzleSize)

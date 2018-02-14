@@ -9,7 +9,7 @@
 import XCTest
 @testable import WhirlyDirlyWords
 
-class SearchTest: XCTestCase {
+class SearchTests: XCTestCase {
     
     var words: Words!
     var allWords: Array<String>!

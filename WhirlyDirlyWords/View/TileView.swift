@@ -14,6 +14,7 @@ class TileView: DraggableView {
     @IBInspectable var originalTextColor: UIColor = Constants.secondaryColor
     
     @IBOutlet weak var letterLabel: UILabel!
+    
     weak var cell: TileCollectionViewCell?
     
     class func instanceFromNib() -> TileView {

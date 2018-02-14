@@ -15,13 +15,30 @@ public class CrosswordGenerator {
     var size: Int = 4
     var puzzle: CrosswordPuzzle!
     
+    // Arbitrary number to limit how many words it tries to use before restarting the puzzle
+    // Todo: Refactor to get total number of words that meet the criteria (e.g. contains a certain letter is a certain length)
+    let maxSearchIterations = 300
+    var wordStructure = [Length]()
+    
     init(words: Words) {
         self.words = words
     }
     
+    /// 40% fill rate appears to be the magic number.  Wouldn't recommend creating a puzzle larger than that.
     func createPuzzle(wordStructure: [Length], size: Int) -> CrosswordPuzzle {
-        puzzle = CrosswordPuzzle(size: size)
+        self.wordStructure = wordStructure
+        self.size = size
         
+        var createdPuzzle = false
+        while createdPuzzle == false {
+            puzzle = CrosswordPuzzle(size: size)
+            createdPuzzle = generatePuzzle()
+        }
+        
+        return puzzle
+    }
+    
+    fileprivate func generatePuzzle() -> Bool {
         let puzzleStructure = wordStructure.sorted()
         //wordStructure = wordStructure.sorted()
         let firstWord = words.getWord(length: puzzleStructure[0])
@@ -50,17 +67,33 @@ public class CrosswordGenerator {
             }
         }
         
+        var success = true
+        
         puzzle.push(firstWord)
         for i in 1..<wordStructure.count {
             let length = wordStructure[i]
             var foundWord = false
             
+            var iterations = 0
             while foundWord == false {
                 foundWord = findWordThatWorks(length: length)
+                if !foundWord {
+                    iterations = iterations + 1
+                }
+                
+                if iterations > maxSearchIterations {
+                    print("Took over \(maxSearchIterations)")
+                    success = false
+                    break
+                }
+            }
+            
+            if !foundWord {
+                break
             }
         }
         
-        return puzzle
+        return success
     }
     
     fileprivate func findWordThatWorks(length: Length) -> Bool {
