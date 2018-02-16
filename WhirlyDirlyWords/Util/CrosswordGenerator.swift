@@ -18,14 +18,14 @@ public class CrosswordGenerator {
     // Arbitrary number to limit how many words it tries to use before restarting the puzzle
     // Todo: Refactor to get total number of words that meet the criteria (e.g. contains a certain letter is a certain length)
     let maxSearchIterations = 300
-    var wordStructure = [Length]()
+    var wordStructure = LengthArray()
     
     init(words: Words) {
         self.words = words
     }
     
     /// 40% fill rate appears to be the magic number.  Wouldn't recommend creating a puzzle larger than that.
-    func createPuzzle(wordStructure: [Length], size: Int) -> CrosswordPuzzle {
+    func createPuzzle(wordStructure: LengthArray, size: Int) -> CrosswordPuzzle {
         self.wordStructure = wordStructure
         self.size = size
         
@@ -39,7 +39,7 @@ public class CrosswordGenerator {
     }
     
     fileprivate func generatePuzzle() -> Bool {
-        let puzzleStructure = wordStructure.sorted()
+        let puzzleStructure = wordStructure.lengths.sorted()
         //wordStructure = wordStructure.sorted()
         let firstWord = words.getWord(length: puzzleStructure[0])
         

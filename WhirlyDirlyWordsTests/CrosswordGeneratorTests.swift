@@ -57,7 +57,7 @@ class CrosswordGeneratorTests: XCTestCase {
     
     func testPerformanceExample() {
         for _ in 0..<10 {
-            let puzzle = crosswordGenerator.createPuzzle(wordStructure: [.medium, .short, .short, .medium], size: 8)
+            let puzzle = crosswordGenerator.createPuzzle(wordStructure: LengthArray(.medium, .short, .short, .medium), size: 8)
 
             for row in 0..<8 {
                 var rowString = ""
@@ -95,7 +95,7 @@ class CrosswordGeneratorTests: XCTestCase {
         
         var puzzles = [CrosswordPuzzle]()
         for _ in 0..<iterations {
-            let lengths: [Length] = [.short, .short, .short, .short, .short, .short, .short]
+            let lengths = LengthArray(.short, .short, .short, .short, .short, .short, .short)
             let start = Date()
             let puzzle = crosswordGenerator.createPuzzle(wordStructure: lengths, size: size)
             let time = start.timeIntervalSinceNow * -1
@@ -111,10 +111,10 @@ class CrosswordGeneratorTests: XCTestCase {
     ///
     /// - Parameter puzzleFill: Percentage of puzzle to contain letters
     /// - Paramter size: Size of puzzle
-    fileprivate func getWords(puzzleFill: Double, size: Int) -> [Length] {
+    fileprivate func getWords(puzzleFill: Double, size: Int) -> LengthArray {
         let totalSize = (Double)(size * size)
         let tilesToFill = (Int)(totalSize * puzzleFill)
-        var lengths = [Length]()
+        let lengths = LengthArray()
         var currentSize = 0
         
         while currentSize < tilesToFill {

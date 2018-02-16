@@ -34,7 +34,7 @@ extension Length {
         }
     }
     
-    // When there is [Length] and I want to determine if it is unique compared ot other [Length], I take the sum of Length.powerTen.  This number represents a unique combination.  Not sure if I like this and may change it up later since there will be limitations if the number of words gets too large.
+    // When there is [Length] and I want to determine if it is unique compared ot other [Length], I take the sum of Length.powerTen.  This number represents a unique combination.
     var powerTen: Int {
         switch self {
         case .short:
@@ -47,4 +47,18 @@ extension Length {
             return 1000
         }
     }
+    
+    var letterCount: Int {
+        switch self {
+        case .short:
+            return 3
+        case .medium:
+            return 5
+        case .long:
+            return 7
+        case .extraLong:
+            return 9
+        }
+    }
+    
 }

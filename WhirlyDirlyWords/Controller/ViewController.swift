@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import CocoaLumberjack
 
 class ViewController: UIViewController, UITableViewDelegate {
 
@@ -46,6 +47,17 @@ class ViewController: UIViewController, UITableViewDelegate {
         //let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         //v.addGestureRecognizer(tapRecognizer)
         return header
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let level = levelStore.levels.filter("section == %d && roundInSection == %d", indexPath.section, indexPath.row).first {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let gameViewController = storyboard.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+            gameViewController.level = level
+            present(gameViewController, animated: true, completion: nil)
+        } else {
+            DDLogDebug("Could not retrieve the Level from Realm when user clicked on table view cell: section \(indexPath.section) row \(indexPath.row)")
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

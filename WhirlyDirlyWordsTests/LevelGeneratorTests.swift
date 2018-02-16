@@ -36,7 +36,7 @@ class LevelGeneratorTests: XCTestCase {
     }
     
     var count = 0
-    var allCombos = [[Length]]()
+    var allCombos = [LengthArray]()
     
     // https://www.mathsisfun.com/combinatorics/combinations-permutations-calculator.html
     // use the link above to determine correct number
@@ -54,9 +54,8 @@ class LevelGeneratorTests: XCTestCase {
         
         var uniqueCombos = [Int]()
         for combo in allCombos {
-            let sum = LevelGenerator.getPowerTenSum(lengths: combo)
-            if !uniqueCombos.contains(sum) {
-                uniqueCombos.append(sum)
+            if !uniqueCombos.contains(combo.powerTenSum) {
+                uniqueCombos.append(combo.powerTenSum)
             }
         }
         
@@ -65,11 +64,11 @@ class LevelGeneratorTests: XCTestCase {
     
     fileprivate func printCombo(values: [Length], k: Int) {
         let n = values.count
-        printAllCombos(values: values, currentCombo: [Length](), n: n, k: k)
+        printAllCombos(values: values, currentCombo: LengthArray(), n: n, k: k)
         print("\(count) unique combinations")
     }
     
-    fileprivate func printAllCombos(values: [Length], currentCombo: [Length], n: Int, k: Int) {
+    fileprivate func printAllCombos(values: [Length], currentCombo: LengthArray, n: Int, k: Int) {
         // Base case: k is 0, print prefix
         if k == 0 {
             //print("\(prefix)")
@@ -82,8 +81,10 @@ class LevelGeneratorTests: XCTestCase {
         // call for k equals to k-1
         for i in 0..<n {
             // Next character of input added
-            var newCombo = [Length]()
-            newCombo.append(contentsOf: currentCombo)
+            let newCombo = LengthArray()
+            for length in currentCombo.lengths {
+                newCombo.append(length)
+            }
             newCombo.append(values[i])
             // let newPrefix = "\(prefix)\(values[i])"
             

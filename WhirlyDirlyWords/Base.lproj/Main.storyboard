@@ -243,7 +243,7 @@
         <!--Game View Controller-->
         <scene sceneID="obg-aa-ARS">
             <objects>
-                <viewController id="vA2-p8-XK7" customClass="GameViewController" customModule="WhirlyDirlyWords" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vA2-p8-XK7" customClass="GameViewController" customModule="WhirlyDirlyWords" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n5J-cQ-erQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -263,8 +263,18 @@
                                                     <action selector="refreshPuzzle:" destination="vA2-p8-XK7" id="ytF-BS-QXv"/>
                                                 </connections>
                                             </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="d1s-yE-2Qk"/>
+                                            <barButtonItem title="Home" id="P2A-EX-sgs">
+                                                <connections>
+                                                    <action selector="goHome:" destination="vA2-p8-XK7" id="kH9-Il-i1E"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="MO1-A1-pHc"/>
-                                            <barButtonItem title="Hint" id="wGO-2C-ngB"/>
+                                            <barButtonItem systemItem="search" id="wGO-2C-ngB">
+                                                <connections>
+                                                    <action selector="validatePuzzle:" destination="vA2-p8-XK7" id="ZTg-JL-TW6"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </items>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="barTintColor" red="0.039215686270000001" green="0.35294117650000001" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

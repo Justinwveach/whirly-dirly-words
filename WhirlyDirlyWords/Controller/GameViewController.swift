@@ -17,9 +17,9 @@ class GameViewController: UIViewController, GameDelegate, UICollectionViewDelega
     @IBOutlet weak var roundScoreLabel: UILabel!
     @IBOutlet weak var totalScoreLabel: UILabel!
     
-    var round: Int = 1
+    var level: Level!
+    
     let generator = CrosswordGenerator(words: Words.sharedInstance)
-    let puzzleSize = 12
     let margin: CGFloat = 2.0
     var game: Game!
     var selectedTile: TileView?
@@ -49,8 +49,6 @@ class GameViewController: UIViewController, GameDelegate, UICollectionViewDelega
         letterCollectionView.delegate = self
         puzzleCollectionView.delegate = self
         
-        round = 1
-        
         startNewPuzzle()
     }
     
@@ -58,11 +56,24 @@ class GameViewController: UIViewController, GameDelegate, UICollectionViewDelega
         startNewPuzzle()
     }
     
+    @IBAction func goHome(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func validatePuzzle(_ sender: Any) {
+        let isValid = userPuzzle.validateBoard()
+        let message = isValid ? "Puzzle is valid!" : "Wrong!!"
+        let alert = UIAlertController(title: "Puzzle", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
     fileprivate func startNewPuzzle() {
-        puzzle = generator.createPuzzle(wordStructure: [.short, .medium, .short, .short, .extraLong, .long, .medium], size: puzzleSize)
+        puzzle = generator.createPuzzle(wordStructure: level.wordLengths, size: level.puzzleSize)
         puzzle?.printResult()
         
-        userPuzzle = CrosswordPuzzle(size: puzzleSize)
+        userPuzzle = CrosswordPuzzle(size: level.puzzleSize)
         for t in (puzzle?.tiles)! {
             let tile = Tile(letter: " ", column: t.column, row: t.row)
             userPuzzle.add(tile)
@@ -71,7 +82,7 @@ class GameViewController: UIViewController, GameDelegate, UICollectionViewDelega
         //puzzle.letters shuffles the letters for us, so let's keep that order once we shuffle
         let letters = puzzle?.letters ?? []
         letterDataSource = LetterDataSource(letters: letters, parent: self)
-        puzzleDataSource = PuzzleDataSource(size: puzzleSize, puzzle: userPuzzle, parent: self)
+        puzzleDataSource = PuzzleDataSource(size: level.puzzleSize, puzzle: userPuzzle, parent: self)
         
         letterCollectionView.dataSource = letterDataSource
         puzzleCollectionView.dataSource = puzzleDataSource
@@ -96,8 +107,8 @@ class GameViewController: UIViewController, GameDelegate, UICollectionViewDelega
         
         if collectionView == puzzleCollectionView {
             let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-            let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(puzzleSize - 1)
-            let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(puzzleSize)).rounded(.down)
+            let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(level.puzzleSize - 1)
+            let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(level.puzzleSize)).rounded(.down)
             return CGSize(width: itemWidth, height: itemWidth)
         } else {
             return CGSize(width: 40, height: 40)

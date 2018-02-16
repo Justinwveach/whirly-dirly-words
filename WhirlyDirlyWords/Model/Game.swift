@@ -39,7 +39,7 @@ struct Game {
     }
     
     mutating func startNextRound() -> (CrosswordPuzzle, [Character]) {
-        currentPuzzle = puzzleGenerator.createPuzzle(wordStructure: [.short, .medium, .short, .short], size: puzzleSize)
+        currentPuzzle = puzzleGenerator.createPuzzle(wordStructure: LengthArray(Length.short, Length.medium, Length.short, Length.short), size: puzzleSize)
         currentPuzzle?.printResult()
         
         let userPuzzle = CrosswordPuzzle(size: puzzleSize)

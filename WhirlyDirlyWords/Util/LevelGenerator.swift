@@ -29,9 +29,10 @@ struct LevelGenerator {
             level.roundInSection = value.2
             level.highScore = 0
             level.lettersGiven = 2
+            level.puzzleSize = value.3
             level.id = LocalStorage.sharedInstance.nextLevelId
 
-            for length in value.3 {
+            for length in value.4.lengths {
                 level.wordLengthsRaw.append(length.rawValue)
             }
             
@@ -43,11 +44,11 @@ struct LevelGenerator {
     /// Creates values needed to populate levels
     ///
     /// - Returns: Returns (Section, Level, LevelInSection, [Length])
-    static func createBeginnerLevels() -> [(Int, Int, Int, [Length])] {
+    static func createBeginnerLevels() -> [(Int, Int, Int, Int, LengthArray)] {
         var level = 1
-        var puzzleSize: Double = 8
+        var puzzleSize: Int = 8
         var numberOfWords = 3
-        var levels = [(Int, Int, Int, [Length])]()
+        var levels = [(Int, Int, Int, Int, LengthArray)]()
         
         let multiplierStore = LevelMultiplierStore()
         for i in 0...5 {
@@ -63,14 +64,14 @@ struct LevelGenerator {
             else if i > 2 {
                 puzzleSize = 9
             }
-            let maxLetterSum = (Int)((puzzleSize * puzzleSize) * 0.4)
+            let maxLetterSum = (Int)((Double)(puzzleSize * puzzleSize) * 0.4)
             
-            var levelSum = [Int]()
+            var wordLengthsUsed = [LengthArray]()
             
             for levelInSection in 0...4 {
                 var foundUniqueCombo = false
                 while !foundUniqueCombo {
-                    var wordLengths = [Length]()
+                    let wordLengths = LengthArray()
                     for _ in 0..<numberOfWords {
                         let rand = arc4random()%3
                         switch rand {
@@ -83,10 +84,9 @@ struct LevelGenerator {
                         }
                     }
                     
-                    let sum = getPowerTenSum(lengths: wordLengths)
-                    if !levelSum.contains(sum) {//} && sum <= maxLetterSum {
-                        levelSum.append(sum)
-                        levels.append((i, level, levelInSection, wordLengths))
+                    if !wordLengthsUsed.contains(wordLengths) && wordLengths.letterCount <= maxLetterSum {
+                        wordLengthsUsed.append(wordLengths)
+                        levels.append((i, level, levelInSection, puzzleSize, wordLengths))
                         level = level + 1
                         foundUniqueCombo = true
                     }
@@ -99,11 +99,4 @@ struct LevelGenerator {
         return levels
     }
     
-    static func getPowerTenSum(lengths: [Length]) -> Int {
-        var sum = 0
-        for length in lengths {
-            sum = sum + length.powerTen
-        }
-        return sum
-    }
 }

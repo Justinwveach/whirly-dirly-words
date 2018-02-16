@@ -15,13 +15,14 @@ class Level: Object {
     @objc dynamic var section = 0
     @objc dynamic var round = 0
     @objc dynamic var roundInSection = 0
+    @objc dynamic var puzzleSize = 0
     @objc dynamic var highScore = 0
     @objc dynamic var lettersGiven = 0
     let wordLengthsRaw = List<String>()
     
-    var wordLengths: [Length] {
+    var wordLengths: LengthArray {
         get {
-            var lengths = [Length]()
+            let lengths = LengthArray()
             for rawLength in wordLengthsRaw {
                 if let length = Length(rawValue: rawLength) {
                     lengths.append(length)
