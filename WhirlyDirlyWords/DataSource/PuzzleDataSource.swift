@@ -42,12 +42,21 @@ class PuzzleDataSource: NSObject, UICollectionViewDataSource {
         cell.tileView.delegate = parent as? DraggableDelegate
         cell.tileView.cell = cell
         cell.tileView.tag = 0
-        cell.tileView.originalBackgroundColor = .white
-        cell.tileView.originalTextColor = Constants.secondaryColor
+        cell.tileView.isFixed = tile.isFreebie
         
         cell.tile = tile
         cell.delegate = parent as? TileDelegate
-    
+        
+        if tile.isFreebie {
+            cell.tileView.originalBackgroundColor = Constants.secondaryColor
+            cell.tileView.originalTextColor = .white
+        } else {
+            cell.tileView.originalBackgroundColor = .white
+            cell.tileView.originalTextColor = Constants.secondaryColor
+        }
+        
+        cell.tileView.resetUI()
+        
         if tile.isEmpty {
             cell.isHidden = true
         } else {

@@ -87,14 +87,28 @@ class GameViewController: UIViewController, GameDelegate, UICollectionViewDelega
         letterCollectionView.dataSource = letterDataSource
         puzzleCollectionView.dataSource = puzzleDataSource
         
+        provideFreebies()
+        
         letterCollectionView.reloadData()
         puzzleCollectionView.reloadData()
+    }
+    
+    fileprivate func provideFreebies() {
+        let randomTiles = puzzle.findRandomTiles(amount: level.lettersGiven)
+        for tile in randomTiles {
+            let userTile = userPuzzle.getTile(column: tile.column, row: tile.row)
+            if !userTile.invalid {
+                userTile.character = tile.character
+                userTile.isFreebie = true
+                letterDataSource.remove(letter: tile.character)
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == puzzleCollectionView {
             let cell = puzzleCollectionView.cellForItem(at: indexPath) as! PuzzleCollectionViewCell
-            if !cell.tile.isPlaceholder && !cell.tile.isEmpty {
+            if !cell.tile.isPlaceholder && !cell.tile.isEmpty && !cell.tile.isFreebie {
                 letterDataSource.letters.append(cell.tile.character)
                 cell.tile.character = Character(" ")
                 puzzleCollectionView.reloadData()

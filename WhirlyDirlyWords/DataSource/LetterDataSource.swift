@@ -44,4 +44,19 @@ class LetterDataSource: NSObject, UICollectionViewDataSource {
         letters.remove(at: index)
     }
     
+    func remove(letter: Character) {
+        var index = -1
+        for i in 0..<letters.count {
+            let thisLetter = letters[i]
+            if thisLetter == letter {
+                index = i
+                break
+            }
+        }
+        
+        if index >= 0 {
+            removeLetter(index: index)
+        }
+    }
+    
 }

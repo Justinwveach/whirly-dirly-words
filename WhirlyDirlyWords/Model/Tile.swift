@@ -16,6 +16,9 @@ class Tile: Equatable {
     var row: Int = -1
     var invalid = false
     
+    // Indicates a tile that was provided and shouldn't be moved
+    var isFreebie = false
+    
     let points: [Character: Int] = ["a": 1, "b": 3, "c": 3, "d": 2, "e": 1,
                                     "f": 4, "g": 2, "h": 4, "i": 1, "j": 8,
                                     "k": 5, "l": 1, "m": 3, "n": 1, "o": 1,
@@ -42,6 +45,7 @@ class Tile: Equatable {
         self.character = " "
     }
     
+    // Instead of returning nil, our methods will return this to indicate an invalid Tile
     init(invalid: Bool) {
         self.invalid = true
     }
@@ -50,12 +54,14 @@ class Tile: Equatable {
         
     }
     
+    // When a tile has not been set to a certain place on the puzzle board
     var isEmpty: Bool {
         get {
             return character == Character(" ") && column == -1 && row == -1
         }
     }
     
+    // When a tile is a piece of the puzzle but doesn't yet contain a letter
     var isPlaceholder: Bool {
         get {
             return character == Character(" ") && column >= 0 && row >= 0

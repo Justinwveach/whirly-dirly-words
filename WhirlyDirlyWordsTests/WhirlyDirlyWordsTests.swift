@@ -63,4 +63,31 @@ class WhirlyDirlyWordsTests: XCTestCase {
         assert(tileThree.pointValue == 0)
     }
     
+    func testFindingRandomLetter() {
+        let puzzleSize = 3
+        let puzzle = CrosswordPuzzle(size: puzzleSize)
+        for column in 0..<puzzleSize {
+            for row in 0..<puzzleSize {
+                let tile = Tile(letter: " ", column: column, row: row)
+                if column == 1 && row == 2 {
+                    tile.character = "t"
+                }
+                else if column == 2 && row == 0 {
+                    tile.character = "e"
+                }
+                puzzle.add(tile)
+            }
+        }
+        
+        let randomTiles = puzzle.findRandomTiles(amount: 2)
+        assert(randomTiles.count == 2)
+        
+        let tile1 = randomTiles[0]
+        let tile2 = randomTiles[1]
+
+        assert((tile1.column == 1 && tile1.row == 2) || (tile2.column == 1 && tile2.row == 2))
+        
+        assert((tile2.column == 2 && tile2.row == 0) || (tile1.column == 2 && tile1.row == 0))
+    }
+
 }

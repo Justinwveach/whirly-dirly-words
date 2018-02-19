@@ -117,6 +117,34 @@ class CrosswordPuzzle {
         }
     }
     
+    // Finds specificed number of random tiles
+    func findRandomTiles(amount: Int) -> [Tile] {
+        var randomTiles = [Tile]()
+        var usedRandomCombos = [(Int, Int)]()
+        
+        while randomTiles.count < amount {
+            // We've exhausted all combinations and didn't find enough random tiles
+            if usedRandomCombos.count == (size * size) {
+                DDLogWarn("Unable to find enough random tiles")
+                break
+            }
+            
+            let column: Int = Int(arc4random() % UInt32(size))
+            let row: Int = Int(arc4random() % UInt32(size))
+            let colRow = (column, row)
+            if !usedRandomCombos.contains(where: {$0 == colRow}) {
+                usedRandomCombos.append(colRow)
+                
+                let tile = getTile(column: column, row: row)
+                if !tile.invalid && !tile.isPlaceholder && !tile.isEmpty {
+                    randomTiles.append(tile)
+                }
+            }
+        }
+        
+        return randomTiles
+    }
+    
     func printResult() {
         for row in 0..<size {
             var rowString = ""

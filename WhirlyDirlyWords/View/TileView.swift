@@ -17,6 +17,9 @@ class TileView: DraggableView {
     
     weak var cell: TileCollectionViewCell?
     
+    // Bool indicating whether the tile can be dragged (i.e. a tile is given on start of game)
+    var isFixed = false
+    
     class func instanceFromNib() -> TileView {
         let tileView: TileView = UINib(nibName: "TileView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! TileView
         return tileView
@@ -27,6 +30,10 @@ class TileView: DraggableView {
     }
     
     override func isDraggable() -> Bool {
+        if isFixed {
+            return false
+        }
+        
         if let text = letterLabel.text {
             if !text.isEmpty && text != " " {
                 return true
