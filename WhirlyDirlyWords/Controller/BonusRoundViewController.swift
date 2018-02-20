@@ -21,7 +21,7 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBOutlet weak var fiveLetterWordsView: FoundWordsView!
     @IBOutlet weak var sixLetterWordsView: FoundWordsView!
     
-    var multiplierStore = LevelMultiplierStore()
+    var bonusStore = BonusStore()
    
     var baseWord = ""
     
@@ -32,12 +32,12 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
     var currentWord: Word!
     let wordLength = 6
     let roundLength: Double = 20
-    var multiplier: Float = 1.0 {
+    var score: Int = 0 {
         didSet {
-            navItem.title = String(format: "%.2fx", multiplier)
+            navItem.title = "\(score)"
         }
     }
-    var levelMultiplier: LevelMultiplier!
+    var bonus: Bonus!
     
     var navBarTimerView: TimerView!
     
@@ -168,7 +168,7 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     fileprivate func startNewRound() {
-        multiplier = 1.0
+        score = 0
         
         let dateComponentsFormatter = DateComponentsFormatter()
         dateComponentsFormatter.allowedUnits = [.second]
@@ -195,14 +195,14 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
         letters.removeAll()
         letterCollectionView.reloadData()
 
-        if multiplier > levelMultiplier.value {
-            multiplierStore.update(id: levelMultiplier.id, fields: ["value": multiplier])
-        }
+        //if multiplier > levelMultiplier.value {
+        bonusStore.update(id: bonus.id, fields: ["value": score])
+        //}
     }
     
     fileprivate func incrementMultilplier(word: String) {
-        let increment = ScoreKeeper.getMultiplierIncrement(word)
-        multiplier = multiplier + increment
+        let increment = ScoreKeeper.getBonusIncrement(word)
+        score = score + increment
     }
     
     fileprivate func getCellSize(collectionView: UICollectionView) -> CGFloat {

@@ -587,7 +587,7 @@
                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="1.00x" id="TSb-hV-JD5">
+                                    <navigationItem title="0" id="TSb-hV-JD5">
                                         <barButtonItem key="leftBarButtonItem" title="More" id="OWw-Lf-aDq">
                                             <connections>
                                                 <action selector="showMoreOptions:" destination="XZU-zc-qo0" id="sfA-HL-4w9"/>

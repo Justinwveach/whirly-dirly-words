@@ -1,9 +1,9 @@
 //
-//  LevelMultiplierTableViewCell.swift
+//  BonusHeaderView.swift
 //  WhirlyDirlyWords
 //
 //  Created by Justin Veach on 2/13/18.
-//  Copyright © 2018 justinveach. All rights reserved.
+//  Copyright Â© 2018 justinveach. All rights reserved.
 //
 
 import UIKit
@@ -31,7 +31,7 @@ class BonusHeaderView: UIView {
     }
     
     class func instanceFromNib() -> BonusHeaderView {
-        return UINib(nibName: "LevelMultiplierHeaderView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! BonusHeaderView
+        return UINib(nibName: "BonusHeaderView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! BonusHeaderView
     }
     
     fileprivate func customizeView() {

@@ -65,7 +65,7 @@ class GameViewController: UIViewController, GameDelegate, UICollectionViewDelega
         let isValid = userPuzzle.validateBoard()
         
         if isValid {
-            let score = ScoreKeeper.getScore(puzzle: userPuzzle, level: level)
+            let score = ScoreKeeper.getScore(puzzle: userPuzzle)
             if score > level.highScore {
                 levelStore.update(id: level.id, fields: ["highScore": score])
             }

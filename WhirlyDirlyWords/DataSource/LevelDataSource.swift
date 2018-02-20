@@ -12,10 +12,10 @@ import CocoaLumberjack
 
 class LevelDataSource: NSObject, UITableViewDataSource {
     
-    var sections: Results<LevelMultiplier>
+    var sections: Results<Bonus>
     var levels: Results<Level>
     
-    init(sections: Results<LevelMultiplier>, levels: Results<Level>) {
+    init(sections: Results<Bonus>, levels: Results<Level>) {
         self.sections = sections
         self.levels = levels
         

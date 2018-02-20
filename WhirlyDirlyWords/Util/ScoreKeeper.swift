@@ -10,18 +10,18 @@ import Foundation
 
 struct ScoreKeeper {
     
-    static func getMultiplierIncrement(_ word: String) -> Float {
+    static func getBonusIncrement(_ word: String) -> Int {
         switch word.count {
         case 3:
-            return 0.1
+            return 25
         case 4:
-            return 0.2
+            return 50
         case 5:
-            return 0.35
+            return 100
         case 6:
-            return 0.5
+            return 200
         default:
-            return 0.0
+            return 0
         }
     }
     
@@ -31,15 +31,18 @@ struct ScoreKeeper {
         for tile in puzzle.tiles {
             score = score + tile.pointValue
         }
-        return score
+        return score * 10
     }
     
+    /*
     static func getScore(puzzle: CrosswordPuzzle, level: Level) -> Int {
         var score = getScore(puzzle: puzzle)
-        let store = LevelMultiplierStore()
-        if let multiplier = store.multipliers.filter("section == %d", level.section).first {
+        let store = BonusRoundStore()
+        if let multiplier = store.bonuses.filter("section == %d", level.section).first {
             score = Int(Float(score) * multiplier.value)
         }
         return score
     }
+ */
+    
 }

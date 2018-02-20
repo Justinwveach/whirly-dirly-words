@@ -23,11 +23,11 @@ class LocalStorage {
             return 0
         }
     }
-    var nextMultiplierId: Int {
+    var nextBonusId: Int {
         get {
             let realm = try! Realm()
             
-            if let max: Int = realm.objects(LevelMultiplier.self).max(ofProperty: "id") {
+            if let max: Int = realm.objects(Bonus.self).max(ofProperty: "id") {
                 return max + 1
             }
             return 0

@@ -15,15 +15,15 @@ class ViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var levelsTableView: UITableView!
     var levelDataSource: LevelDataSource!
     let levelStore = LevelStore()
-    let multiplierStore = LevelMultiplierStore()
-    var multipliers: Results<LevelMultiplier>!
+    let bonusStore = BonusStore()
+    var bonuses: Results<Bonus>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         let levels = levelStore.levels
-        multipliers = multiplierStore.multipliers
-        levelDataSource = LevelDataSource(sections: multipliers, levels: levels)
+        bonuses = bonusStore.bonuses
+        levelDataSource = LevelDataSource(sections: bonuses, levels: levels)
         
         levelsTableView.delegate = self
         levelsTableView.dataSource = levelDataSource
@@ -41,14 +41,14 @@ class ViewController: UIViewController, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return LevelMultiplierHeaderView.height
+        return BonusHeaderView.height
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = LevelMultiplierHeaderView.instanceFromNib()
-        if let multiplier = multipliers.filter("section == %d", section).first {
-            header.multiplierLabel.text = "\(multiplier.value)"
-            header.titleLabel.text = "Test"
+        let header = BonusHeaderView.instanceFromNib()
+        if let bonus = bonuses.filter("section == %d", section).first {
+            header.bonusLabel.text = "\(bonus.freeLetters) Free Letters"
+            header.titleLabel.text = "Round \(section+1)"
         }
         header.tag = section    
         
@@ -81,13 +81,13 @@ class ViewController: UIViewController, UITableViewDelegate {
     }
     
     @objc fileprivate func handleHeaderTap(sender: UITapGestureRecognizer) {
-        if let multiplier = multiplierStore.multipliers.filter("section == %d", sender.view?.tag ?? -1).first {
+        if let bonus = bonusStore.bonuses.filter("section == %d", sender.view?.tag ?? -1).first {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let bonusViewController = storyboard.instantiateViewController(withIdentifier: "BonusRoundViewController") as! BonusRoundViewController
-            bonusViewController.levelMultiplier = multiplier
+            bonusViewController.bonus = bonus
             present(bonusViewController, animated: true, completion: nil)
         } else {
-            DDLogWarn("Could not find level multiplier for section: \(sender.view?.tag ?? -1)")
+            DDLogWarn("Could not find level bonus for section: \(sender.view?.tag ?? -1)")
         }
     }
 }

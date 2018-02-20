@@ -50,12 +50,12 @@ struct LevelGenerator {
         var numberOfWords = 3
         var levels = [(Int, Int, Int, Int, LengthArray)]()
         
-        let multiplierStore = LevelMultiplierStore()
+        let bonusStore = BonusStore()
         for i in 0...5 {
-            let levelMultiplier = LevelMultiplier()
-            levelMultiplier.section = i
-            levelMultiplier.id = LocalStorage.sharedInstance.nextMultiplierId
-            multiplierStore.addOrUpdate(levelMultiplier)
+            let bonus = Bonus()
+            bonus.section = i
+            bonus.id = LocalStorage.sharedInstance.nextBonusId
+            bonusStore.addOrUpdate(bonus)
             
             //Fibonacci sum of lengths
             if i > 4 {
