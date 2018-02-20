@@ -8,7 +8,6 @@
 
 import UIKit
 
-@IBDesignable
 class FoundWordsView: UIView {
 
     @IBOutlet var contentView: UIView!

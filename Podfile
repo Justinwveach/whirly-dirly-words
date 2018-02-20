@@ -6,7 +6,7 @@ target 'WhirlyDirlyWords' do
   use_frameworks!
 
   # Pods for WhirlyDirlyWords
-  pod ‘CocoaLumberjack/Swift’
+  pod ‘CocoaLumberjack/Swift’, :inhibit_warnings => true
   pod 'RealmSwift'
 
   target 'WhirlyDirlyWordsTests' do
