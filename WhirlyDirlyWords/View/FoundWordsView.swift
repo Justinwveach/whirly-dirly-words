@@ -61,16 +61,7 @@ class FoundWordsView: UIView {
         }
         missingWord.append(word)
         
-        var startRange = 0
-        if wordsFoundLabel.text!.count > 0 {
-            startRange = wordsFoundLabel.text!.count
-        }
-        let range: NSRange = NSRange(location: startRange, length: missingWord.count)
-        
         let attributedString = NSMutableAttributedString(string: missingWord, attributes:[NSAttributedStringKey.foregroundColor: UIColor.red])
-
-       // let attributedString: NSMutableAttributedString = wordsFoundLabel.attributedText?.mutableCopy() as! NSMutableAttributedString// NSMutableAttributedString(string: wordsFoundLabel.text!, attributes: [:])
-        //attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.red, range: range)
         let currentAttributedString: NSMutableAttributedString = wordsFoundLabel.attributedText?.mutableCopy() as! NSMutableAttributedString
         currentAttributedString.append(attributedString)
         wordsFoundLabel.attributedText = currentAttributedString

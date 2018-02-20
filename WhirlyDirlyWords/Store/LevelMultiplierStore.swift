@@ -36,10 +36,23 @@ class LevelMultiplierStore: LocalStorageDelegate {
     
     public func delete(id: Int) {
         let realm = try! Realm()
-        if let levelMultiplier = realm.objects(LevelMultiplier.self).filter("_id = %d", id).first {
+        if let levelMultiplier = realm.objects(LevelMultiplier.self).filter("id = %d", id).first {
             if !levelMultiplier.isInvalidated {
                 try! realm.write {
                     realm.delete(levelMultiplier)
+                }
+            }
+        }
+    }
+    
+    public func update(id: Int, fields: [String: Any]) {
+        let realm = try! Realm()
+        if let levelMultiplier = realm.objects(LevelMultiplier.self).filter("id = %d", id).first {
+            if !levelMultiplier.isInvalidated {
+                try! realm.write {
+                    for (key, value) in fields {
+                        levelMultiplier.setValue(value, forKeyPath: key)
+                    }
                 }
             }
         }

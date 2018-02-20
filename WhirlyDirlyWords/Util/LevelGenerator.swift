@@ -28,7 +28,7 @@ struct LevelGenerator {
             level.round = value.1
             level.roundInSection = value.2
             level.highScore = 0
-            level.lettersGiven = 2
+            level.lettersGiven = 8
             level.puzzleSize = value.3
             level.id = LocalStorage.sharedInstance.nextLevelId
 

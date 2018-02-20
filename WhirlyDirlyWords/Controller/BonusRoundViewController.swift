@@ -20,6 +20,8 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBOutlet weak var fourLetterWordsView: FoundWordsView!
     @IBOutlet weak var fiveLetterWordsView: FoundWordsView!
     @IBOutlet weak var sixLetterWordsView: FoundWordsView!
+    
+    var multiplierStore = LevelMultiplierStore()
    
     var baseWord = ""
     
@@ -29,7 +31,13 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
     var round: Int = 1
     var currentWord: Word!
     let wordLength = 6
-    let roundLength: Double = 10
+    let roundLength: Double = 20
+    var multiplier: Float = 1.0 {
+        didSet {
+            navItem.title = String(format: "%.2fx", multiplier)
+        }
+    }
+    var levelMultiplier: LevelMultiplier!
     
     var navBarTimerView: TimerView!
     
@@ -62,6 +70,7 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
         
         for word in allWords {
             if word == currentWord.value {
+                incrementMultilplier(word: word)
                 foundWords.append(currentWord.value)
                 getSection(lengthOfWord: currentWord.count).add(word: currentWord.value)
                 break
@@ -159,7 +168,8 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     fileprivate func startNewRound() {
-        //Timer and stuff
+        multiplier = 1.0
+        
         let dateComponentsFormatter = DateComponentsFormatter()
         dateComponentsFormatter.allowedUnits = [.second]
         dateComponentsFormatter.maximumUnitCount = 1
@@ -185,6 +195,14 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
         letters.removeAll()
         letterCollectionView.reloadData()
 
+        if multiplier > levelMultiplier.value {
+            multiplierStore.update(id: levelMultiplier.id, fields: ["value": multiplier])
+        }
+    }
+    
+    fileprivate func incrementMultilplier(word: String) {
+        let increment = ScoreKeeper.getMultiplierIncrement(word)
+        multiplier = multiplier + increment
     }
     
     fileprivate func getCellSize(collectionView: UICollectionView) -> CGFloat {

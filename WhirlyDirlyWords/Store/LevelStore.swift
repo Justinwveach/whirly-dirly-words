@@ -11,7 +11,7 @@ import RealmSwift
 import CocoaLumberjack
 
 class LevelStore: LocalStorageDelegate {
-    
+
     static let levelsPerSection = 5
     
     public var levels: Results<Level> {
@@ -38,10 +38,23 @@ class LevelStore: LocalStorageDelegate {
     
     public func delete(id: Int) {
         let realm = try! Realm()
-        if let level = realm.objects(Level.self).filter("_id = %d", id).first {
+        if let level = realm.objects(Level.self).filter("id = %d", id).first {
             if !level.isInvalidated {
                 try! realm.write {
                     realm.delete(level)
+                }
+            }
+        }
+    }
+    
+    func update(id: Int, fields: [String : Any]) {
+        let realm = try! Realm()
+        if let level = realm.objects(Level.self).filter("id = %d", id).first {
+            if !level.isInvalidated {
+                try! realm.write {
+                    for (key, value) in fields {
+                        level.setValue(value, forKeyPath: key)
+                    }
                 }
             }
         }

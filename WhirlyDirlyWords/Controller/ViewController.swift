@@ -28,6 +28,12 @@ class ViewController: UIViewController, UITableViewDelegate {
         levelsTableView.delegate = self
         levelsTableView.dataSource = levelDataSource
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        levelsTableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -44,8 +50,9 @@ class ViewController: UIViewController, UITableViewDelegate {
             header.multiplierLabel.text = "\(multiplier.value)"
             header.titleLabel.text = "Test"
         }
+        header.tag = section    
         
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleHeaderTap))
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleHeaderTap(sender:)))
         header.addGestureRecognizer(tapRecognizer)
         
         return header
@@ -73,11 +80,15 @@ class ViewController: UIViewController, UITableViewDelegate {
         }
     }
     
-    @objc fileprivate func handleHeaderTap() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let bonusViewController = storyboard.instantiateViewController(withIdentifier: "BonusRoundViewController") as! BonusRoundViewController
-        //bonusViewController.level = level
-        present(bonusViewController, animated: true, completion: nil)
+    @objc fileprivate func handleHeaderTap(sender: UITapGestureRecognizer) {
+        if let multiplier = multiplierStore.multipliers.filter("section == %d", sender.view?.tag ?? -1).first {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let bonusViewController = storyboard.instantiateViewController(withIdentifier: "BonusRoundViewController") as! BonusRoundViewController
+            bonusViewController.levelMultiplier = multiplier
+            present(bonusViewController, animated: true, completion: nil)
+        } else {
+            DDLogWarn("Could not find level multiplier for section: \(sender.view?.tag ?? -1)")
+        }
     }
 }
 

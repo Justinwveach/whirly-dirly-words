@@ -18,6 +18,7 @@ class GameViewController: UIViewController, GameDelegate, UICollectionViewDelega
     @IBOutlet weak var totalScoreLabel: UILabel!
     
     var level: Level!
+    var levelStore = LevelStore()
     
     let generator = CrosswordGenerator(words: Words.sharedInstance)
     let margin: CGFloat = 2.0
@@ -62,6 +63,14 @@ class GameViewController: UIViewController, GameDelegate, UICollectionViewDelega
     
     @IBAction func validatePuzzle(_ sender: Any) {
         let isValid = userPuzzle.validateBoard()
+        
+        if isValid {
+            let score = ScoreKeeper.getScore(puzzle: userPuzzle, level: level)
+            if score > level.highScore {
+                levelStore.update(id: level.id, fields: ["highScore": score])
+            }
+        }
+        
         let message = isValid ? "Puzzle is valid!" : "Wrong!!"
         let alert = UIAlertController(title: "Puzzle", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)

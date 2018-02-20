@@ -66,6 +66,7 @@
 		E9BFF66D203CA03E0023236B /* Date+Offsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BFF66C203CA03E0023236B /* Date+Offsets.swift */; };
 		E9BFF670203CA0E50023236B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BFF66E203CA0E50023236B /* TimerView.swift */; };
 		E9BFF671203CA4BB0023236B /* TimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BFF66F203CA0E50023236B /* TimerView.xib */; };
+		E9BFF675203CCBA00023236B /* ScoreKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BFF674203CCBA00023236B /* ScoreKeeper.swift */; };
 		E9DF83E71FD8D83700C64AFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF83E61FD8D83700C64AFB /* AppDelegate.swift */; };
 		E9DF83E91FD8D83700C64AFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF83E81FD8D83700C64AFB /* ViewController.swift */; };
 		E9DF83EC1FD8D83700C64AFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DF83EA1FD8D83700C64AFB /* Main.storyboard */; };
@@ -168,6 +169,7 @@
 		E9BFF66C203CA03E0023236B /* Date+Offsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Offsets.swift"; sourceTree = "<group>"; };
 		E9BFF66E203CA0E50023236B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		E9BFF66F203CA0E50023236B /* TimerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimerView.xib; sourceTree = "<group>"; };
+		E9BFF674203CCBA00023236B /* ScoreKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreKeeper.swift; sourceTree = "<group>"; };
 		E9DF83E31FD8D83700C64AFB /* WhirlyDirlyWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhirlyDirlyWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DF83E61FD8D83700C64AFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9DF83E81FD8D83700C64AFB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				E9589B152012C78A00E3CA26 /* CrosswordGenerator.swift */,
 				E911B7BA2019850200B0C74C /* Constants.swift */,
 				E954B7882033880000C86E5E /* LevelGenerator.swift */,
+				E9BFF674203CCBA00023236B /* ScoreKeeper.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -797,6 +800,7 @@
 				E9562DA52015435A000B3305 /* PuzzleCollectionViewCell.swift in Sources */,
 				E9DF83E71FD8D83700C64AFB /* AppDelegate.swift in Sources */,
 				E94A085D1FED849900AD3C4A /* BinarySearch.swift in Sources */,
+				E9BFF675203CCBA00023236B /* ScoreKeeper.swift in Sources */,
 				E94A08591FED818400AD3C4A /* Word.swift in Sources */,
 				E954B7952034AFBA00C86E5E /* LocalStorage.swift in Sources */,
 				E954B7812033689D00C86E5E /* LevelStore.swift in Sources */,

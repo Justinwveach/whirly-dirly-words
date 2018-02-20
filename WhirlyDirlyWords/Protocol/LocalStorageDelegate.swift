@@ -11,4 +11,5 @@ import Foundation
 protocol LocalStorageDelegate {
     func addOrUpdate(_ object: AnyObject)
     func delete(id: Int)
+    func update(id: Int, fields: [String: Any])
 }
