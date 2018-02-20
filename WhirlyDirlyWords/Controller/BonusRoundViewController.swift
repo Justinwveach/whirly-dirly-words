@@ -9,11 +9,13 @@
 import UIKit
 import CocoaLumberjack
 
-class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, TimerDelegate {
     
+    @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var navItem: UINavigationItem!
     @IBOutlet weak var letterCollectionView: UICollectionView!
     @IBOutlet weak var currentWordView: WordView!
-    
+
     @IBOutlet weak var threeLetterWordsView: FoundWordsView!
     @IBOutlet weak var fourLetterWordsView: FoundWordsView!
     @IBOutlet weak var fiveLetterWordsView: FoundWordsView!
@@ -27,12 +29,18 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
     var round: Int = 1
     var currentWord: Word!
     let wordLength = 6
+    let roundLength: Double = 10
+    
+    var navBarTimerView: TimerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        baseWord = Words.sharedInstance.getWord(exactLength: wordLength)
-
+        navBarTimerView = TimerView.instanceFromNib() as! TimerView
+        let timerButton = UIBarButtonItem(customView: navBarTimerView)
+        
+        navItem.rightBarButtonItems = [timerButton]
+        
         letterCollectionView.delegate = self
         letterCollectionView.dataSource = self
         
@@ -42,17 +50,10 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
         flowLayout.minimumLineSpacing = margin
         flowLayout.sectionInset = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
         
-        shuffleLetters()
-        
-        allWords = Words.sharedInstance.getWordsContaining(letters: baseWord)
-        
-        currentWord = Word(delegate: currentWordView)
-        currentWordView.setup(word: currentWord, maxLetters: wordLength)
-        
-        for word in allWords {
-            getSection(lengthOfWord: word.count).incrementWordCount()
-        }
+        setupNewRound()
     }
+    
+    // MARK: Actions
     
     @IBAction func checkWord(_ sender: Any) {
         if foundWords.contains(currentWord.value) {
@@ -74,18 +75,28 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
         resetLetters()
     }
     
-    fileprivate func resetLetters() {
-        currentWord.popAll()
-        shuffleLetters()
+    @IBAction func showMoreOptions(_ sender: Any) {
+        let alert = UIAlertController(title: "Options", message: "If you are in the middle of a round, you will lose current progress if you restart or leave.", preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Close", style: .cancel, handler: nil)
+        
+        let goHomeAction = UIAlertAction(title: "Go To Home Screen", style: .default) { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        let restartRound = UIAlertAction(title: "Restart Round", style: .default) { _ in
+            self.setupNewRound()
+            self.startNewRound()
+        }
+        
+        alert.addAction(cancelAction)
+        alert.addAction(goHomeAction)
+        alert.addAction(restartRound)
+        
+        present(alert, animated: true, completion: nil)
     }
     
-    fileprivate func shuffleLetters() {
-        letters.removeAll()
-        for letter in baseWord.jumble {
-            letters.append(letter)
-        }
-        letterCollectionView.reloadData()
-    }
+    // MARK: Collection View
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return letters.count
@@ -114,6 +125,68 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
         return CGSize(width: itemWidth, height: itemWidth)
     }
     
+    // MARK: Timer Delegate
+    
+    func exceededTimeLimit() {
+        navBarTimerView.timerLabel.invalidate()
+        endRound()
+    }
+    
+    // MARK: Private Methods
+    
+    fileprivate func setupNewRound() {
+        resetSections()
+        
+        allWords.removeAll()
+        // Make sure the word contains enough permutations
+        while allWords.count < 12 {
+            baseWord = Words.sharedInstance.getWord(exactLength: wordLength)
+            allWords = Words.sharedInstance.getWordsContaining(letters: baseWord)
+        }
+        
+        if currentWord != nil {
+            currentWord.popAll()
+        }
+        
+        currentWord = Word(delegate: currentWordView)
+        currentWordView.setup(word: currentWord, maxLetters: wordLength)
+        
+        shuffleLetters()
+
+        for word in allWords {
+            getSection(lengthOfWord: word.count).incrementWordCount()
+        }
+    }
+    
+    fileprivate func startNewRound() {
+        //Timer and stuff
+        let dateComponentsFormatter = DateComponentsFormatter()
+        dateComponentsFormatter.allowedUnits = [.second]
+        dateComponentsFormatter.maximumUnitCount = 1
+        dateComponentsFormatter.zeroFormattingBehavior = .pad
+        dateComponentsFormatter.unitsStyle = .positional
+        
+        navBarTimerView.timerLabel.countdown(endDate: Date().addingTimeInterval(roundLength), interval: .second, formatter: dateComponentsFormatter)
+        navBarTimerView.timerLabel.delegate = self
+    }
+    
+    fileprivate func endRound() {
+        currentWord.popAll()
+        
+        for word in allWords {
+            if foundWords.contains(word) {
+                
+            } else {
+                getSection(lengthOfWord: word.count).addMissing(word: word)
+            }
+        }
+        
+        baseWord = ""
+        letters.removeAll()
+        letterCollectionView.reloadData()
+
+    }
+    
     fileprivate func getCellSize(collectionView: UICollectionView) -> CGFloat {
         let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         let marginsAndInsets = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing * CGFloat(wordLength - 1)
@@ -132,5 +205,25 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
         default:
             return sixLetterWordsView
         }
+    }
+    
+    fileprivate func resetSections() {
+        threeLetterWordsView.reset()
+        fourLetterWordsView.reset()
+        fiveLetterWordsView.reset()
+        sixLetterWordsView.reset()
+    }
+    
+    fileprivate func resetLetters() {
+        currentWord.popAll()
+        shuffleLetters()
+    }
+    
+    fileprivate func shuffleLetters() {
+        letters.removeAll()
+        for letter in baseWord.jumble {
+            letters.append(letter)
+        }
+        letterCollectionView.reloadData()
     }
 }

@@ -54,7 +54,34 @@ class FoundWordsView: UIView {
         totalWords = totalWords - 1
     }
     
+    func addMissing(word: String) {
+        var missingWord = ""
+        if !wordsFoundLabel.text!.isEmpty {
+            missingWord.append(", ")
+        }
+        missingWord.append(word)
+        
+        var startRange = 0
+        if wordsFoundLabel.text!.count > 0 {
+            startRange = wordsFoundLabel.text!.count
+        }
+        let range: NSRange = NSRange(location: startRange, length: missingWord.count)
+        
+        let attributedString = NSMutableAttributedString(string: missingWord, attributes:[NSAttributedStringKey.foregroundColor: UIColor.red])
+
+       // let attributedString: NSMutableAttributedString = wordsFoundLabel.attributedText?.mutableCopy() as! NSMutableAttributedString// NSMutableAttributedString(string: wordsFoundLabel.text!, attributes: [:])
+        //attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.red, range: range)
+        let currentAttributedString: NSMutableAttributedString = wordsFoundLabel.attributedText?.mutableCopy() as! NSMutableAttributedString
+        currentAttributedString.append(attributedString)
+        wordsFoundLabel.attributedText = currentAttributedString
+    }
+    
     func incrementWordCount() {
         totalWords = totalWords + 1
+    }
+    
+    func reset() {
+        totalWords = 0
+        wordsFoundLabel.text = ""
     }
 }

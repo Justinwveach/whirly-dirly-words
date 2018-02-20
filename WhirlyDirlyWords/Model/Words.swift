@@ -12,6 +12,7 @@ final class Words {
     
     static let sharedInstance = Words()
     
+    // Words that are used for the puzzles ~ 10,000 common words
     fileprivate var allWords: Array<String>! = Array()
     // Example: Length.medium -> "c" -> ["catch", "carry", ..]
     fileprivate var allWordsDictionary = Dictionary<Length, Dictionary<Character, Array<String>>>()

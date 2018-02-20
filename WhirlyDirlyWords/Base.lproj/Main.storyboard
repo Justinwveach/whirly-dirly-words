@@ -238,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="31.934032983508249"/>
+            <point key="canvasLocation" x="252" y="-30"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="obg-aa-ARS">
@@ -490,7 +490,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H3y-Kd-EJA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="869.60000000000002" y="31.934032983508249"/>
+            <point key="canvasLocation" x="959" y="-30"/>
         </scene>
         <!--Bonus Round View Controller-->
         <scene sceneID="reL-DZ-cxO">
@@ -582,42 +582,50 @@
                                 </variation>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="832-VM-q2c">
-                                <rect key="frame" x="0.0" y="20" width="375" height="497"/>
+                                <rect key="frame" x="0.0" y="63" width="375" height="454"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0VT-Ah-Utw" customClass="FoundWordsView" customModule="WhirlyDirlyWords" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="124.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="113.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="3 Letter Words"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="sectionTitle" value="3 Letter Words"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fwu-W5-At2" customClass="FoundWordsView" customModule="WhirlyDirlyWords" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="124.5" width="375" height="124"/>
+                                        <rect key="frame" x="0.0" y="113.5" width="375" height="113.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="4 Letter Words"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="sectionTitle" value="4 Letter Words"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5E-jQ-eS8" customClass="FoundWordsView" customModule="WhirlyDirlyWords" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="248.5" width="375" height="124.5"/>
+                                        <rect key="frame" x="0.0" y="227" width="375" height="113.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="5 Letter Words"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="sectionTitle" value="5 Letter Words"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MvV-MP-lZ6" customClass="FoundWordsView" customModule="WhirlyDirlyWords" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="373" width="375" height="124"/>
+                                        <rect key="frame" x="0.0" y="340.5" width="375" height="113.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="6 Letter Words"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="sectionTitle" value="6 Letter Words"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                             </stackView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NVq-am-KUH">
+                                <rect key="frame" x="0.0" y="20" width="375" height="43"/>
+                                <items>
+                                    <navigationItem title="Title" id="TSb-hV-JD5">
+                                        <barButtonItem key="leftBarButtonItem" title="More" id="OWw-Lf-aDq">
+                                            <connections>
+                                                <action selector="showMoreOptions:" destination="XZU-zc-qo0" id="sfA-HL-4w9"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.37752278649999998" green="0.95453559030000001" blue="0.74197048610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -627,8 +635,11 @@
                             <constraint firstItem="Ktc-aE-6q0" firstAttribute="leading" secondItem="YBp-aX-l5C" secondAttribute="leading" id="8U1-y4-aCg"/>
                             <constraint firstItem="832-VM-q2c" firstAttribute="leading" secondItem="YBp-aX-l5C" secondAttribute="leading" id="9bP-l9-sOA"/>
                             <constraint firstItem="832-VM-q2c" firstAttribute="trailing" secondItem="YBp-aX-l5C" secondAttribute="trailing" id="Fm2-L9-tQd"/>
+                            <constraint firstItem="NVq-am-KUH" firstAttribute="top" secondItem="YBp-aX-l5C" secondAttribute="top" id="PAZ-FE-7VR"/>
                             <constraint firstItem="YBp-aX-l5C" firstAttribute="trailing" secondItem="i9t-rk-GHo" secondAttribute="trailing" id="Tt9-ug-iIw"/>
-                            <constraint firstItem="832-VM-q2c" firstAttribute="top" secondItem="YBp-aX-l5C" secondAttribute="top" id="aPp-qI-epf"/>
+                            <constraint firstItem="832-VM-q2c" firstAttribute="top" secondItem="NVq-am-KUH" secondAttribute="bottom" id="V1w-G0-PSG"/>
+                            <constraint firstItem="NVq-am-KUH" firstAttribute="leading" secondItem="YBp-aX-l5C" secondAttribute="leading" id="dWa-zg-7Ky"/>
+                            <constraint firstItem="NVq-am-KUH" firstAttribute="trailing" secondItem="YBp-aX-l5C" secondAttribute="trailing" id="fCN-z3-h4I"/>
                             <constraint firstItem="i9t-rk-GHo" firstAttribute="bottom" secondItem="YBp-aX-l5C" secondAttribute="bottom" id="fNE-eH-Oh5"/>
                             <constraint firstItem="i9t-rk-GHo" firstAttribute="top" secondItem="Ktc-aE-6q0" secondAttribute="bottom" id="lx2-yr-vcc"/>
                             <constraint firstItem="i9t-rk-GHo" firstAttribute="trailing" secondItem="YBp-aX-l5C" secondAttribute="trailing" id="uV8-r1-iDA"/>
@@ -649,13 +660,15 @@
                         <outlet property="fiveLetterWordsView" destination="w5E-jQ-eS8" id="xBx-FS-N3q"/>
                         <outlet property="fourLetterWordsView" destination="Fwu-W5-At2" id="aDB-Bf-Mg7"/>
                         <outlet property="letterCollectionView" destination="i9t-rk-GHo" id="GWv-7f-BVs"/>
+                        <outlet property="navBar" destination="NVq-am-KUH" id="OLC-rj-jch"/>
+                        <outlet property="navItem" destination="TSb-hV-JD5" id="dvk-jx-ze7"/>
                         <outlet property="sixLetterWordsView" destination="MvV-MP-lZ6" id="0AY-Zm-ECG"/>
                         <outlet property="threeLetterWordsView" destination="0VT-Ah-Utw" id="OQ5-yB-GYY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qo-Ar-R6v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="869.5" y="778.5"/>
+            <point key="canvasLocation" x="770" y="726"/>
         </scene>
     </scenes>
 </document>

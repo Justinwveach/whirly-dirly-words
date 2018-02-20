@@ -61,6 +61,11 @@
 		E9589B202015290D00E3CA26 /* GameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9589B1F2015290D00E3CA26 /* GameDelegate.swift */; };
 		E9589B2220152A6900E3CA26 /* WordsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9589B2120152A6900E3CA26 /* WordsDelegate.swift */; };
 		E9589B2420152E5A00E3CA26 /* CrosswordPuzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9589B2320152E5A00E3CA26 /* CrosswordPuzzle.swift */; };
+		E9BFF669203C9F340023236B /* AutoUpdateTimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BFF668203C9F340023236B /* AutoUpdateTimeLabel.swift */; };
+		E9BFF66B203C9F6F0023236B /* TimerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BFF66A203C9F6F0023236B /* TimerDelegate.swift */; };
+		E9BFF66D203CA03E0023236B /* Date+Offsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BFF66C203CA03E0023236B /* Date+Offsets.swift */; };
+		E9BFF670203CA0E50023236B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BFF66E203CA0E50023236B /* TimerView.swift */; };
+		E9BFF671203CA4BB0023236B /* TimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BFF66F203CA0E50023236B /* TimerView.xib */; };
 		E9DF83E71FD8D83700C64AFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF83E61FD8D83700C64AFB /* AppDelegate.swift */; };
 		E9DF83E91FD8D83700C64AFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF83E81FD8D83700C64AFB /* ViewController.swift */; };
 		E9DF83EC1FD8D83700C64AFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DF83EA1FD8D83700C64AFB /* Main.storyboard */; };
@@ -158,6 +163,11 @@
 		E9589B1F2015290D00E3CA26 /* GameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDelegate.swift; sourceTree = "<group>"; };
 		E9589B2120152A6900E3CA26 /* WordsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsDelegate.swift; sourceTree = "<group>"; };
 		E9589B2320152E5A00E3CA26 /* CrosswordPuzzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrosswordPuzzle.swift; sourceTree = "<group>"; };
+		E9BFF668203C9F340023236B /* AutoUpdateTimeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoUpdateTimeLabel.swift; sourceTree = "<group>"; };
+		E9BFF66A203C9F6F0023236B /* TimerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerDelegate.swift; sourceTree = "<group>"; };
+		E9BFF66C203CA03E0023236B /* Date+Offsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Offsets.swift"; sourceTree = "<group>"; };
+		E9BFF66E203CA0E50023236B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		E9BFF66F203CA0E50023236B /* TimerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimerView.xib; sourceTree = "<group>"; };
 		E9DF83E31FD8D83700C64AFB /* WhirlyDirlyWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhirlyDirlyWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DF83E61FD8D83700C64AFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9DF83E81FD8D83700C64AFB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +257,8 @@
 		E94A08511FED809900AD3C4A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E9BFF66E203CA0E50023236B /* TimerView.swift */,
+				E9BFF66F203CA0E50023236B /* TimerView.xib */,
 				E94A08631FED9ACB00AD3C4A /* WordView */,
 				E94A08561FED811400AD3C4A /* LetterLabel.swift */,
 				E91EAB701FFF253D002B8E87 /* LetterCollectionViewCell.swift */,
@@ -261,6 +273,7 @@
 				E91BBC522034C93F00AB6360 /* LevelMultiplierHeaderView.xib */,
 				E91BBC5E203B867700AB6360 /* FoundWordsView.xib */,
 				E91BBC60203B872100AB6360 /* FoundWordsView.swift */,
+				E9BFF668203C9F340023236B /* AutoUpdateTimeLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -274,6 +287,7 @@
 				E9562DA6201586B4000B3305 /* TileDelegate.swift */,
 				E9562DB020181BFB000B3305 /* DraggableDelegate.swift */,
 				E954B7922034AF8100C86E5E /* LocalStorageDelegate.swift */,
+				E9BFF66A203C9F6F0023236B /* TimerDelegate.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -406,6 +420,7 @@
 			children = (
 				E9DF84281FD8E1BE00C64AFB /* String+Extras.swift */,
 				E9589B1B201304DF00E3CA26 /* Collection+Shuffle.swift */,
+				E9BFF66C203CA03E0023236B /* Date+Offsets.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -552,6 +567,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9BFF671203CA4BB0023236B /* TimerView.xib in Resources */,
 				E9DF84181FD8DA4500C64AFB /* word-medium.txt in Resources */,
 				E9589B12200478DF00E3CA26 /* LetterCell.xib in Resources */,
 				E9DF841C1FD8DAB300C64AFB /* words-all.txt in Resources */,
@@ -761,12 +777,14 @@
 				E9562DB120181BFB000B3305 /* DraggableDelegate.swift in Sources */,
 				E94A08501FED79A900AD3C4A /* WordFileGenerator.swift in Sources */,
 				E954B78F2033A9C700C86E5E /* LevelTableViewCell.swift in Sources */,
+				E9BFF66B203C9F6F0023236B /* TimerDelegate.swift in Sources */,
 				E91EAB711FFF253D002B8E87 /* LetterCollectionViewCell.swift in Sources */,
 				E9589B1C201304DF00E3CA26 /* Collection+Shuffle.swift in Sources */,
 				E94A08551FED80B500AD3C4A /* GameViewController.swift in Sources */,
 				E9562DA7201586B4000B3305 /* TileDelegate.swift in Sources */,
 				E954B783203368A300C86E5E /* ScoreStore.swift in Sources */,
 				E9562DAB201590C7000B3305 /* TileView.swift in Sources */,
+				E9BFF670203CA0E50023236B /* TimerView.swift in Sources */,
 				E91BBC512034C57800AB6360 /* LevelMultiplierStore.swift in Sources */,
 				E94A085B1FED81B900AD3C4A /* Stack.swift in Sources */,
 				E9589B202015290D00E3CA26 /* GameDelegate.swift in Sources */,
@@ -787,10 +805,12 @@
 				E9589B162012C78A00E3CA26 /* CrosswordGenerator.swift in Sources */,
 				E954B78D2033A35F00C86E5E /* LevelDataSource.swift in Sources */,
 				E94A08571FED811400AD3C4A /* LetterLabel.swift in Sources */,
+				E9BFF66D203CA03E0023236B /* Date+Offsets.swift in Sources */,
 				E911B7B9201950AF00B0C74C /* LetterDataSource.swift in Sources */,
 				E9589B101FFF32A100E3CA26 /* GameOverZoneView.swift in Sources */,
 				E9DF841F1FD8DAD800C64AFB /* Parser.swift in Sources */,
 				E954B7912033A9D300C86E5E /* LevelMultiplierHeaderView.swift in Sources */,
+				E9BFF669203C9F340023236B /* AutoUpdateTimeLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
