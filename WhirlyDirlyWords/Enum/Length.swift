@@ -21,6 +21,22 @@ enum Length: String, Comparable {
 }
 
 extension Length {
+    
+    init?(value: Int) {
+        if value <= 4 {
+            self.init(rawValue: "short")
+        }
+        else if value <= 6 {
+            self.init(rawValue: "medium")
+        }
+        else if value <= 8 {
+            self.init(rawValue: "long")
+        }
+        else {
+            self.init(rawValue: "extraLong")
+        }
+    }
+    
     var sortIndex: Int {
         switch self {
         case .short:

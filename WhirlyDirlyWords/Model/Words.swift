@@ -16,6 +16,7 @@ final class Words {
     // Example: Length.medium -> "c" -> ["catch", "carry", ..]
     fileprivate var allWordsDictionary = Dictionary<Length, Dictionary<Character, Array<String>>>()
     fileprivate var allWordsbyLength = Dictionary<Length, Array<String>>()
+    fileprivate var hashSet = [Int: [String]]()
     
     func populate(allWords: Array<String>, delegate: WordsDelegate) {
         DispatchQueue.global(qos: .background).async {
@@ -51,6 +52,17 @@ final class Words {
         }
         
         return "freebie"
+    }
+    
+    public func getWord(exactLength: Int) -> String {
+        var word = ""
+        while word.isEmpty {
+            let foundWord = getWord(length: Length(value: exactLength)!)
+            if foundWord.count == exactLength {
+                word = foundWord
+            }
+        }
+        return word
     }
     
     public func getWord(length: Length, contains letter: Character) -> String {
@@ -99,7 +111,42 @@ final class Words {
             }
             
             allWordsbyLength[word.length()]?.append(word)
+            
+            let hash = String(word.sorted()).hash
+            if hashSet[hash] == nil {
+                hashSet[hash] = [String]()
+            }
+            
+            hashSet[hash]?.append(word)
         }
+    }
+    
+    func getCombinations(word: String) -> [String] {
+        var results = [String]()
+        var actualResults = [String]()
+        
+        for i in 0..<word.count {
+            for j in 0..<results.count {
+                let combination = String((word[i] + results[j]).sorted())
+                results.append(combination)
+                if combination.count >= 3 {
+                    actualResults.append(combination)
+                }
+            }
+            results.append(word[i])
+        }
+        return actualResults
+    }
+    
+    func getWordsContaining(letters: String) -> [String] {
+        var allWords = [String]()
+        let combinations = getCombinations(word: letters)
+        for combo in combinations {
+            if let hashWords = hashSet[combo.hash] {
+                allWords.append(contentsOf: hashWords)
+            }
+        }
+        return allWords
     }
     
 }

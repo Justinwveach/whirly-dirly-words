@@ -89,5 +89,20 @@ class WhirlyDirlyWordsTests: XCTestCase {
         
         assert((tile2.column == 2 && tile2.row == 0) || (tile1.column == 2 && tile1.row == 0))
     }
-
+    
+    func testStringHash() {
+        var dog = "dog".hash
+        var god = "god".hash
+        assert(dog != god)
+        
+        dog = String("dog".sorted()).hash
+        god = String("god".sorted()).hash
+        assert(dog == god)
+    }
+    
+    func testWordCombos() {
+        let results = Words.sharedInstance.getCombinations(word: "pension")
+        assert(results.count > 0)
+    }
+    
 }

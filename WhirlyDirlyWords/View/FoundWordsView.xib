@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Futura.ttc">
+            <string>Futura-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FoundWordsView" customModule="WhirlyDirlyWords" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="BpE-CU-L3i"/>
+                <outlet property="remainingWordsLabel" destination="021-FQ-fTx" id="oeY-dt-5IY"/>
+                <outlet property="titleLabel" destination="U3I-Tg-W4Q" id="YOQ-pq-zon"/>
+                <outlet property="wordsFoundLabel" destination="1c1-HH-myt" id="aL0-Cg-9o5"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ti-f8-fxU">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3I-Tg-W4Q">
+                            <rect key="frame" x="8" y="4" width="49" height="22"/>
+                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.4431372549" green="0.77647058820000003" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="U3I-Tg-W4Q" secondAttribute="bottom" constant="4" id="5Sx-pS-aMi"/>
+                        <constraint firstItem="U3I-Tg-W4Q" firstAttribute="top" secondItem="6ti-f8-fxU" secondAttribute="top" constant="4" id="HDj-Bf-6pu"/>
+                        <constraint firstItem="U3I-Tg-W4Q" firstAttribute="leading" secondItem="6ti-f8-fxU" secondAttribute="leading" constant="8" id="hdp-1d-x8U"/>
+                        <constraint firstAttribute="height" constant="30" id="l87-bX-8Sh"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1c1-HH-myt">
+                    <rect key="frame" x="108" y="38" width="259" height="154"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="021-FQ-fTx">
+                    <rect key="frame" x="0.0" y="30" width="100" height="170"/>
+                    <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="SnC-hA-5u3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="6ti-f8-fxU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="01a-mf-fcy"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="1c1-HH-myt" secondAttribute="bottom" constant="8" id="CKH-kc-K2b"/>
+                <constraint firstItem="021-FQ-fTx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="KhC-IF-MAa"/>
+                <constraint firstItem="021-FQ-fTx" firstAttribute="top" secondItem="6ti-f8-fxU" secondAttribute="bottom" id="MAl-h5-WXd"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="021-FQ-fTx" secondAttribute="bottom" id="YDm-aP-7Rv"/>
+                <constraint firstItem="1c1-HH-myt" firstAttribute="top" secondItem="6ti-f8-fxU" secondAttribute="bottom" constant="8" id="YwO-Bq-r6B"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1c1-HH-myt" secondAttribute="trailing" constant="8" id="ZGu-Tb-iuE"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6ti-f8-fxU" secondAttribute="trailing" id="ivQ-qH-mwq"/>
+                <constraint firstItem="1c1-HH-myt" firstAttribute="leading" secondItem="021-FQ-fTx" secondAttribute="trailing" constant="8" id="n9r-XI-JAl"/>
+                <constraint firstItem="6ti-f8-fxU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="sc6-MY-B5P"/>
+                <constraint firstItem="1c1-HH-myt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="v18-X0-OrC"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="v18-X0-OrC"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="34.5" y="117"/>
+        </view>
+    </objects>
+</document>

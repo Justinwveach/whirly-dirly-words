@@ -47,6 +47,8 @@ class Word: Stack<Character> {
         return removedCharacter
     }
     
+    
+    
     /*
     subscript (position: Index) -> Character {
         precondition(position >= self.count, "out of bounds")

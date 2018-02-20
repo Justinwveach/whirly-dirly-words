@@ -532,16 +532,16 @@
         <!--Bonus Round View Controller-->
         <scene sceneID="reL-DZ-cxO">
             <objects>
-                <viewController id="XZU-zc-qo0" customClass="BonusRoundViewController" customModule="WhirlyDirlyWords" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BonusRoundViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XZU-zc-qo0" customClass="BonusRoundViewController" customModule="WhirlyDirlyWords" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EMo-fW-ARF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.75" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="i9t-rk-GHo">
-                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="587" width="309" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Nwy-mY-reY"/>
+                                    <constraint firstAttribute="height" constant="80" id="Nwy-mY-reY"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GSC-dc-eRB">
                                     <size key="itemSize" width="50" height="50"/>
@@ -551,7 +551,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LetterCollectionViewCell" id="LRx-a6-ffm" customClass="LetterCollectionViewCell" customModule="WhirlyDirlyWords" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="10" width="60" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="60" height="80"/>
@@ -576,86 +576,118 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TtT-ds-ZVJ">
-                                <rect key="frame" x="0.0" y="522" width="375" height="8"/>
+                            <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vyw-py-OJn">
+                                <rect key="frame" x="317" y="529" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="HYs-sB-xu7"/>
+                                    <constraint firstAttribute="height" constant="100" id="heI-Rf-7Rt"/>
+                                </constraints>
+                                <state key="normal" title="Check"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="heI-Rf-7Rt"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="checkWord:" destination="XZU-zc-qo0" eventType="touchUpInside" id="Rdq-oP-bIO"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahB-su-kSH" customClass="WordView" customModule="WhirlyDirlyWords" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="529" width="309" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="8" id="WHX-nX-Vif"/>
+                                    <constraint firstAttribute="height" constant="50" id="GPI-Oq-T41"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CPK-3p-vEE">
-                                <rect key="frame" x="0.0" y="40" width="375" height="8"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3h6-H2-dF3">
+                                <rect key="frame" x="317" y="587" width="50" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="8" id="DVg-kJ-EyZ"/>
+                                    <constraint firstAttribute="width" constant="50" id="i1v-Bl-TkC"/>
                                 </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="opO-6P-jZd">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
-                                <color key="backgroundColor" red="0.22604711189999999" green="0.69143339660000003" blue="0.43956165180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uny-CJ-mZ2" customClass="GameOverZoneView" customModule="WhirlyDirlyWords" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="530" width="375" height="37"/>
-                                <color key="backgroundColor" red="0.22604711189999999" green="0.69143339660000003" blue="0.43956165180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetLetters:" destination="XZU-zc-qo0" eventType="touchUpInside" id="Bxd-Wd-kbi"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="832-VM-q2c">
+                                <rect key="frame" x="0.0" y="20" width="375" height="501"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0VT-Ah-Utw" customClass="FoundWordsView" customModule="WhirlyDirlyWords" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="125.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="3 Letter Words"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="sectionTitle" value="3 Letter Words"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fwu-W5-At2" customClass="FoundWordsView" customModule="WhirlyDirlyWords" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="125.5" width="375" height="125"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="4 Letter Words"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="sectionTitle" value="4 Letter Words"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5E-jQ-eS8" customClass="FoundWordsView" customModule="WhirlyDirlyWords" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="250.5" width="375" height="125.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="5 Letter Words"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="sectionTitle" value="5 Letter Words"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MvV-MP-lZ6" customClass="FoundWordsView" customModule="WhirlyDirlyWords" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="376" width="375" height="125"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="6 Letter Words"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="sectionTitle" value="6 Letter Words"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.37752278649999998" green="0.95453559030000001" blue="0.74197048610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="i9t-rk-GHo" firstAttribute="leading" secondItem="YBp-aX-l5C" secondAttribute="leading" id="3cr-46-bDd"/>
-                            <constraint firstItem="i9t-rk-GHo" firstAttribute="top" secondItem="uny-CJ-mZ2" secondAttribute="bottom" id="3iM-n8-TkC"/>
-                            <constraint firstItem="CPK-3p-vEE" firstAttribute="leading" secondItem="YBp-aX-l5C" secondAttribute="leading" id="6Kn-ik-G5Q"/>
-                            <constraint firstItem="uny-CJ-mZ2" firstAttribute="leading" secondItem="YBp-aX-l5C" secondAttribute="leading" id="A0Z-eK-bQ6"/>
-                            <constraint firstItem="opO-6P-jZd" firstAttribute="trailing" secondItem="TtT-ds-ZVJ" secondAttribute="trailing" id="B8W-le-pgc"/>
-                            <constraint firstItem="uny-CJ-mZ2" firstAttribute="leading" secondItem="YBp-aX-l5C" secondAttribute="leading" id="ED7-Vw-rVi"/>
-                            <constraint firstItem="YBp-aX-l5C" firstAttribute="trailing" secondItem="opO-6P-jZd" secondAttribute="trailing" id="Ggi-lI-KYA"/>
-                            <constraint firstItem="opO-6P-jZd" firstAttribute="leading" secondItem="YBp-aX-l5C" secondAttribute="leading" id="H70-sV-txn"/>
-                            <constraint firstItem="i9t-rk-GHo" firstAttribute="top" secondItem="uny-CJ-mZ2" secondAttribute="bottom" id="HPp-cr-dcI"/>
-                            <constraint firstItem="TtT-ds-ZVJ" firstAttribute="leading" secondItem="YBp-aX-l5C" secondAttribute="leading" id="IPs-Ob-tdC"/>
-                            <constraint firstItem="CPK-3p-vEE" firstAttribute="top" secondItem="opO-6P-jZd" secondAttribute="bottom" id="IjC-mz-WIt"/>
-                            <constraint firstItem="YBp-aX-l5C" firstAttribute="trailing" secondItem="TtT-ds-ZVJ" secondAttribute="trailing" id="Luy-Dy-1UH"/>
-                            <constraint firstItem="opO-6P-jZd" firstAttribute="top" secondItem="EMo-fW-ARF" secondAttribute="top" id="QQi-UC-gjl"/>
-                            <constraint firstItem="uny-CJ-mZ2" firstAttribute="leading" secondItem="YBp-aX-l5C" secondAttribute="leading" id="Tmw-mU-ZEa"/>
-                            <constraint firstItem="opO-6P-jZd" firstAttribute="leading" secondItem="YBp-aX-l5C" secondAttribute="leading" id="XkU-Ea-4sB"/>
-                            <constraint firstItem="CPK-3p-vEE" firstAttribute="top" secondItem="YBp-aX-l5C" secondAttribute="top" constant="20" id="ZDv-g5-WHe"/>
-                            <constraint firstItem="TtT-ds-ZVJ" firstAttribute="trailing" secondItem="YBp-aX-l5C" secondAttribute="trailing" id="by3-Jk-4tz"/>
-                            <constraint firstItem="uny-CJ-mZ2" firstAttribute="trailing" secondItem="YBp-aX-l5C" secondAttribute="trailing" id="c3x-ms-TCi"/>
+                            <constraint firstItem="3h6-H2-dF3" firstAttribute="centerY" secondItem="i9t-rk-GHo" secondAttribute="centerY" id="60H-ks-e6R"/>
+                            <constraint firstItem="YBp-aX-l5C" firstAttribute="trailing" secondItem="3h6-H2-dF3" secondAttribute="trailing" constant="8" id="7Ky-GX-FBg"/>
+                            <constraint firstItem="832-VM-q2c" firstAttribute="leading" secondItem="YBp-aX-l5C" secondAttribute="leading" id="9bP-l9-sOA"/>
+                            <constraint firstItem="vyw-py-OJn" firstAttribute="leading" secondItem="ahB-su-kSH" secondAttribute="trailing" constant="8" id="Fcb-f2-Fyb"/>
+                            <constraint firstItem="832-VM-q2c" firstAttribute="trailing" secondItem="YBp-aX-l5C" secondAttribute="trailing" id="Fm2-L9-tQd"/>
+                            <constraint firstItem="vyw-py-OJn" firstAttribute="top" secondItem="832-VM-q2c" secondAttribute="bottom" constant="8" id="GkX-15-XLI"/>
+                            <constraint firstItem="832-VM-q2c" firstAttribute="top" secondItem="YBp-aX-l5C" secondAttribute="top" id="aPp-qI-epf"/>
+                            <constraint firstItem="vyw-py-OJn" firstAttribute="height" secondItem="ahB-su-kSH" secondAttribute="height" id="aiY-o9-85Z"/>
+                            <constraint firstItem="3h6-H2-dF3" firstAttribute="height" secondItem="i9t-rk-GHo" secondAttribute="height" id="ee3-is-h1N"/>
                             <constraint firstItem="i9t-rk-GHo" firstAttribute="bottom" secondItem="YBp-aX-l5C" secondAttribute="bottom" id="fNE-eH-Oh5"/>
-                            <constraint firstItem="opO-6P-jZd" firstAttribute="trailing" secondItem="YBp-aX-l5C" secondAttribute="trailing" id="gpG-WT-pH3"/>
-                            <constraint firstItem="i9t-rk-GHo" firstAttribute="top" secondItem="TtT-ds-ZVJ" secondAttribute="bottom" constant="37" id="hcO-pW-GQM"/>
-                            <constraint firstItem="uny-CJ-mZ2" firstAttribute="top" secondItem="TtT-ds-ZVJ" secondAttribute="bottom" id="iGs-NS-z3q"/>
-                            <constraint firstItem="YBp-aX-l5C" firstAttribute="trailing" secondItem="opO-6P-jZd" secondAttribute="trailing" id="jC9-I4-5ze"/>
-                            <constraint firstItem="CPK-3p-vEE" firstAttribute="trailing" secondItem="YBp-aX-l5C" secondAttribute="trailing" id="keC-dh-XrA"/>
-                            <constraint firstItem="TtT-ds-ZVJ" firstAttribute="leading" secondItem="YBp-aX-l5C" secondAttribute="leading" id="pXt-UT-a58"/>
-                            <constraint firstAttribute="trailing" secondItem="uny-CJ-mZ2" secondAttribute="trailing" id="tav-Ju-Jjd"/>
+                            <constraint firstItem="vyw-py-OJn" firstAttribute="centerY" secondItem="ahB-su-kSH" secondAttribute="centerY" id="gUa-AK-QaG"/>
+                            <constraint firstItem="YBp-aX-l5C" firstAttribute="trailing" secondItem="vyw-py-OJn" secondAttribute="trailing" constant="8" id="h0v-fZ-tSq"/>
+                            <constraint firstItem="3h6-H2-dF3" firstAttribute="leading" secondItem="i9t-rk-GHo" secondAttribute="trailing" constant="8" id="mub-Bj-w5D"/>
                             <constraint firstItem="i9t-rk-GHo" firstAttribute="trailing" secondItem="YBp-aX-l5C" secondAttribute="trailing" id="uV8-r1-iDA"/>
-                            <constraint firstItem="TtT-ds-ZVJ" firstAttribute="top" secondItem="YBp-aX-l5C" secondAttribute="top" constant="20" id="uk7-uK-JME"/>
-                            <constraint firstItem="opO-6P-jZd" firstAttribute="leading" secondItem="YBp-aX-l5C" secondAttribute="leading" id="xeA-fg-9yy"/>
+                            <constraint firstItem="i9t-rk-GHo" firstAttribute="top" secondItem="ahB-su-kSH" secondAttribute="bottom" constant="8" id="x32-aK-mez"/>
+                            <constraint firstItem="ahB-su-kSH" firstAttribute="leading" secondItem="YBp-aX-l5C" secondAttribute="leading" id="ywl-hh-ntX"/>
+                            <constraint firstItem="832-VM-q2c" firstAttribute="top" secondItem="EMo-fW-ARF" secondAttribute="top" id="zjd-Ip-RZV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YBp-aX-l5C"/>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="Ggi-lI-KYA"/>
-                                <exclude reference="Luy-Dy-1UH"/>
-                                <exclude reference="B8W-le-pgc"/>
-                                <exclude reference="XkU-Ea-4sB"/>
-                                <exclude reference="gpG-WT-pH3"/>
-                                <exclude reference="xeA-fg-9yy"/>
-                                <exclude reference="pXt-UT-a58"/>
-                                <exclude reference="uk7-uK-JME"/>
-                                <exclude reference="ED7-Vw-rVi"/>
-                                <exclude reference="Tmw-mU-ZEa"/>
-                                <exclude reference="c3x-ms-TCi"/>
-                                <exclude reference="3iM-n8-TkC"/>
+                                <exclude reference="zjd-Ip-RZV"/>
+                                <exclude reference="uV8-r1-iDA"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="currentWordView" destination="ahB-su-kSH" id="zpN-00-Be6"/>
+                        <outlet property="fiveLetterWordsView" destination="w5E-jQ-eS8" id="xBx-FS-N3q"/>
+                        <outlet property="fourLetterWordsView" destination="Fwu-W5-At2" id="aDB-Bf-Mg7"/>
                         <outlet property="letterCollectionView" destination="i9t-rk-GHo" id="GWv-7f-BVs"/>
+                        <outlet property="sixLetterWordsView" destination="MvV-MP-lZ6" id="0AY-Zm-ECG"/>
+                        <outlet property="threeLetterWordsView" destination="0VT-Ah-Utw" id="OQ5-yB-GYY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qo-Ar-R6v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="870" y="779"/>
+            <point key="canvasLocation" x="869.60000000000002" y="778.56071964017997"/>
         </scene>
     </scenes>
 </document>

@@ -20,6 +20,12 @@ class Stack<Element> {
         return array.popLast()
     }
     
+    func popAll() {
+        while !isEmpty {
+            _ = pop()
+        }
+    }
+    
     func peek() -> Element? {
         return array.last
     }

@@ -44,8 +44,10 @@ class ViewController: UIViewController, UITableViewDelegate {
             header.multiplierLabel.text = "\(multiplier.value)"
             header.titleLabel.text = "Test"
         }
-        //let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        //v.addGestureRecognizer(tapRecognizer)
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleHeaderTap))
+        header.addGestureRecognizer(tapRecognizer)
+        
         return header
     }
     
@@ -69,6 +71,13 @@ class ViewController: UIViewController, UITableViewDelegate {
             let viewController = segue.destination as! GameViewController
             viewController.isResuming = true
         }
+    }
+    
+    @objc fileprivate func handleHeaderTap() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let bonusViewController = storyboard.instantiateViewController(withIdentifier: "BonusRoundViewController") as! BonusRoundViewController
+        //bonusViewController.level = level
+        present(bonusViewController, animated: true, completion: nil)
     }
 }
 
