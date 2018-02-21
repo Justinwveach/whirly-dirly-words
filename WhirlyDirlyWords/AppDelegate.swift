@@ -29,6 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let words = Parser.parseWords(file: "words-all", type: "txt")
         Words.sharedInstance.populate(allWords: words)
         
+        let rareWords = Parser.parseWords(file: "words-extended", type: "txt")
+        Words.sharedInstance.populate(rareWords: rareWords)
+        
         // TODO: Set User Defaults to verify that levels were generated. Set key to LEVEL_SET_[Number]
         LocalStorage.sharedInstance.deleteRealm()
         LevelGenerator.createLevelSetOne()

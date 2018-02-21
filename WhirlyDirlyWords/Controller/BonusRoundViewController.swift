@@ -64,16 +64,14 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
     // MARK: Actions
     
     @IBAction func checkWord(_ sender: Any) {
-        if foundWords.contains(currentWord.value) {
-            return
-        }
-        
-        for word in allWords {
-            if word == currentWord.value {
-                incrementMultilplier(word: word)
-                foundWords.append(currentWord.value)
-                getSection(lengthOfWord: currentWord.count).add(word: currentWord.value)
-                break
+        if !foundWords.contains(currentWord.value) {
+            for word in allWords {
+                if word == currentWord.value {
+                    incrementMultilplier(word: word)
+                    foundWords.append(currentWord.value)
+                    getSection(lengthOfWord: currentWord.count).add(word: currentWord.value)
+                    break
+                }
             }
         }
         
@@ -149,7 +147,7 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
         allWords.removeAll()
         // Make sure the word contains enough permutations
         while allWords.count < 12 {
-            baseWord = Words.sharedInstance.getWord(exactLength: wordLength)
+            baseWord = Words.sharedInstance.getRareWord(exactLength: wordLength)
             allWords = Words.sharedInstance.getWordsContaining(letters: baseWord)
         }
         

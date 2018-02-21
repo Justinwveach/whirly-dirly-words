@@ -13,11 +13,17 @@ final class Words {
     static let sharedInstance = Words()
     
     // Words that are used for the puzzles ~ 10,000 common words
-    fileprivate var allWords: Array<String>! = Array()
+    fileprivate var allCommonWords: Array<String>! = Array()
     // Example: Length.medium -> "c" -> ["catch", "carry", ..]
-    fileprivate var allWordsDictionary = Dictionary<Length, Dictionary<Character, Array<String>>>()
-    fileprivate var allWordsbyLength = Dictionary<Length, Array<String>>()
-    fileprivate var hashSet = [Int: [String]]()
+    fileprivate var allCommonWordsDictionary = Dictionary<Length, Dictionary<Character, Array<String>>>()
+    fileprivate var allCommonWordsbyLength = Dictionary<Length, Array<String>>()
+    
+    // Only need a hash set for the rare words since it's only used on the bonus rounds
+    // If we ever use these words for the puzzle, then we can remove this and just use the collections above
+    // This contains a hash value for all words (sorted) so that the various permutations of letter sets will have the same hash (i.e. dog & god would have the same hash)
+    fileprivate var rareWordsHashSet = [Int: [String]]()
+    fileprivate var rareWordsByLength = [Int: [String]]()
+    
     
     func populate(allWords: Array<String>, delegate: WordsDelegate) {
         DispatchQueue.global(qos: .background).async {
@@ -30,14 +36,35 @@ final class Words {
     }
     
     func populate(allWords: Array<String>) {
-        self.allWords = allWords
-        self.allWords.sort(by: { (value1: String, value2: String) -> Bool in
+        self.allCommonWords = allWords
+        self.allCommonWords.sort(by: { (value1: String, value2: String) -> Bool in
             return value1 < value2 })
         sortWords()
     }
     
+    func populate(rareWords: Array<String>) {
+        for word in rareWords {
+            // Currently only want 3, 4, 5, and 6 letter words.
+            // Ignoring to speed up process since the list is about 100k
+            if word.count < 3 || word.count > 6 {
+                continue
+            }
+            
+            if rareWordsByLength[word.count] == nil {
+                rareWordsByLength[word.count] = [String]()
+            }
+            rareWordsByLength[word.count]?.append(word)
+            
+            let hash = String(word.sorted()).hash
+            if rareWordsHashSet[hash] == nil {
+                rareWordsHashSet[hash] = [String]()
+            }
+            rareWordsHashSet[hash]?.append(word)
+        }
+    }
+    
     public func getWords(length: Length, firstLetter: Character) -> Array<String> {
-        if let words = allWordsDictionary[length]?[firstLetter] {
+        if let words = allCommonWordsDictionary[length]?[firstLetter] {
             return words
         }
         
@@ -45,7 +72,7 @@ final class Words {
     }
     
     public func getWord(length: Length) -> String {
-        let words = allWordsbyLength[length] ?? []
+        let words = allCommonWordsbyLength[length] ?? []
         
         if words.count > 0 {
             let random: Int = Int(arc4random() % UInt32(words.count))
@@ -67,7 +94,7 @@ final class Words {
     }
     
     public func getWord(length: Length, contains letter: Character) -> String {
-        let words = allWordsbyLength[length] ?? []
+        let words = allCommonWordsbyLength[length] ?? []
         
         if words.count > 0 {
             var word = ""
@@ -87,41 +114,37 @@ final class Words {
     }
     
     public func validate(word: String) -> Bool {
-        let index = binarySearch(allWords, key: word)
+        let index = binarySearch(allCommonWords, key: word)
         return index == nil ? false : true
     }
     
     fileprivate func sortWords() {
-        for word in allWords {
+        for word in allCommonWords {
             if word.count < 3 {
                 continue
             }
             
-            if allWordsDictionary[word.length()] == nil {
-                allWordsDictionary[word.length()] =  Dictionary()
+            if allCommonWordsDictionary[word.length()] == nil {
+                allCommonWordsDictionary[word.length()] =  Dictionary()
             }
             
-            if allWordsDictionary[word.length()]![word.first!] == nil {
-                allWordsDictionary[word.length()]![word.first!] = Array()
+            if allCommonWordsDictionary[word.length()]![word.first!] == nil {
+                allCommonWordsDictionary[word.length()]![word.first!] = Array()
             }
             
-            allWordsDictionary[word.length()]![word.first!]?.append(word)
+            allCommonWordsDictionary[word.length()]![word.first!]?.append(word)
             
-            if allWordsbyLength[word.length()] == nil {
-                allWordsbyLength[word.length()] = []
+            if allCommonWordsbyLength[word.length()] == nil {
+                allCommonWordsbyLength[word.length()] = []
             }
             
-            allWordsbyLength[word.length()]?.append(word)
-            
-            let hash = String(word.sorted()).hash
-            if hashSet[hash] == nil {
-                hashSet[hash] = [String]()
-            }
-            
-            hashSet[hash]?.append(word)
+            allCommonWordsbyLength[word.length()]?.append(word)
         }
     }
     
+    // MARK: Rare Words Methods
+    
+    // Return all unique permutations for a word (i.e. cat = c, at, ca, ta, etc.)
     func getCombinations(word: String) -> [String] {
         var results = [String]()
         var actualResults = [String]()
@@ -143,11 +166,22 @@ final class Words {
         var allWords = [String]()
         let combinations = getCombinations(word: letters)
         for combo in combinations {
-            if let hashWords = hashSet[combo.hash] {
+            if let hashWords = rareWordsHashSet[combo.hash] {
                 allWords.append(contentsOf: hashWords)
             }
         }
         return allWords
+    }
+    
+    public func getRareWord(exactLength: Int) -> String {
+        let words = rareWordsByLength[exactLength] ?? []
+
+        if words.count > 0 {
+            let random: Int = Int(arc4random() % UInt32(words.count))
+            return words[random]
+        }
+        
+        return ""
     }
     
 }
