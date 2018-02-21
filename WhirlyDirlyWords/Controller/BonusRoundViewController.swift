@@ -59,6 +59,10 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
         flowLayout.minimumInteritemSpacing = margin
         flowLayout.minimumLineSpacing = margin
         flowLayout.sectionInset = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         setupNewRound()
     }
@@ -95,7 +99,6 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
         
         let restartRound = UIAlertAction(title: "Restart Round", style: .default) { _ in
             self.setupNewRound()
-            self.startNewRound()
         }
         
         alert.addAction(cancelAction)
@@ -160,14 +163,29 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
         currentWord = Word(delegate: currentWordView)
         currentWordView.setup(word: currentWord, maxLetters: wordLength)
         
-        shuffleLetters()
-
         for word in allWords {
             getSection(lengthOfWord: word.count).incrementWordCount()
         }
+        
+        let alert = UIAlertController(title: "Ready?", message: "Remember, bonus rounds don't keep the highest score. Whatever you score here will be your new score.", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Nevermind", style: .cancel) { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
+        let startAction = UIAlertAction(title: "Start!", style: .default) { _ in
+            self.startNewRound()
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(startAction)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     fileprivate func startNewRound() {
+        // Set score upon starting new round so that user cant leave the round if it goes badly :)
+        bonusStore.update(id: bonus.id, fields: ["value": 100])
+
+        shuffleLetters()
+
         score = 0
         
         let dateComponentsFormatter = DateComponentsFormatter()
@@ -208,7 +226,6 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
         
         roundOverViewController.retryAction = {
             self.setupNewRound()
-            self.startNewRound()
         }
         
         roundOverViewController.nextAction = {
