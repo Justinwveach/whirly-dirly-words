@@ -21,6 +21,8 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBOutlet weak var fiveLetterWordsView: FoundWordsView!
     @IBOutlet weak var sixLetterWordsView: FoundWordsView!
     
+    weak var homeViewController: ViewController?
+    
     var bonusStore = BonusStore()
    
     var baseWord = ""
@@ -196,6 +198,29 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
         //if multiplier > levelMultiplier.value {
         bonusStore.update(id: bonus.id, fields: ["value": score])
         //}
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let roundOverViewController = storyboard.instantiateViewController(withIdentifier: "RoundOverViewController") as! RoundOverViewController
+        
+        roundOverViewController.homeAction = {
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        roundOverViewController.retryAction = {
+            self.setupNewRound()
+            self.startNewRound()
+        }
+        
+        roundOverViewController.nextAction = {
+            // Since this is a bonus round, the next level will always be the first level for this round
+            self.dismiss(animated: true) {
+                if let root = self.homeViewController {
+                    root.startLevel(section: self.bonus.section, level: 0)
+                }
+            }
+        }
+        
+        present(roundOverViewController, animated: false, completion: nil)
     }
     
     fileprivate func incrementMultilplier(word: String) {

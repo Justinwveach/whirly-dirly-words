@@ -40,6 +40,30 @@ class ViewController: UIViewController, UITableViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func startLevel(section: Int, level: Int) {
+        if let level = levelStore.levels.filter("section == %d && roundInSection == %d", section, level).first {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let gameViewController = storyboard.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+            gameViewController.level = level
+            gameViewController.homeViewController = self
+            present(gameViewController, animated: true, completion: nil)
+        } else {
+            DDLogDebug("Could not retrieve the Level from Realm when user clicked on table view cell: section \(section) row \(level)")
+        }
+    }
+    
+    func startBonus(section: Int) {
+        if let bonus = bonusStore.bonuses.filter("section == %d", section).first {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let bonusViewController = storyboard.instantiateViewController(withIdentifier: "BonusRoundViewController") as! BonusRoundViewController
+            bonusViewController.bonus = bonus
+            bonusViewController.homeViewController = self
+            present(bonusViewController, animated: true, completion: nil)
+        } else {
+            DDLogWarn("Could not find level bonus for section: \(section)")
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return BonusHeaderView.height
     }
@@ -59,14 +83,7 @@ class ViewController: UIViewController, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let level = levelStore.levels.filter("section == %d && roundInSection == %d", indexPath.section, indexPath.row).first {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let gameViewController = storyboard.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
-            gameViewController.level = level
-            present(gameViewController, animated: true, completion: nil)
-        } else {
-            DDLogDebug("Could not retrieve the Level from Realm when user clicked on table view cell: section \(indexPath.section) row \(indexPath.row)")
-        }
+        startLevel(section: indexPath.section, level: indexPath.row)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -81,14 +98,8 @@ class ViewController: UIViewController, UITableViewDelegate {
     }
     
     @objc fileprivate func handleHeaderTap(sender: UITapGestureRecognizer) {
-        if let bonus = bonusStore.bonuses.filter("section == %d", sender.view?.tag ?? -1).first {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let bonusViewController = storyboard.instantiateViewController(withIdentifier: "BonusRoundViewController") as! BonusRoundViewController
-            bonusViewController.bonus = bonus
-            present(bonusViewController, animated: true, completion: nil)
-        } else {
-            DDLogWarn("Could not find level bonus for section: \(sender.view?.tag ?? -1)")
-        }
+        startBonus(section: sender.view?.tag ?? -1)
     }
+
 }
 

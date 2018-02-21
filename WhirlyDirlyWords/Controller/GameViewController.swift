@@ -17,8 +17,11 @@ class GameViewController: UIViewController, GameDelegate, UICollectionViewDelega
     @IBOutlet weak var roundScoreLabel: UILabel!
     @IBOutlet weak var totalScoreLabel: UILabel!
     
+    weak var homeViewController: ViewController?
+    
     var level: Level!
-    var levelStore = LevelStore()
+    let levelStore = LevelStore()
+    let bonusStore = BonusStore()
     
     let generator = CrosswordGenerator(words: Words.sharedInstance)
     let margin: CGFloat = 2.0
@@ -69,13 +72,40 @@ class GameViewController: UIViewController, GameDelegate, UICollectionViewDelega
             if score > level.highScore {
                 levelStore.update(id: level.id, fields: ["highScore": score])
             }
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let roundOverViewController = storyboard.instantiateViewController(withIdentifier: "RoundOverViewController") as! RoundOverViewController
+            
+            roundOverViewController.homeAction = {
+                self.dismiss(animated: true, completion: nil)
+            }
+            
+            roundOverViewController.retryAction = {
+                self.startNewPuzzle()
+            }
+            
+            roundOverViewController.nextAction = {
+                // Since this is a bonus round, the next level will always be the first level for this round
+                if let nextLevel = self.levelStore.levels.filter("section == %d && roundInSection == %d", self.level.section, self.level.roundInSection + 1).first {
+                    // root.startLevel(section: self.bonus.section, level: 0)
+                    self.level = nextLevel
+                    self.startNewPuzzle()
+                }
+                else if let nextBonus = self.bonusStore.bonuses.filter("section == %d", self.level.section + 1).first, let root = self.homeViewController {
+                    self.dismiss(animated: true) {
+                        root.startBonus(section: nextBonus.section)
+                    }
+                }
+                else {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+            
+            self.present(roundOverViewController, animated: false, completion: nil)
+        } else {
+            // Shake the board or something
         }
         
-        let message = isValid ? "Puzzle is valid!" : "Wrong!!"
-        let alert = UIAlertController(title: "Puzzle", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
     }
     
     fileprivate func startNewPuzzle() {
