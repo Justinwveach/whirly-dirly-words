@@ -68,6 +68,8 @@
 		E9BFF675203CCBA00023236B /* ScoreKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BFF674203CCBA00023236B /* ScoreKeeper.swift */; };
 		E9BFF677203CE09D0023236B /* BonusHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BFF676203CE09D0023236B /* BonusHeaderView.swift */; };
 		E9BFF679203DDE6E0023236B /* RoundOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BFF678203DDE6E0023236B /* RoundOverViewController.swift */; };
+		E9BFF67D203E10D90023236B /* AttentionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BFF67C203E10D90023236B /* AttentionView.swift */; };
+		E9BFF67F203E11210023236B /* AttentionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BFF67E203E11210023236B /* AttentionView.xib */; };
 		E9DF83E71FD8D83700C64AFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF83E61FD8D83700C64AFB /* AppDelegate.swift */; };
 		E9DF83E91FD8D83700C64AFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DF83E81FD8D83700C64AFB /* ViewController.swift */; };
 		E9DF83EC1FD8D83700C64AFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DF83EA1FD8D83700C64AFB /* Main.storyboard */; };
@@ -172,6 +174,8 @@
 		E9BFF674203CCBA00023236B /* ScoreKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreKeeper.swift; sourceTree = "<group>"; };
 		E9BFF676203CE09D0023236B /* BonusHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusHeaderView.swift; sourceTree = "<group>"; };
 		E9BFF678203DDE6E0023236B /* RoundOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundOverViewController.swift; sourceTree = "<group>"; };
+		E9BFF67C203E10D90023236B /* AttentionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionView.swift; sourceTree = "<group>"; };
+		E9BFF67E203E11210023236B /* AttentionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttentionView.xib; sourceTree = "<group>"; };
 		E9DF83E31FD8D83700C64AFB /* WhirlyDirlyWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhirlyDirlyWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DF83E61FD8D83700C64AFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9DF83E81FD8D83700C64AFB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -273,11 +277,13 @@
 				E9562DAC201590FE000B3305 /* TileView.xib */,
 				E9562DAE20181871000B3305 /* DraggableView.swift */,
 				E954B78E2033A9C700C86E5E /* LevelTableViewCell.swift */,
+				E9BFF676203CE09D0023236B /* BonusHeaderView.swift */,
 				E91BBC522034C93F00AB6360 /* BonusHeaderView.xib */,
 				E91BBC5E203B867700AB6360 /* FoundWordsView.xib */,
 				E91BBC60203B872100AB6360 /* FoundWordsView.swift */,
 				E9BFF668203C9F340023236B /* AutoUpdateTimeLabel.swift */,
-				E9BFF676203CE09D0023236B /* BonusHeaderView.swift */,
+				E9BFF67C203E10D90023236B /* AttentionView.swift */,
+				E9BFF67E203E11210023236B /* AttentionView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -576,6 +582,7 @@
 				E9BFF671203CA4BB0023236B /* TimerView.xib in Resources */,
 				E9DF84181FD8DA4500C64AFB /* word-medium.txt in Resources */,
 				E9589B12200478DF00E3CA26 /* LetterCell.xib in Resources */,
+				E9BFF67F203E11210023236B /* AttentionView.xib in Resources */,
 				E9DF841C1FD8DAB300C64AFB /* words-all.txt in Resources */,
 				E9DF841A1FD8DA5000C64AFB /* words-short.txt in Resources */,
 				E9DF842B1FD8E89800C64AFB /* words-extended-raw.txt in Resources */,
@@ -793,6 +800,7 @@
 				E9BFF670203CA0E50023236B /* TimerView.swift in Sources */,
 				E91BBC512034C57800AB6360 /* BonusStore.swift in Sources */,
 				E94A085B1FED81B900AD3C4A /* Stack.swift in Sources */,
+				E9BFF67D203E10D90023236B /* AttentionView.swift in Sources */,
 				E9589B202015290D00E3CA26 /* GameDelegate.swift in Sources */,
 				E954B78720336C7100C86E5E /* Bonus.swift in Sources */,
 				E9DF84261FD8DEDB00C64AFB /* Length.swift in Sources */,

@@ -26,12 +26,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2YZ-At-Gvh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="2YZ-At-Gvh">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LevelMultiplierTableViewCell" rowHeight="100" id="CbG-sC-igG" customClass="LevelMultiplierTableViewCell" customModule="WhirlyDirlyWords" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CbG-sC-igG" id="BLN-H7-cWG">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -74,7 +74,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LevelTableViewCell" rowHeight="140" id="BoQ-li-AIi" customClass="LevelTableViewCell" customModule="WhirlyDirlyWords" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="128" width="375" height="140"/>
+                                        <rect key="frame" x="0.0" y="155.5" width="375" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BoQ-li-AIi" id="Hqh-pA-YMC">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
@@ -146,31 +146,17 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j5g-mw-Gzu">
                                                             <rect key="frame" x="172.5" y="0.0" width="86.5" height="118"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Letters Given" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hK7-sv-Thd">
-                                                                    <rect key="frame" x="0.0" y="8" width="87" height="50"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="50" id="6QA-q0-DYl"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzk-J8-jAY">
-                                                                    <rect key="frame" x="0.0" y="66" width="86" height="52"/>
-                                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gt3-Nv-URy" customClass="AttentionView" customModule="WhirlyDirlyWords" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="86.5" height="118"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </view>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="qzk-J8-jAY" secondAttribute="trailing" id="Am3-2c-chE"/>
-                                                                <constraint firstItem="hK7-sv-Thd" firstAttribute="leading" secondItem="j5g-mw-Gzu" secondAttribute="leading" id="CgV-ow-0nO"/>
-                                                                <constraint firstAttribute="bottom" secondItem="qzk-J8-jAY" secondAttribute="bottom" id="Dnb-rQ-GhU"/>
-                                                                <constraint firstItem="qzk-J8-jAY" firstAttribute="leading" secondItem="j5g-mw-Gzu" secondAttribute="leading" id="G8y-5Z-bIV"/>
-                                                                <constraint firstAttribute="trailing" secondItem="hK7-sv-Thd" secondAttribute="trailing" id="bWW-yk-L10"/>
-                                                                <constraint firstItem="hK7-sv-Thd" firstAttribute="top" secondItem="j5g-mw-Gzu" secondAttribute="top" constant="8" id="j3m-8v-mZA"/>
-                                                                <constraint firstItem="qzk-J8-jAY" firstAttribute="top" secondItem="hK7-sv-Thd" secondAttribute="bottom" constant="8" id="tdx-2O-oMU"/>
+                                                                <constraint firstItem="gt3-Nv-URy" firstAttribute="leading" secondItem="j5g-mw-Gzu" secondAttribute="leading" id="kBG-hf-rci"/>
+                                                                <constraint firstAttribute="trailing" secondItem="gt3-Nv-URy" secondAttribute="trailing" id="m1b-lJ-s6b"/>
+                                                                <constraint firstAttribute="bottom" secondItem="gt3-Nv-URy" secondAttribute="bottom" id="vDD-1Q-7x6"/>
+                                                                <constraint firstItem="gt3-Nv-URy" firstAttribute="top" secondItem="j5g-mw-Gzu" secondAttribute="top" id="xUu-Ir-jRC"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IGD-MJ-iBT">
@@ -214,7 +200,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="lettersGivenLabel" destination="qzk-J8-jAY" id="RLr-aj-s6w"/>
+                                            <outlet property="attentionView" destination="gt3-Nv-URy" id="yYc-fC-qZR"/>
                                             <outlet property="levelLabel" destination="rmx-kX-Pu9" id="CUz-7s-GRG"/>
                                             <outlet property="scoreLabel" destination="ah5-ah-FKW" id="3y2-d2-MFc"/>
                                             <outlet property="wordsLabel" destination="0Fm-lh-xhx" id="7Wo-z1-f90"/>

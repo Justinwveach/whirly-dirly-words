@@ -21,43 +21,57 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="A9e-FZ-OS5">
-                    <rect key="frame" x="0.0" y="8" width="375" height="134"/>
+                    <rect key="frame" x="0.0" y="8" width="300" height="134"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KV1-9b-JqL">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="26"/>
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="26"/>
                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFi-HW-4UV">
-                            <rect key="frame" x="0.0" y="26" width="375" height="108"/>
+                            <rect key="frame" x="0.0" y="26" width="300" height="108"/>
                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EDP-lA-hmy" customClass="AttentionView" customModule="WhirlyDirlyWords" customModuleProvider="target">
+                    <rect key="frame" x="300" y="0.0" width="75" height="150"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="75" id="MKa-1X-3dN"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="A9e-FZ-OS5" secondAttribute="bottom" constant="8" id="2hC-oP-aWy"/>
+                <constraint firstItem="EDP-lA-hmy" firstAttribute="leading" secondItem="A9e-FZ-OS5" secondAttribute="trailing" id="8o4-He-52E"/>
                 <constraint firstAttribute="trailing" secondItem="A9e-FZ-OS5" secondAttribute="trailing" id="HNG-iu-yGw"/>
                 <constraint firstItem="A9e-FZ-OS5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="LFO-Gr-QBy"/>
+                <constraint firstItem="EDP-lA-hmy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ZJi-ON-UJY"/>
                 <constraint firstItem="A9e-FZ-OS5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="i0s-gI-H23"/>
+                <constraint firstAttribute="bottom" secondItem="EDP-lA-hmy" secondAttribute="bottom" id="mGF-Bf-lnZ"/>
                 <constraint firstAttribute="bottom" secondItem="A9e-FZ-OS5" secondAttribute="bottom" id="wDu-hl-eZf"/>
                 <constraint firstItem="A9e-FZ-OS5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="xlT-fI-acu"/>
+                <constraint firstAttribute="trailing" secondItem="EDP-lA-hmy" secondAttribute="trailing" id="yPB-Cd-dlr"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="HNG-iu-yGw"/>
                     <exclude reference="i0s-gI-H23"/>
                     <exclude reference="wDu-hl-eZf"/>
                 </mask>
             </variation>
             <connections>
-                <outlet property="bonusLabel" destination="lFi-HW-4UV" id="e3F-sJ-woK"/>
-                <outlet property="titleLabel" destination="KV1-9b-JqL" id="XeY-We-UPH"/>
+                <outlet property="attentionView" destination="EDP-lA-hmy" id="M8p-bZ-buz"/>
+                <outlet property="bonusLabel" destination="lFi-HW-4UV" id="arZ-Uc-gb5"/>
+                <outlet property="titleLabel" destination="KV1-9b-JqL" id="ZRq-hT-TU2"/>
             </connections>
+            <point key="canvasLocation" x="33.5" y="109"/>
         </view>
     </objects>
 </document>

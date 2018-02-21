@@ -86,6 +86,26 @@ class ViewController: UIViewController, UITableViewDelegate {
         startLevel(section: indexPath.section, level: indexPath.row)
     }
     
+    func tableView(_ tableView: UITableView,
+                   willDisplay cell: UITableViewCell,
+                   forRowAt indexPath: IndexPath) {
+        if let levelCell = cell as? LevelTableViewCell {
+            levelCell.attentionView.startAnimation(viewToLayout: levelCell.contentView)
+            /*
+            UIView.animate(withDuration: 2.0, delay: 0.0, options: [.repeat, .autoreverse], animations: {
+                levelCell.attentionView.xConstraint.constant = levelCell.attentionView.xConstraint.constant + 20
+                levelCell.contentView.layoutIfNeeded()
+            }, completion: nil)
+            */
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let header = view as? BonusHeaderView {
+            header.attentionView.startAnimation(viewToLayout: header.attentionView.contentView)
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NewGameSegue" {
             let viewController = segue.destination as! GameViewController

@@ -34,7 +34,6 @@ class LevelDataSource: NSObject, UITableViewDataSource {
         let cell: LevelTableViewCell = tableView.dequeueReusableCell(withIdentifier: "LevelTableViewCell") as! LevelTableViewCell
         
         if let level = levels.filter("section == %d AND roundInSection == %d", indexPath.section, indexPath.row).first {
-            cell.lettersGivenLabel.text = "\(level.lettersGiven)"
             cell.levelLabel.text = "\(level.round)"
             cell.scoreLabel.text = "\(level.highScore)"
             cell.wordsLabel.text = "\(level.numberOfWords)"

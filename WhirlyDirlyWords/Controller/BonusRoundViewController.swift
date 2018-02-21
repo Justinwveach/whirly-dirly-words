@@ -167,7 +167,11 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
             getSection(lengthOfWord: word.count).incrementWordCount()
         }
         
-        let alert = UIAlertController(title: "Ready?", message: "Remember, bonus rounds don't keep the highest score. Whatever you score here will be your new score.", preferredStyle: .alert)
+        var message = ""
+        if bonus.value > 0 {
+            message = "Remember, bonus rounds don't keep the highest score. Whatever you score here will be your new score. Your current score is \(bonus.value) (\(bonus.freeLetters) letters)."
+        }
+        let alert = UIAlertController(title: "Ready?", message: message, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Nevermind", style: .cancel) { _ in
             self.dismiss(animated: true, completion: nil)
         }
@@ -182,7 +186,7 @@ class BonusRoundViewController: UIViewController, UICollectionViewDelegate, UICo
     
     fileprivate func startNewRound() {
         // Set score upon starting new round so that user cant leave the round if it goes badly :)
-        bonusStore.update(id: bonus.id, fields: ["value": 100])
+        bonusStore.update(id: bonus.id, fields: ["value": 0])
 
         shuffleLetters()
 
